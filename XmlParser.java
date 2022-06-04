@@ -237,7 +237,7 @@ public class XmlParser {
             personne.nom = XmlParser.getTagText(e, "nom");
             Element eNaissance = (Element) e.getElementsByTagName("naissance").item(0);
             personne.dateNaissance = XmlParser.getTagText(eNaissance, "anniversaire");
-            personne.lieu = XmlParser.getTagText(eNaissance, "lieu");
+            personne.lieuNaissance = XmlParser.getTagText(eNaissance, "lieu");
             personne.photo = XmlParser.getTagText(e, "photo");
             personne.biographie = XmlParser.getTagText(e, "bio");
             personnes.add(personne);
