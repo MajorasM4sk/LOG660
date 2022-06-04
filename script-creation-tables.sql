@@ -51,7 +51,7 @@ create table personne (
     date_naissance varchar2(50),
     lieu_naissance varchar2(50),
     photo varchar2(100),
-    biographie varchar2(100)
+    biographie CLOB
 );
 
 create table employe(

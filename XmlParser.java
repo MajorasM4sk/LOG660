@@ -75,6 +75,13 @@ public class XmlParser {
 
             System.out.println(films.get(0).pays.get(0).codePays);
             System.out.println(films.get(0).pays.get(0).nom);
+            System.out.println("------------------");
+            System.out.println(personnes.get(0).idPersonne);
+            System.out.println(personnes.get(0).nom);
+            System.out.println(personnes.get(0).dateNaissance);
+            System.out.println(personnes.get(0).lieuNaissance);
+            System.out.println(personnes.get(0).photo);
+            System.out.println(personnes.get(0).biographie);
 
         } catch (Exception e) {
             e.printStackTrace();
