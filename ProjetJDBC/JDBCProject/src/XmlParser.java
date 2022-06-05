@@ -89,7 +89,7 @@ public class XmlParser {
         }
     }
 
-    public Videotheque fetchData() {
+    public static Videotheque fetchData() {
         Document docClients = XmlParser.getDocFromFileName("./Donnees/db_latin1/clients_latin1.xml");
         Document docFilms = XmlParser.getDocFromFileName("./Donnees/db_latin1/films_latin1.xml");
         Document docPersonnes = XmlParser.getDocFromFileName("./Donnees/db_latin1/personnes_latin1.xml");
@@ -98,8 +98,11 @@ public class XmlParser {
         NodeList nFilms = docFilms.getElementsByTagName("film");
         NodeList nPersonnes = docPersonnes.getElementsByTagName("personne");
 
+        System.out.println("Début de la lecture des clients...");
         List<Client> clients = XmlParser.readClients(nClients);
+        System.out.println("Début de la lecture des films...");
         List<Film> films = XmlParser.readFilms(nFilms);
+        System.out.println("Début de la lecture des personnes...");
         List<Personne> personnes = XmlParser.readPersonnes(nPersonnes);
 
         Videotheque videotheque = new Videotheque();

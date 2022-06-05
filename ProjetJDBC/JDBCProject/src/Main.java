@@ -1,3 +1,5 @@
+import POJOs.Videotheque;
+
 import java.sql.*;
 
 public class Main {
@@ -6,8 +8,22 @@ public class Main {
         try {
             Connection conn = DriverManager.getConnection(url);
             if (conn != null) {
-                System.out.println("Connecté");
-                String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                System.out.println("Connexion à la BD réussie !");
+                Videotheque videotheque = XmlParser.fetchData();
+                System.out.println("Début de l'insertion des clients, cartes de crédit, types de forfait, forfaits clients...");
+                System.out.println("Début de l'insertion des personnes...");
+                System.out.println("Insertion des films, roles des acteurs, réalisateurs des films...");
+                System.out.println("Détection des genres...");
+                System.out.println("Insertion des genres, table de liaison film-genre...");
+                System.out.println("Insertion des liaisons film-genre...");
+                System.out.println("Détection des pays...");
+                System.out.println("Insertion des pays, table de liaison film-pays...");
+                System.out.println("Insertion des liaisons film-pays...");
+                System.out.println("Début de l'insertion d'employés bidons...");
+                System.out.println("Début de l'insertion des copies de film aléatoirement (1-100)...");
+
+                //exemple de prepared statement avec batch
+                /*String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(sql);
                 conn.setAutoCommit(false);
                 statement.setInt(1, 1);
@@ -27,7 +43,7 @@ public class Main {
                 statement.setString(7, "2021-04-18");
                 statement.addBatch();
 
-                int[] count = statement.executeBatch();
+                int[] count = statement.executeBatch();*/
 
                 conn.commit();
                 conn.close();
