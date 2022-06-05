@@ -11,6 +11,7 @@ import POJOs.Genre;
 import POJOs.Pays;
 import POJOs.Personne;
 import POJOs.Role;
+import POJOs.Videotheque;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
@@ -88,7 +89,28 @@ public class XmlParser {
         }
     }
 
-    public static Document getDocFromFileName(String fileName) {
+    public Videotheque fetchData() {
+        Document docClients = XmlParser.getDocFromFileName("./Donnees/db_latin1/clients_latin1.xml");
+        Document docFilms = XmlParser.getDocFromFileName("./Donnees/db_latin1/films_latin1.xml");
+        Document docPersonnes = XmlParser.getDocFromFileName("./Donnees/db_latin1/personnes_latin1.xml");
+
+        NodeList nClients = docClients.getElementsByTagName("client");
+        NodeList nFilms = docFilms.getElementsByTagName("film");
+        NodeList nPersonnes = docPersonnes.getElementsByTagName("personne");
+
+        List<Client> clients = XmlParser.readClients(nClients);
+        List<Film> films = XmlParser.readFilms(nFilms);
+        List<Personne> personnes = XmlParser.readPersonnes(nPersonnes);
+
+        Videotheque videotheque = new Videotheque();
+        videotheque.clients = clients;
+        videotheque.films = films;
+        videotheque.personnes = personnes;
+
+        return videotheque;
+    }
+
+    private static Document getDocFromFileName(String fileName) {
         try {
             File file = new File(fileName);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -116,7 +138,7 @@ public class XmlParser {
         }
     }
 
-    public static List<Client> readClients(NodeList nClients) {
+    private static List<Client> readClients(NodeList nClients) {
         List<Client> clients = new LinkedList<Client>();
         for (int i = 0; i < nClients.getLength(); i++) {
             Node nClient = nClients.item(i);
@@ -148,7 +170,7 @@ public class XmlParser {
         return clients;
     }
 
-    public static List<Film> readFilms(NodeList nFilms) {
+    private static List<Film> readFilms(NodeList nFilms) {
         List<Film> films = new LinkedList<Film>();
         for (int i = 0; i < nFilms.getLength(); i++) {
             Node nFilm = nFilms.item(i);
@@ -178,7 +200,7 @@ public class XmlParser {
         return films;
     }
 
-    public static List<Pays> readPays(NodeList nPaysList) {
+    private static List<Pays> readPays(NodeList nPaysList) {
         List<Pays> paysList = new LinkedList<Pays>();
         for (int i = 0; i < nPaysList.getLength(); i++) {
             Node nPays = nPaysList.item(i);
@@ -194,7 +216,7 @@ public class XmlParser {
         return paysList;
     }
 
-    public static List<Genre> readGenres(NodeList nGenres) {
+    private static List<Genre> readGenres(NodeList nGenres) {
         List<Genre> genres = new LinkedList<Genre>();
         for (int i = 0; i < nGenres.getLength(); i++) {
             Node nGenre = nGenres.item(i);
@@ -206,7 +228,7 @@ public class XmlParser {
         return genres;
     }
 
-    public static List<Personne> readRealisateurs(NodeList nRealisateurs) {
+    private static List<Personne> readRealisateurs(NodeList nRealisateurs) {
         List<Personne> realisateurs = new LinkedList<Personne>();
         for (int i = 0; i < nRealisateurs.getLength(); i++) {
             Node nRealisateur = nRealisateurs.item(i);
@@ -219,7 +241,7 @@ public class XmlParser {
         return realisateurs;
     }
 
-    public static List<Role> readRoles(NodeList nRoles) {
+    private static List<Role> readRoles(NodeList nRoles) {
         List<Role> roles = new LinkedList<Role>();
         for (int i = 0; i < nRoles.getLength(); i++) {
             Node nRole = nRoles.item(i);
@@ -234,7 +256,7 @@ public class XmlParser {
         return roles;
     }
 
-    public static List<Personne> readPersonnes(NodeList nPersonnes) {
+    private static List<Personne> readPersonnes(NodeList nPersonnes) {
         List<Personne> personnes = new LinkedList<Personne>();
         for (int i = 0; i < nPersonnes.getLength(); i++) {
             Node nPersonne = nPersonnes.item(i);
