@@ -11,43 +11,61 @@ public class Main {
             Connection connection = DriverManager.getConnection(url);
             if (connection != null) {
                 System.out.println("Connexion à la BD réussie !");
+                connection.setAutoCommit(false);
+
                 Videotheque videotheque = XmlParser.fetchData();
+
                 System.out.println("Insertion des clients...");
                 insertClients(connection, videotheque.clients);
+
                 System.out.println("Insertion des cartes de crédit...");
                 insertCartesCredit(connection, videotheque.clients);
+
                 System.out.println("Insertion des types de forfait...");
                 insertForfaits(connection);
+
                 System.out.println("Insertion des forfaits clients...");
                 insertForfaitsClients(connection, videotheque.clients);
+
                 System.out.println("Insertion des personnes...");
                 insertPersonnes(connection, videotheque.personnes);
+
                 System.out.println("Insertion des films...");
                 insertFilms(connection, videotheque.films);
+
                 System.out.println("Insertion des roles des acteurs...");
                 insertRoles(connection, videotheque.films);
+
                 System.out.println("Insertion des réalisateurs...");
                 insertRealisateurs(connection, videotheque.films);
+
                 System.out.println("Détection des genres...");
                 List<String> genres = listerGenres(videotheque.films);
+
                 System.out.println("Insertion des genres...");
                 insertGenres(connection, genres);
+
                 System.out.println("Insertion des liaisons film-genre...");
                 insertGenresFilms(connection, videotheque.films);
+
                 System.out.println("Détection des pays...");
                 List<String> pays = listerPays(videotheque.films);
+
                 System.out.println("Insertion des pays...");
                 insertPays(connection, pays);
+
                 System.out.println("Insertion des liaisons film-pays...");
                 insertPaysFilms(connection, videotheque.films);
+
                 System.out.println("Insertion d'employés bidons...");
                 insertEmployes(connection);
+
                 System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
                 insertCopies(connection, videotheque.films);
+
                 //exemple de prepared statement avec batch
                 /*String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(sql);
-                conn.setAutoCommit(false);
                 statement.setInt(1, 1);
                 statement.setString(2, "test@gmail.com");
                 statement.setString(3, "12345");
@@ -76,7 +94,29 @@ public class Main {
     }
 
     private static void insertClients(Connection connection, List<Client> clients) {
+        try {
+            String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
+            clients.forEach(client -> {
+                try {
+                    statement.setInt(1, client.idClient);
+                    statement.setString(2, client.courriel);
+                    statement.setString(3, client.motDePasse);
+                    statement.setString(4, client.telephone);
+                    statement.setString(5, client.nom);
+                    statement.setString(6, client.prenom);
+                    statement.setString(7, client.dateNaissance);
+                    statement.addBatch();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void insertCartesCredit(Connection connection, List<Client> clients) {
