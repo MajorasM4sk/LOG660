@@ -24,9 +24,9 @@ public class XmlParser {
 
     public static void main(String argv[]) {
         try {
-            Document docClients = XmlParser.getDocFromFileName("./Donnees/db_latin1/clients_latin1.xml");
-            Document docFilms = XmlParser.getDocFromFileName("./Donnees/db_latin1/films_latin1.xml");
-            Document docPersonnes = XmlParser.getDocFromFileName("./Donnees/db_latin1/personnes_latin1.xml");
+            Document docClients = XmlParser.getDocFromFileName("../../Donnees/db_latin1/clients_latin1.xml");
+            Document docFilms = XmlParser.getDocFromFileName("../../Donnees/db_latin1/films_latin1.xml");
+            Document docPersonnes = XmlParser.getDocFromFileName("../../Donnees/db_latin1/personnes_latin1.xml");
 
             NodeList nClients = docClients.getElementsByTagName("client");
             NodeList nFilms = docFilms.getElementsByTagName("film");
