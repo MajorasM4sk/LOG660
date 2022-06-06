@@ -111,7 +111,6 @@ create table bande_annonce_film(
 
 create table copie_film(
     no_copie_film number(7) not null primary key,
-    est_disponible char(1) not null check (est_disponible in ('1', '0')),
     code_film integer not null,
     constraint fk_copie_film_code_film FOREIGN key (code_film) REFERENCES film (code_film)
 );
