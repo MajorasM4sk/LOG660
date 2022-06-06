@@ -120,7 +120,29 @@ public class Main {
     }
 
     private static void insertCartesCredit(Connection connection, List<Client> clients) {
+        try {
+            String sql = "INSERT INTO carte_credit (no_carte, type_carte, annee_expiration, mois_expiration, cvv, id_client) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
+            clients.forEach(client -> {
+                try {
+                    statement.setString(1, client.carteCredit.noCarte);
+                    statement.setString(2, client.carteCredit.typeCarte);
+                    statement.setString(3, client.carteCredit.anneeExpiration);
+                    statement.setString(4, client.carteCredit.moisExpiration);
+                    statement.setInt(5, 000);
+                    statement.setString(6, client.prenom + ' ' + client.nom );
+                    statement.setInt(7, client.idClient);
+                    statement.addBatch();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void insertForfaits(Connection connection) {
@@ -132,11 +154,53 @@ public class Main {
     }
 
     private static void insertPersonnes(Connection connection, List<Personne> personnes) {
+        try {
+            String sql = "INSERT INTO personne (id_personne, nom, date_naissance, lieu_naissance, photo, biographie) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
+            personnes.forEach(personne -> {
+                try {
+                    statement.setInt(1, personne.idPersonne );
+                    statement.setString(2, personne.nom);
+                    statement.setString(3, personne.dateNaissance);
+                    statement.setString(4, personne.lieuNaissance);
+                    statement.setString(5, personne.photo);
+                    statement.setString(6, personne.biographie);
+                    statement.addBatch();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void insertFilms(Connection connection, List<Film> films) {
+        try {
+            String sql = "INSERT INTO films (code_film, titre, annee, langue, resume_film, affiche) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
+            films.forEach(film -> {
+                try {
+                    statement.setInt(1, film.codeFilm );
+                    statement.setString(2, film.titre);
+                    statement.setInt(3, film.annee);
+                    statement.setString(4, film.langue);
+                    statement.setString(5, film.resume);
+                    statement.setString(6, film.lienAffiche);
+                    statement.addBatch();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void insertRoles(Connection connection, List<Film> films) {
@@ -165,7 +229,24 @@ public class Main {
     }
 
     private static void insertPays(Connection connection, List<String> pays) {
+        try {
+            String sql = "INSERT INTO pays (code_pays, nom) VALUES (?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
 
+            pays.forEach(unPays -> {
+                try {
+                    statement.setString(1, unPays.substring(0, 3) );
+                    statement.setString(2, unPays);
+                    statement.addBatch();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     private static void insertPaysFilms(Connection connection, List<Film> films) {
 
