@@ -63,27 +63,31 @@ public class Main {
                 System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
                 insertCopies(connection, videotheque.films);
 
-                //exemple de prepared statement avec batch
-                /*String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                PreparedStatement statement = conn.prepareStatement(sql);
-                statement.setInt(1, 1);
-                statement.setString(2, "test@gmail.com");
-                statement.setString(3, "12345");
-                statement.setString(4, "4444444419");
-                statement.setString(5, "Gertrude");
-                statement.setString(6, "Lapoule");
-                statement.setString(7, "2021-04-19");
-                statement.addBatch();
-                statement.setInt(1, 2);
-                statement.setString(2, "test2@gmail.com");
-                statement.setString(3, "123456");
-                statement.setString(4, "4444444418");
-                statement.setString(5, "Gertrud");
-                statement.setString(6, "Lapoul");
-                statement.setString(7, "2021-04-18");
-                statement.addBatch();
-
-                int[] count = statement.executeBatch();*/
+                // exemple de prepared statement avec batch
+                /*
+                 * String sql =
+                 * "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)"
+                 * ;
+                 * PreparedStatement statement = conn.prepareStatement(sql);
+                 * statement.setInt(1, 1);
+                 * statement.setString(2, "test@gmail.com");
+                 * statement.setString(3, "12345");
+                 * statement.setString(4, "4444444419");
+                 * statement.setString(5, "Gertrude");
+                 * statement.setString(6, "Lapoule");
+                 * statement.setString(7, "2021-04-19");
+                 * statement.addBatch();
+                 * statement.setInt(1, 2);
+                 * statement.setString(2, "test2@gmail.com");
+                 * statement.setString(3, "123456");
+                 * statement.setString(4, "4444444418");
+                 * statement.setString(5, "Gertrud");
+                 * statement.setString(6, "Lapoul");
+                 * statement.setString(7, "2021-04-18");
+                 * statement.addBatch();
+                 * 
+                 * int[] count = statement.executeBatch();
+                 */
 
                 connection.commit();
                 connection.close();
@@ -95,7 +99,7 @@ public class Main {
 
     private static void insertClients(Connection connection, List<Client> clients) {
         try {
-            String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance, code_forfait) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             clients.forEach(client -> {
@@ -107,6 +111,7 @@ public class Main {
                     statement.setString(5, client.nom);
                     statement.setString(6, client.prenom);
                     statement.setString(7, client.dateNaissance);
+                    statement.setString(8, client.forfait.codeForfait);
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -124,7 +129,8 @@ public class Main {
     }
 
     private static void insertForfaits(Connection connection) {
-        //voir le pdf d'énoncé du tp pour les types de forfaits (le tableau en haut du document)
+        // voir le pdf d'énoncé du tp pour les types de forfaits (le tableau en haut du
+        // document)
     }
 
     private static void insertForfaitsClients(Connection connection, List<Client> clients) {
@@ -148,34 +154,38 @@ public class Main {
     }
 
     private static List<String> listerGenres(List<Film> films) {
-        //faire une liste des genres possibles pour les films, dont les éléments doivent être uniques
+        // faire une liste des genres possibles pour les films, dont les éléments
+        // doivent être uniques
         return new LinkedList<String>();
     }
 
     private static void insertGenres(Connection connection, List<String> genres) {
 
     }
+
     private static void insertGenresFilms(Connection connection, List<Film> films) {
 
     }
 
     private static List<String> listerPays(List<Film> films) {
-        //faire une liste des pays possibles pour les films, dont les éléments doivent être uniques
+        // faire une liste des pays possibles pour les films, dont les éléments doivent
+        // être uniques
         return new LinkedList<String>();
     }
 
     private static void insertPays(Connection connection, List<String> pays) {
 
     }
+
     private static void insertPaysFilms(Connection connection, List<Film> films) {
 
     }
 
     private static void insertEmployes(Connection connection) {
-        //have fun
+        // have fun
     }
 
     private static void insertCopies(Connection connection, List<Film> films) {
-        //nb aléatoire de 1 à 100
+        // nb aléatoire de 1 à 100
     }
 }

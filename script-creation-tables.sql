@@ -15,7 +15,7 @@ drop table client;
 drop table type_forfait;
 
 create table type_forfait(
-    code char(1) not null primary key,
+    code_forfait char(1) not null primary key,
     type_forfait varchar2(15) not null,
     cout number(2) not null,
     location_max number(2) not null,
@@ -29,7 +29,9 @@ create table client(
     telephone number(10) not null,
     nom varchar2(25) not null,
     prenom varchar2(25) not null,
-    date_naissance date not null
+    date_naissance date not null,
+    code_forfait char(1),
+    constraint fk_client_code_forfait FOREIGN key (code_forfait) REFERENCES type_forfait (code_forfait)
 );
 
 create table carte_credit(
