@@ -78,7 +78,9 @@ create table film(
     annee number(4) not null,
     langue varchar2(25) not null,
     resume_film varchar2(500) not null,
-    affiche varchar2(100) not null
+    affiche varchar2(100) not null,
+    realisateur integer not null,
+    constraint fk_film_realisateur FOREIGN KEY (realisateur) REFERENCES personne (id_personne)
 );
 
 create table genre_film(
@@ -132,12 +134,4 @@ create table role_film(
     constraint pk_role_film primary key (personnage, code_film, id_personne),
     constraint fk_role_film_id_personne FOREIGN KEY (id_personne) REFERENCES personne (id_personne),
     constraint fk_role_film_code_film FOREIGN KEY (code_film) REFERENCES film (code_film)
-);
-
-create table realisateur_film(
-    id_personne integer not null,
-    code_film integer not null,
-    constraint pk_realisateur_film primary key (id_personne, code_film),
-    constraint fk_realisateur_film_id_personne FOREIGN key (id_personne) REFERENCES personne (id_personne),
-    constraint fk_realisateur_film_code_film FOREIGN key (code_film) REFERENCES film (code_film)
 );
