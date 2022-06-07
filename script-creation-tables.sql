@@ -1,4 +1,3 @@
-drop table realisateur_film;
 drop table role_film;
 drop table location_film;
 drop table copie_film;
@@ -11,7 +10,7 @@ drop table genre;
 drop table employe;
 drop table personne;
 drop table carte_credit;
-drop table client;
+drop table t_client;
 drop table type_forfait;
 
 create table type_forfait(
@@ -22,7 +21,7 @@ create table type_forfait(
     duree number(2) not null
 );
 
-create table client(
+create table t_client(
     id_client number(7) not null primary key,
     courriel varchar2(50) not null unique,
     mot_de_passe varchar2(20) not null check (length(mot_de_passe) > 4),
@@ -44,7 +43,7 @@ create table carte_credit(
     id_client number(7) not null,
     CONSTRAINT fk_carte_credit_id_client
         FOREIGN KEY (id_client)
-        REFERENCES client (id_client)
+        REFERENCES t_client (id_client)
 );
 
 create table personne (
@@ -118,13 +117,13 @@ create table copie_film(
 );
 
 create table location_film(
-    no_location number(10) not null primary key,
     date_pret date not null,
     date_retour date,
     id_client number(7) not null,
     no_copie_film number(7) not null,
+    constraint pk_location_film primary key (date_pret, id_client, no_copie_film),
     constraint fk_location_film_code_film FOREIGN key (no_copie_film) REFERENCES copie_film (no_copie_film),
-    constraint fk_location_film_id_client FOREIGN key (id_client) REFERENCES client (id_client)
+    constraint fk_location_film_id_client FOREIGN key (id_client) REFERENCES t_client (id_client)
 );
 
 create table role_film(
