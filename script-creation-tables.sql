@@ -5,6 +5,7 @@ drop table bande_annonce_film;
 drop table pays_film;
 drop table pays;
 drop table genre_film;
+drop table realisateur_film;
 drop table film;
 drop table genre;
 drop table employe;
@@ -38,7 +39,7 @@ create table carte_credit(
     type_carte varchar2(30) not null,
     annee_expiration number(4) not null,
     mois_expiration number(2) not null,
-    cvv number(3) not null,
+    cvv char(3) not null,
     nom_proprio varchar2(50) not null,
     id_client number(7) not null,
     CONSTRAINT fk_carte_credit_id_client
@@ -49,10 +50,10 @@ create table carte_credit(
 create table personne (
     id_personne integer not null primary key,
     nom varchar2(50) not null,
-    date_naissance date not null,
-    lieu_naissance varchar2(50) not null,
-    photo varchar2(100) not null,
-    biographie CLOB not null
+    date_naissance date,
+    lieu_naissance varchar2(200),
+    photo varchar2(200),
+    biographie CLOB
 );
 
 create table employe(
@@ -74,12 +75,18 @@ create table genre(
 create table film(
     code_film integer not null primary key,
     titre varchar (200) not null,
-    annee number(4) not null,
-    langue varchar2(25) not null,
-    resume_film varchar2(500) not null,
-    affiche varchar2(100) not null,
-    realisateur integer,
-    constraint fk_film_realisateur FOREIGN KEY (realisateur) REFERENCES personne (id_personne)
+    annee number(4),
+    langue varchar2(25),
+    resume_film varchar2(500),
+    affiche varchar2(400)
+);
+
+create table realisateur_film(
+    id_personne integer not null,
+    code_film integer not null,
+    constraint pk_realisateur_film primary key (id_personne, code_film),
+    constraint fk_realisateur_film_id_personne FOREIGN KEY (id_personne) REFERENCES personne (id_personne),
+    constraint fk_realisateur_film_code_film FOREIGN key (code_film) REFERENCES film (code_film)
 );
 
 create table genre_film(
@@ -127,10 +134,12 @@ create table location_film(
 );
 
 create table role_film(
-    personnage varchar2(50) not null,
+    personnage varchar2(200) not null,
     id_personne integer not null,
     code_film integer not null,
     constraint pk_role_film primary key (personnage, code_film, id_personne),
     constraint fk_role_film_id_personne FOREIGN KEY (id_personne) REFERENCES personne (id_personne),
     constraint fk_role_film_code_film FOREIGN KEY (code_film) REFERENCES film (code_film)
 );
+
+commit;

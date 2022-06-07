@@ -35,30 +35,30 @@ public class XmlParser {
             List<Client> clients = XmlParser.readClients(nClients);
             List<Film> films = XmlParser.readFilms(nFilms);
             List<Personne> personnes = XmlParser.readPersonnes(nPersonnes);
-            System.out.println(clients.get(0).idClient);
-            System.out.println(clients.get(0).prenom);
-            System.out.println(clients.get(0).nom);
-            System.out.println(clients.get(0).courriel);
-            System.out.println(clients.get(0).telephone);
-            System.out.println(clients.get(0).dateNaissance);
-            System.out.println(clients.get(0).adresse);
-            System.out.println(clients.get(0).ville);
-            System.out.println(clients.get(0).province);
-            System.out.println(clients.get(0).codePostal);
-            System.out.println(clients.get(0).carteCredit.typeCarte);
-            System.out.println(clients.get(0).carteCredit.noCarte);
-            System.out.println(clients.get(0).carteCredit.moisExpiration);
-            System.out.println(clients.get(0).carteCredit.anneeExpiration);
-            System.out.println(clients.get(0).motDePasse);
-            System.out.println(clients.get(0).forfait.codeForfait);
-            System.out.println("------------------");
-            System.out.println(films.get(0).codeFilm);
-            System.out.println(films.get(0).titre);
-            System.out.println(films.get(0).annee);
-            System.out.println(films.get(0).duree);
-            System.out.println(films.get(0).langue);
-            System.out.println(films.get(0).resume);
-            System.out.println(films.get(0).lienAffiche);
+//            System.out.println(clients.get(0).idClient);
+//            System.out.println(clients.get(0).prenom);
+//            System.out.println(clients.get(0).nom);
+//            System.out.println(clients.get(0).courriel);
+//            System.out.println(clients.get(0).telephone);
+//            System.out.println(clients.get(0).dateNaissance);
+//            System.out.println(clients.get(0).adresse);
+//            System.out.println(clients.get(0).ville);
+//            System.out.println(clients.get(0).province);
+//            System.out.println(clients.get(0).codePostal);
+//            System.out.println(clients.get(0).carteCredit.typeCarte);
+//            System.out.println(clients.get(0).carteCredit.noCarte);
+//            System.out.println(clients.get(0).carteCredit.moisExpiration);
+//            System.out.println(clients.get(0).carteCredit.anneeExpiration);
+//            System.out.println(clients.get(0).motDePasse);
+//            System.out.println(clients.get(0).forfait.codeForfait);
+//            System.out.println("------------------");
+//            System.out.println(films.get(0).codeFilm);
+//            System.out.println(films.get(0).titre);
+//            System.out.println(films.get(0).annee);
+//            System.out.println(films.get(0).duree);
+//            System.out.println(films.get(0).langue);
+//            System.out.println(films.get(0).resume);
+//            System.out.println(films.get(0).lienAffiche);
 
             System.out.println(films.get(0).roles.get(0).personnage);
 
@@ -71,18 +71,18 @@ public class XmlParser {
             // System.out.println(films.get(0).realisateurs.get(0).photo);
             // System.out.println(films.get(0).realisateurs.get(0).biographie);
 
-            System.out.println(films.get(0).genres.get(0).idGenre);
-            System.out.println(films.get(0).genres.get(0).nom);
-
-            System.out.println(films.get(0).pays.get(0).codePays);
-            System.out.println(films.get(0).pays.get(0).nom);
-            System.out.println("------------------");
-            System.out.println(personnes.get(0).idPersonne);
-            System.out.println(personnes.get(0).nom);
-            System.out.println(personnes.get(0).dateNaissance);
-            System.out.println(personnes.get(0).lieuNaissance);
-            System.out.println(personnes.get(0).photo);
-            System.out.println(personnes.get(0).biographie);
+//            System.out.println(films.get(0).genres.get(0).idGenre);
+//            System.out.println(films.get(0).genres.get(0).nom);
+//
+//            System.out.println(films.get(0).pays.get(0).codePays);
+//            System.out.println(films.get(0).pays.get(0).nom);
+//            System.out.println("------------------");
+//            System.out.println(personnes.get(0).idPersonne);
+//            System.out.println(personnes.get(0).nom);
+//            System.out.println(personnes.get(0).dateNaissance);
+//            System.out.println(personnes.get(0).lieuNaissance);
+//            System.out.println(personnes.get(0).photo);
+//            System.out.println(personnes.get(0).biographie);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -257,6 +257,7 @@ public class XmlParser {
             Element eActeur = (Element) eRole.getElementsByTagName("acteur").item(0);
             acteur.idPersonne = Integer.parseInt(eActeur.getAttribute("id"));
             role.personnage = XmlParser.getTagText(eRole, "personnage");
+            role.acteur = acteur;
             roles.add(role);
         }
         return roles;
@@ -275,6 +276,11 @@ public class XmlParser {
             personne.lieuNaissance = XmlParser.getTagText(eNaissance, "lieu");
             personne.photo = XmlParser.getTagText(e, "photo");
             personne.biographie = XmlParser.getTagText(e, "bio");
+            if (personne.nom == null) personne.nom = "";
+            if (personne.dateNaissance == null) personne.dateNaissance = "";
+            if (personne.lieuNaissance == null) personne.lieuNaissance = "";
+            if (personne.photo == null) personne.photo = "";
+            if (personne.biographie == null) personne.biographie = "";
             personnes.add(personne);
         }
         return personnes;

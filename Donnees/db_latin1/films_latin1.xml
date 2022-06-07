@@ -196,7 +196,7 @@
 		<personnage>Jean-Do</personnage>
 	</role>
 	<role>
-		<acteur id="189887">Marie-Jos�e Croze</acteur>
+		<acteur id="189887">Marie-Josee Croze</acteur>
 		<personnage>Henriette Roi</personnage>
 	</role>
 	<role>
@@ -205,7 +205,7 @@
 	</role>
 	<role>
 		<acteur id="359652">Marina Hands</acteur>
-		<personnage>Jos�phine</personnage>
+		<personnage>Josephine</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BNzU0MjE4Nzg2M15BMl5BanBnXkFtZTcwMDE1NTg2MQ@@._V1._SX99_SY140_.jpg</poster>
 	<annonce>http://www.pyramidefilms.com/ba/BA-SEL.mov</annonce>
@@ -492,19 +492,19 @@
 	<genre>Crime</genre>
 	<genre>Drama</genre>
 	<realisateur id="576987">Fernando Meirelles</realisateur>
-	<scenariste>Br�ulio Mantovani</scenariste>
+	<scenariste>Breulio Mantovani</scenariste>
 	<scenariste>Paulo Lins</scenariste>
 	<role>
 		<acteur id="1179105">Alexandre Rodrigues</acteur>
-		<personnage>Buscap� - Rocket</personnage>
+		<personnage>Buscape - Rocket</personnage>
 	</role>
 	<role>
 		<acteur id="1129884">Leandro Firmino</acteur>
-		<personnage>Z� Pequeno - Li'l Z�</personnage>
+		<personnage>Ze Pequeno - Li'l Ze</personnage>
 	</role>
 	<role>
 		<acteur id="1249574">Phellipe Haagensen</acteur>
-		<personnage>Ben� - Benny</personnage>
+		<personnage>Bene - Benny</personnage>
 	</role>
 	<role>
 		<acteur id="1179683">Douglas Silva</acteur>
@@ -520,15 +520,15 @@
 	</role>
 	<role>
 		<acteur id="103797">Alice Braga</acteur>
-		<personnage>Ang�lica</personnage>
+		<personnage>Angelica</personnage>
 	</role>
 	<role>
 		<acteur id="1249471">Michel de Souza</acteur>
-		<personnage>Ben� Crian�a - Young Benny</personnage>
+		<personnage>Bene Crianea - Young Benny</personnage>
 	</role>
 	<role>
-		<acteur id="1404223">Luis Ot�vio</acteur>
-		<personnage>Buscap� Crian�a - Young Rocket</personnage>
+		<acteur id="1404223">Luis Otevio</acteur>
+		<personnage>Buscape Crianea - Young Rocket</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTIzNTUzODM4N15BMl5BanBnXkFtZTcwNjIzMzMzMQ@@._V1._SX99_SY140_.jpg</poster>
 </film>
@@ -596,7 +596,7 @@
 		<personnage>Gaear Grimsrud</personnage>
 	</role>
 	<role>
-		<acteur id="749021">Kristin Rudr�d</acteur>
+		<acteur id="749021">Kristin Rudred</acteur>
 		<personnage>Jean Lundegaard</personnage>
 	</role>
 	<role>
@@ -1021,7 +1021,7 @@
 	<pays>USA</pays>
 	<langue>English</langue>
 	<duree>90</duree>
-	<resume>An update of the 1977 comedy, Dick and Jane are living the good life. That is until Dick (Jim Carrey) loses his job shortly after getting a promotion that convinced his wife Jane (T�a Leoni) to quit her job. The money is gone, and the house ends up in foreclosure. Dick decides to turn to a hilarious life of crime to pay the bills with his lovely wife by his side. Then together they decide it's time to steal back what Former CEO Jack McCallister (Alec Baldwin) had stolen from them.</resume>
+	<resume>An update of the 1977 comedy, Dick and Jane are living the good life. That is until Dick (Jim Carrey) loses his job shortly after getting a promotion that convinced his wife Jane (Tea Leoni) to quit her job. The money is gone, and the house ends up in foreclosure. Dick decides to turn to a hilarious life of crime to pay the bills with his lovely wife by his side. Then together they decide it's time to steal back what Former CEO Jack McCallister (Alec Baldwin) had stolen from them.</resume>
 	<genre>Comedy</genre>
 	<genre>Crime</genre>
 	<realisateur id="661751">Dean Parisot</realisateur>
@@ -1032,7 +1032,7 @@
 		<personnage>Dick Harper</personnage>
 	</role>
 	<role>
-		<acteur id="495">T�a Leoni</acteur>
+		<acteur id="495">Tea Leoni</acteur>
 		<personnage>Jane Harper</personnage>
 	</role>
 	<role>
@@ -1633,11 +1633,11 @@
 		<personnage>Presidente</personnage>
 	</role>
 	<role>
-		<acteur id="232375">Manuel Dond�</acteur>
+		<acteur id="232375">Manuel Donde</acteur>
 		<personnage>El Jefe</personnage>
 	</role>
 	<role>
-		<acteur id="869064">Jos� Torvay</acteur>
+		<acteur id="869064">Jose Torvay</acteur>
 		<personnage>Pablo</personnage>
 	</role>
 	<role>
@@ -1882,7 +1882,7 @@
 		<personnage>Spurgeon Tanner</personnage>
 	</role>
 	<role>
-		<acteur id="495">T�a Leoni</acteur>
+		<acteur id="495">Tea Leoni</acteur>
 		<personnage>Jenny Lerner</personnage>
 	</role>
 	<role>
@@ -2156,7 +2156,7 @@
 		<personnage>Roy Neary</personnage>
 	</role>
 	<role>
-		<acteur id="76">Fran�ois Truffaut</acteur>
+		<acteur id="76">Franeois Truffaut</acteur>
 		<personnage>Claude Lacombe</personnage>
 	</role>
 	<role>
@@ -2449,7 +2449,7 @@
 </film>
 
 <film id="42876">
-	<titre>Rash�mon</titre>
+	<titre>Rashemon</titre>
 	<annee>1950</annee>
 	<pays>Japan</pays>
 	<langue>Japanese</langue>
@@ -2462,11 +2462,11 @@
 	<scenariste>Ryunosuke Akutagawa</scenariste>
 	<scenariste>Akira Kurosawa</scenariste>
 	<role>
-		<acteur id="1536">Toshir� Mifune</acteur>
-		<personnage>Taj�maru</personnage>
+		<acteur id="1536">Toshire Mifune</acteur>
+		<personnage>Tajemaru</personnage>
 	</role>
 	<role>
-		<acteur id="477553">Machiko Ky�</acteur>
+		<acteur id="477553">Machiko Kye</acteur>
 		<personnage>Masako Kanazawa</personnage>
 	</role>
 	<role>
@@ -2482,7 +2482,7 @@
 		<personnage>Priest</personnage>
 	</role>
 	<role>
-		<acteur id="879918">Kichijir� Ueda</acteur>
+		<acteur id="879918">Kichijire Ueda</acteur>
 		<personnage>Commoner</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTM4NDkxNDQ4MF5BMl5BanBnXkFtZTcwMjY5NjYxMQ@@._V1._SX99_SY140_.jpg</poster>
@@ -2525,12 +2525,12 @@
 		<personnage>Bishop Manuel Aringarosa</personnage>
 	</role>
 	<role>
-		<acteur id="1638">J�rgen Prochnow</acteur>
+		<acteur id="1638">Jergen Prochnow</acteur>
 		<personnage>Andre Vernet</personnage>
 	</role>
 	<role>
 		<acteur id="547339">Jean-Pierre Marielle</acteur>
-		<personnage>Jacques Sauni�re</personnage>
+		<personnage>Jacques Sauniere</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BNzkxNTE1MTc3NV5BMl5BanBnXkFtZTcwNTE0MTMzMQ@@._V1._SX94_SY140_.jpg</poster>
 	<annonce>http://movies.apple.com/movies/sony_pictures/da_vinci_code/da_vinci_code_1080p.mov</annonce>
@@ -2652,7 +2652,7 @@
 		<personnage>Lyle Gorch</personnage>
 	</role>
 	<role>
-		<acteur id="844969">Jaime S�nchez</acteur>
+		<acteur id="844969">Jaime Senchez</acteur>
 		<personnage>Angel</personnage>
 	</role>
 	<role>
@@ -2660,7 +2660,7 @@
 		<personnage>Tector Gorch</personnage>
 	</role>
 	<role>
-		<acteur id="273477">Emilio Fern�ndez</acteur>
+		<acteur id="273477">Emilio Fernendez</acteur>
 		<personnage>Gen. Mapache</personnage>
 	</role>
 	<role>
@@ -3951,7 +3951,7 @@
 		<personnage>Boris Grishenko</personnage>
 	</role>
 	<role>
-		<acteur id="1409">Tch�ky Karyo</acteur>
+		<acteur id="1409">Tcheky Karyo</acteur>
 		<personnage>Defense Minister Dmitri Mishkin</personnage>
 	</role>
 	<role>
@@ -4351,7 +4351,7 @@
 		<personnage>Yuri at 8 years old</personnage>
 	</role>
 	<role>
-		<acteur id="862677">G�rard Tichy</acteur>
+		<acteur id="862677">Gerard Tichy</acteur>
 		<personnage>Liberius</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BNjI4ODE3MDM1NV5BMl5BanBnXkFtZTcwMDQ3NDEzMQ@@._V1._SX100_SY134_.jpg</poster>
@@ -5133,7 +5133,7 @@
 	</role>
 	<role>
 		<acteur id="1715194">Anita Briem</acteur>
-		<personnage>Hannah �sgeirsson</personnage>
+		<personnage>Hannah esgeirsson</personnage>
 	</role>
 	<role>
 		<acteur id="1024878">Seth Meyers</acteur>
@@ -5344,7 +5344,7 @@
 		<personnage>Mel Bernstein</personnage>
 	</role>
 	<role>
-		<acteur id="757774">�ngel Salazar</acteur>
+		<acteur id="757774">engel Salazar</acteur>
 		<personnage>Chi Chi</personnage>
 	</role>
 	<role>
@@ -5604,7 +5604,7 @@
 		<personnage>Bandleader</personnage>
 	</role>
 	<role>
-		<acteur id="250">Ren�e Zellweger</acteur>
+		<acteur id="250">Renee Zellweger</acteur>
 		<personnage>Roxie Hart</personnage>
 	</role>
 	<role>
@@ -5764,7 +5764,7 @@
 		<personnage>Cotton</personnage>
 	</role>
 	<role>
-		<acteur id="1745">Stellan Skarsg�rd</acteur>
+		<acteur id="1745">Stellan Skarsgerd</acteur>
 		<personnage>Bootstrap Bill</personnage>
 	</role>
 	<role>
@@ -5830,7 +5830,7 @@
 		<personnage>Sherif Ali</personnage>
 	</role>
 	<role>
-		<acteur id="1207">Jos� Ferrer</acteur>
+		<acteur id="1207">Jose Ferrer</acteur>
 		<personnage>Turkish Bey</personnage>
 	</role>
 	<role>
@@ -6048,7 +6048,7 @@
 	</role>
 	<role>
 		<acteur id="204">Natalie Portman</acteur>
-		<personnage>Queen Padm� Amidala</personnage>
+		<personnage>Queen Padme Amidala</personnage>
 	</role>
 	<role>
 		<acteur id="5157">Jake Lloyd</acteur>
@@ -6202,7 +6202,7 @@
 	</role>
 	<role>
 		<acteur id="1020124">Sarah Clarke</acteur>
-		<personnage>Ren�e</personnage>
+		<personnage>Renee</personnage>
 	</role>
 	<role>
 		<acteur id="1500155">Robert Pattinson</acteur>
@@ -6328,7 +6328,7 @@
 	<pays>USA</pays>
 	<langue>English</langue>
 	<duree>117</duree>
-	<resume>A gay cabaret owner and his drag queen companion agree to put up a false straight front so that their son can introduce them to his fianc�'s right-wing moralistic parents.</resume>
+	<resume>A gay cabaret owner and his drag queen companion agree to put up a false straight front so that their son can introduce them to his fiance's right-wing moralistic parents.</resume>
 	<genre>Comedy</genre>
 	<realisateur id="1566">Mike Nichols</realisateur>
 	<scenariste>Jean Poiret</scenariste>
@@ -6394,7 +6394,7 @@
 		<personnage>Don Lino</personnage>
 	</role>
 	<role>
-		<acteur id="250">Ren�e Zellweger</acteur>
+		<acteur id="250">Renee Zellweger</acteur>
 		<personnage>Angie</personnage>
 	</role>
 	<role>
@@ -6617,7 +6617,7 @@
 		<personnage>Sentenza</personnage>
 	</role>
 	<role>
-		<acteur id="321294">Aldo Giuffr�</acteur>
+		<acteur id="321294">Aldo Giuffre</acteur>
 		<personnage>Alcoholic Union Captain</personnage>
 	</role>
 	<role>
@@ -6770,7 +6770,7 @@
 	</role>
 	<role>
 		<acteur id="817">Lew Ayres</acteur>
-		<personnage>Paul B�umer</personnage>
+		<personnage>Paul Beumer</personnage>
 	</role>
 	<role>
 		<acteur id="524803">Arnold Lucy</acteur>
@@ -6893,7 +6893,7 @@
 	<realisateur id="41">Akira Kurosawa</realisateur>
 	<scenariste>Akira Kurosawa</scenariste>
 	<role>
-		<acteur id="1536">Toshir� Mifune</acteur>
+		<acteur id="1536">Toshire Mifune</acteur>
 		<personnage>Sanjuro Kuwabatake</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTIwMzExNjEzM15BMl5BanBnXkFtZTcwODk2NDE0MQ@@._V1._SX99_SY140_.jpg</poster>
@@ -7469,7 +7469,7 @@
 		<personnage>Barry B. Benson</personnage>
 	</role>
 	<role>
-		<acteur id="250">Ren�e Zellweger</acteur>
+		<acteur id="250">Renee Zellweger</acteur>
 		<personnage>Vanessa Bloome</personnage>
 	</role>
 	<role>
@@ -7980,7 +7980,7 @@
 		<personnage>Jean-Claude</personnage>
 	</role>
 	<role>
-		<acteur id="914313">G�rard Watkins</acteur>
+		<acteur id="914313">Gerard Watkins</acteur>
 		<personnage>St-Clair</personnage>
 	</role>
 	<role>
@@ -8037,7 +8037,7 @@
 </film>
 
 <film id="211915">
-	<titre>Le fabuleux destin d'Am�lie Poulain</titre>
+	<titre>Le fabuleux destin d'Amelie Poulain</titre>
 	<annee>2001</annee>
 	<pays>France</pays>
 	<pays>Germany</pays>
@@ -8051,7 +8051,7 @@
 	<scenariste>Jean-Pierre Jeunet</scenariste>
 	<role>
 		<acteur id="851582">Audrey Tautou</acteur>
-		<personnage>Am�lie Poulain</personnage>
+		<personnage>Amelie Poulain</personnage>
 	</role>
 	<role>
 		<acteur id="440913">Mathieu Kassovitz</acteur>
@@ -8059,7 +8059,7 @@
 	</role>
 	<role>
 		<acteur id="749363">Rufus</acteur>
-		<personnage>Rapha�l Poulain</personnage>
+		<personnage>Raphael Poulain</personnage>
 	</role>
 	<role>
 		<acteur id="186677">Lorella Cravotta</acteur>
@@ -8211,7 +8211,7 @@
 		<personnage>Jiro Masatora Ichimonji</personnage>
 	</role>
 	<role>
-		<acteur id="753480">Daisuke Ry�</acteur>
+		<acteur id="753480">Daisuke Rye</acteur>
 		<personnage>Saburo Naotora Ichimonji</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTI3MzMyNjIxM15BMl5BanBnXkFtZTcwMDQ1MTYzMg@@._V1._SX100_SY125_.jpg</poster>
@@ -9070,7 +9070,7 @@
 	</role>
 	<role>
 		<acteur id="5088">Joanna Kerns</acteur>
-		<personnage>Alison�s Mom</personnage>
+		<personnage>Alisones Mom</personnage>
 	</role>
 	<role>
 		<acteur id="601">Harold Ramis</acteur>
@@ -9202,7 +9202,7 @@
 		<personnage>Det. Sgt. John Taggart</personnage>
 	</role>
 	<role>
-		<acteur id="1638">J�rgen Prochnow</acteur>
+		<acteur id="1638">Jergen Prochnow</acteur>
 		<personnage>Maxwell Dent</personnage>
 	</role>
 	<role>
@@ -9416,7 +9416,7 @@
 	<genre>Romance</genre>
 	<realisateur id="1188">Nora Ephron</realisateur>
 	<scenariste>Nora Ephron</scenariste>
-	<scenariste>Mikl�s L�szl�</scenariste>
+	<scenariste>Mikles Leszle</scenariste>
 	<role>
 		<acteur id="158">Tom Hanks</acteur>
 		<personnage>Joe Fox</personnage>
@@ -10421,11 +10421,11 @@
 	<scenariste>Wolfgang Petersen</scenariste>
 	<scenariste>Lothar G. Buchheim</scenariste>
 	<role>
-		<acteur id="1638">J�rgen Prochnow</acteur>
+		<acteur id="1638">Jergen Prochnow</acteur>
 		<personnage>Capt.-Lt. Henrich Lehmann-Willenbrock - Der Alte</personnage>
 	</role>
 	<role>
-		<acteur id="344963">Herbert Gr�nemeyer</acteur>
+		<acteur id="344963">Herbert Grenemeyer</acteur>
 		<personnage>Lt. Werner - Correspondent</personnage>
 	</role>
 	<role>
@@ -11144,7 +11144,7 @@
 </film>
 
 <film id="1139797">
-	<titre>L�t den r�tte komma in</titre>
+	<titre>Let den rette komma in</titre>
 	<annee>2008</annee>
 	<pays>Sweden</pays>
 	<langue>Swedish</langue>
@@ -11158,7 +11158,7 @@
 	<realisateur id="19247">Tomas Alfredson</realisateur>
 	<scenariste>John Ajvide Lindqvist</scenariste>
 	<role>
-		<acteur id="2968765">K�re Hedebrant</acteur>
+		<acteur id="2968765">Kere Hedebrant</acteur>
 		<personnage>Oskar</personnage>
 	</role>
 	<role>
@@ -11167,7 +11167,7 @@
 	</role>
 	<role>
 		<acteur id="706537">Per Ragnar</acteur>
-		<personnage>H�kan</personnage>
+		<personnage>Hekan</personnage>
 	</role>
 	<role>
 		<acteur id="634932">Ika Nord</acteur>
@@ -11239,7 +11239,7 @@
 		<personnage>Jim Phelps</personnage>
 	</role>
 	<role>
-		<acteur id="322">Emmanuelle B�art</acteur>
+		<acteur id="322">Emmanuelle Beart</acteur>
 		<personnage>Claire Phelps</personnage>
 	</role>
 	<role>
@@ -11799,7 +11799,7 @@
 	<genre>Family</genre>
 	<genre>Fantasy</genre>
 	<genre>Mystery</genre>
-	<realisateur id="190859">Alfonso Cuar�n</realisateur>
+	<realisateur id="190859">Alfonso Cuaren</realisateur>
 	<scenariste>Steve Kloves</scenariste>
 	<scenariste>J.K. Rowling</scenariste>
 	<role>
@@ -11847,7 +11847,7 @@
 		<personnage>Sirius Black</personnage>
 	</role>
 	<role>
-		<acteur id="851663">Jim Tavar�</acteur>
+		<acteur id="851663">Jim Tavare</acteur>
 		<personnage>Tom the Innkeeper</personnage>
 	</role>
 	<role>
@@ -11911,7 +11911,7 @@
 		<personnage>Joseph Goebbels</personnage>
 	</role>
 	<role>
-		<acteur id="477810">Juliane K�hler</acteur>
+		<acteur id="477810">Juliane Kehler</acteur>
 		<personnage>Eva Braun</personnage>
 	</role>
 	<role>
@@ -11920,7 +11920,7 @@
 	</role>
 	<role>
 		<acteur id="75321">Christian Berkel</acteur>
-		<personnage>Prof. Dr. Ernst-G�nter Schenck</personnage>
+		<personnage>Prof. Dr. Ernst-Genter Schenck</personnage>
 	</role>
 	<role>
 		<acteur id="352278">Matthias Habich</acteur>
@@ -11928,19 +11928,19 @@
 	</role>
 	<role>
 		<acteur id="470981">Thomas Kretschmann</acteur>
-		<personnage>SS-Gruppenf�hrer Hermann Fegelein</personnage>
+		<personnage>SS-Gruppenfehrer Hermann Fegelein</personnage>
 	</role>
 	<role>
 		<acteur id="579159">Michael Mendl</acteur>
 		<personnage>General der Artillerie Helmuth Weidling</personnage>
 	</role>
 	<role>
-		<acteur id="377333">Andr� Hennicke</acteur>
-		<personnage>SS-Brigadef�hrer Wilhelm Mohnke</personnage>
+		<acteur id="377333">Andre Hennicke</acteur>
+		<personnage>SS-Brigadefehrer Wilhelm Mohnke</personnage>
 	</role>
 	<role>
 		<acteur id="633947">Ulrich Noethen</acteur>
-		<personnage>Reichsf�hrer SS Heinrich Himmler</personnage>
+		<personnage>Reichsfehrer SS Heinrich Himmler</personnage>
 	</role>
 	<role>
 		<acteur id="591352">Birgit Minichmayr</acteur>
@@ -12345,7 +12345,7 @@
 		<personnage>Maya Dolittle</personnage>
 	</role>
 	<role>
-		<acteur id="712368">Raven-Symon�</acteur>
+		<acteur id="712368">Raven-Symone</acteur>
 		<personnage>Charisse Dolittle</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTQzMjc4NjIxOV5BMl5BanBnXkFtZTcwMDU0NzIyMQ@@._V1._SX99_SY140_.jpg</poster>
@@ -12685,7 +12685,7 @@
 		<personnage>Bob Stone</personnage>
 	</role>
 	<role>
-		<acteur id="959242">Jos� Z��iga</acteur>
+		<acteur id="959242">Jose Zeeiga</acteur>
 		<personnage>David Torres</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMjEzMzE2NjY0NF5BMl5BanBnXkFtZTcwMzU2MDUyMQ@@._V1._SX99_SY140_.jpg</poster>
@@ -13272,7 +13272,7 @@
 </film>
 
 <film id="56801">
-	<titre>8�</titre>
+	<titre>8e</titre>
 	<annee>1963</annee>
 	<pays>Italy</pays>
 	<pays>France</pays>
@@ -13293,7 +13293,7 @@
 		<personnage>Claudia</personnage>
 	</role>
 	<role>
-		<acteur id="733">Anouk Aim�e</acteur>
+		<acteur id="733">Anouk Aimee</acteur>
 		<personnage>Luisa Anselmi</personnage>
 	</role>
 	<role>
@@ -14453,7 +14453,7 @@
 		<personnage>Christa-Maria Sieland</personnage>
 	</role>
 	<role>
-		<acteur id="618057">Ulrich M�he</acteur>
+		<acteur id="618057">Ulrich Mehe</acteur>
 		<personnage>Hauptmann Gerd Wiesler</personnage>
 	</role>
 	<role>
@@ -14934,18 +14934,18 @@
 	<resume>A horrific car accident connects three stories, each involving characters dealing with loss, regret, and life's harsh realities, all in the name of love.</resume>
 	<genre>Drama</genre>
 	<genre>Thriller</genre>
-	<realisateur id="327944">Alejandro Gonz�lez I��rritu</realisateur>
+	<realisateur id="327944">Alejandro Gonzelez Ieerritu</realisateur>
 	<scenariste>Guillermo Arriaga</scenariste>
 	<role>
-		<acteur id="248408">Emilio Echevarr�a</acteur>
+		<acteur id="248408">Emilio Echevarrea</acteur>
 		<personnage>El Chivo</personnage>
 	</role>
 	<role>
-		<acteur id="305558">Gael Garc�a Bernal</acteur>
+		<acteur id="305558">Gael Garcea Bernal</acteur>
 		<personnage>Octavio</personnage>
 	</role>
 	<role>
-		<acteur id="346270">�lvaro Guerrero</acteur>
+		<acteur id="346270">elvaro Guerrero</acteur>
 		<personnage>Daniel</personnage>
 	</role>
 	<role>
@@ -14957,7 +14957,7 @@
 		<personnage>Luis</personnage>
 	</role>
 	<role>
-		<acteur id="702270">Marco P�rez</acteur>
+		<acteur id="702270">Marco Perez</acteur>
 		<personnage>Ramiro</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BNjA2NTUxMTQzMF5BMl5BanBnXkFtZTcwNzE3NDEzMQ@@._V1._SX99_SY140_.jpg</poster>
@@ -15248,7 +15248,7 @@
 		<personnage>Simon Ross</personnage>
 	</role>
 	<role>
-		<acteur id="1183149">�dgar Ram�rez</acteur>
+		<acteur id="1183149">edgar Ramerez</acteur>
 		<personnage>Paz</personnage>
 	</role>
 	<role>
@@ -15268,7 +15268,7 @@
 		<personnage>Wills</personnage>
 	</role>
 	<role>
-		<acteur id="117709">Daniel Br�hl</acteur>
+		<acteur id="117709">Daniel Brehl</acteur>
 		<personnage>Martin Kreutz</personnage>
 	</role>
 	<role>
@@ -15847,7 +15847,7 @@
 		<personnage>Cosmo Renfro</personnage>
 	</role>
 	<role>
-		<acteur id="469103">Jeroen Krabb�</acteur>
+		<acteur id="469103">Jeroen Krabbe</acteur>
 		<personnage>Dr. Charles Nichols</personnage>
 	</role>
 	<role>
@@ -16385,7 +16385,7 @@
 		<personnage>Dr. Petrov</personnage>
 	</role>
 	<role>
-		<acteur id="1745">Stellan Skarsg�rd</acteur>
+		<acteur id="1745">Stellan Skarsgerd</acteur>
 		<personnage>Captain Tupolev</personnage>
 	</role>
 	<role>
@@ -17089,7 +17089,7 @@
 	<realisateur id="594503">Hayao Miyazaki</realisateur>
 	<scenariste>Hayao Miyazaki</scenariste>
 	<role>
-		<acteur id="559444">Y�ji Matsuda</acteur>
+		<acteur id="559444">Yeji Matsuda</acteur>
 		<personnage>Ashitaka</personnage>
 	</role>
 	<role>
@@ -17157,7 +17157,7 @@
 		<personnage>Lisa Dolittle</personnage>
 	</role>
 	<role>
-		<acteur id="712368">Raven-Symon�</acteur>
+		<acteur id="712368">Raven-Symone</acteur>
 		<personnage>Charisse Dolittle</personnage>
 	</role>
 	<role>
@@ -17192,7 +17192,7 @@
 		<personnage>Vittoria Vetra</personnage>
 	</role>
 	<role>
-		<acteur id="1745">Stellan Skarsg�rd</acteur>
+		<acteur id="1745">Stellan Skarsgerd</acteur>
 		<personnage>Commander Richter</personnage>
 	</role>
 	<role>
@@ -17689,7 +17689,7 @@
 		<personnage>Lt. Aldo Raine</personnage>
 	</role>
 	<role>
-		<acteur id="491259">M�lanie Laurent</acteur>
+		<acteur id="491259">Melanie Laurent</acteur>
 		<personnage>Shosanna Dreyfus</personnage>
 	</role>
 	<role>
@@ -17709,7 +17709,7 @@
 		<personnage>Bridget von Hammersmark</personnage>
 	</role>
 	<role>
-		<acteur id="117709">Daniel Br�hl</acteur>
+		<acteur id="117709">Daniel Brehl</acteur>
 		<personnage>Pvt Fredrick Zoller</personnage>
 	</role>
 	<role>
@@ -18538,7 +18538,7 @@
 		<personnage>News Reporter</personnage>
 	</role>
 	<role>
-		<acteur id="250">Ren�e Zellweger</acteur>
+		<acteur id="250">Renee Zellweger</acteur>
 		<personnage>Katie</personnage>
 	</role>
 	<role>
@@ -19323,7 +19323,7 @@
 		<personnage>Joh Fredersen</personnage>
 	</role>
 	<role>
-		<acteur id="297054">Gustav Fr�hlich</acteur>
+		<acteur id="297054">Gustav Frehlich</acteur>
 		<personnage>Freder, Joh Fredersen's son</personnage>
 	</role>
 	<role>
@@ -20144,7 +20144,7 @@
 		<personnage>Col. Harry Burwell</personnage>
 	</role>
 	<role>
-		<acteur id="1409">Tch�ky Karyo</acteur>
+		<acteur id="1409">Tcheky Karyo</acteur>
 		<personnage>Jean Villeneuve</personnage>
 	</role>
 	<role>
@@ -20674,7 +20674,7 @@
 		<personnage>Vizzini</personnage>
 	</role>
 	<role>
-		<acteur id="764">Andr� the Giant</acteur>
+		<acteur id="764">Andre the Giant</acteur>
 		<personnage>Fezzik</personnage>
 	</role>
 	<role>
@@ -21302,7 +21302,7 @@
 		<personnage>Henry Gupta</personnage>
 	</role>
 	<role>
-		<acteur id="653248">G�tz Otto</acteur>
+		<acteur id="653248">Getz Otto</acteur>
 		<personnage>Stamper</personnage>
 	</role>
 	<role>
@@ -21485,9 +21485,9 @@
 	<genre>Mystery</genre>
 	<genre>Sci-Fi</genre>
 	<genre>Thriller</genre>
-	<realisateur id="190859">Alfonso Cuar�n</realisateur>
+	<realisateur id="190859">Alfonso Cuaren</realisateur>
 	<scenariste>Timothy J. Sexton</scenariste>
-	<scenariste>Alfonso Cuar�n</scenariste>
+	<scenariste>Alfonso Cuaren</scenariste>
 	<role>
 		<acteur id="654110">Clive Owen</acteur>
 		<personnage>Theo Faron</personnage>
@@ -22238,7 +22238,7 @@
 	</role>
 	<role>
 		<acteur id="132257">Bruce Campbell</acteur>
-		<personnage>Ma�tre d�</personnage>
+		<personnage>Maetre de</personnage>
 	</role>
 	<role>
 		<acteur id="6969">Elizabeth Banks</acteur>
@@ -22330,7 +22330,7 @@
 		<personnage>The Shredder</personnage>
 	</role>
 	<role>
-		<acteur id="643164">Toshir� Obata</acteur>
+		<acteur id="643164">Toshire Obata</acteur>
 		<personnage>Tatsu</personnage>
 	</role>
 	<role>
@@ -22598,7 +22598,7 @@
 		<personnage>Curtis Taylor Jr.</personnage>
 	</role>
 	<role>
-		<acteur id="461498">Beyonc� Knowles</acteur>
+		<acteur id="461498">Beyonce Knowles</acteur>
 		<personnage>Deena Jones</personnage>
 	</role>
 	<role>
@@ -22708,7 +22708,7 @@
 </film>
 
 <film id="59578">
-	<titre>Per qualche dollaro in pi�</titre>
+	<titre>Per qualche dollaro in pie</titre>
 	<annee>1965</annee>
 	<pays>Italy</pays>
 	<pays>Spain</pays>
@@ -22730,7 +22730,7 @@
 		<personnage>Col. Douglas Mortimer</personnage>
 	</role>
 	<role>
-		<acteur id="2231">Gian Maria Volont�</acteur>
+		<acteur id="2231">Gian Maria Volonte</acteur>
 		<personnage>El Indio (The Indian)</personnage>
 	</role>
 	<role>
@@ -22789,7 +22789,7 @@
 		<personnage>Gertrude</personnage>
 	</role>
 	<role>
-		<acteur id="1386645">Oscar Nu�ez</acteur>
+		<acteur id="1386645">Oscar Nueez</acteur>
 		<personnage>Ramone</personnage>
 	</role>
 	<role>
@@ -22895,7 +22895,7 @@
 	</role>
 	<role>
 		<acteur id="204">Natalie Portman</acteur>
-		<personnage>Padm�</personnage>
+		<personnage>Padme</personnage>
 	</role>
 	<role>
 		<acteur id="159789">Hayden Christensen</acteur>
@@ -23026,7 +23026,7 @@
 		<personnage>Earline Fitzgerald</personnage>
 	</role>
 	<role>
-		<acteur id="671567">Michael Pe�a</acteur>
+		<acteur id="671567">Michael Peea</acteur>
 		<personnage>Omar</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTkzMjYwMjUzMV5BMl5BanBnXkFtZTcwMjczMTgyMQ@@._V1._SX95_SY140_.jpg</poster>
@@ -23937,7 +23937,7 @@
 		<personnage>U.S. President</personnage>
 	</role>
 	<role>
-		<acteur id="846548">Sa�d Taghmaoui</acteur>
+		<acteur id="846548">Saed Taghmaoui</acteur>
 		<personnage>Breaker</personnage>
 	</role>
 	<role>
@@ -23953,7 +23953,7 @@
 		<personnage>General Hawk</personnage>
 	</role>
 	<role>
-		<acteur id="280081">Gr�gory Fitoussi</acteur>
+		<acteur id="280081">Gregory Fitoussi</acteur>
 		<personnage>Baron de Cobray</personnage>
 	</role>
 	<role>
@@ -24013,7 +24013,7 @@
 </film>
 
 <film id="50986">
-	<titre>Smultronst�llet</titre>
+	<titre>Smultronstellet</titre>
 	<annee>1957</annee>
 	<pays>Sweden</pays>
 	<langue>Swedish</langue>
@@ -24023,7 +24023,7 @@
 	<realisateur id="5">Ingmar Bergman</realisateur>
 	<scenariste>Ingmar Bergman</scenariste>
 	<role>
-		<acteur id="803705">Victor Sj�str�m</acteur>
+		<acteur id="803705">Victor Sjestrem</acteur>
 		<personnage>Dr. Isak Borg</personnage>
 	</role>
 	<role>
@@ -24035,11 +24035,11 @@
 		<personnage>Marianne Borg</personnage>
 	</role>
 	<role>
-		<acteur id="84761">Bj�rn Bjelfvenstam</acteur>
+		<acteur id="84761">Bjern Bjelfvenstam</acteur>
 		<personnage>Viktor</personnage>
 	</role>
 	<role>
-		<acteur id="803561">Gunnar Sj�berg</acteur>
+		<acteur id="803561">Gunnar Sjeberg</acteur>
 		<personnage>Sten Alman</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTQyNzQwMjg0Ml5BMl5BanBnXkFtZTYwMTgyMDg4._V1._SX97_SY140_.jpg</poster>
@@ -24064,7 +24064,7 @@
 		<personnage>Austin Powers</personnage>
 	</role>
 	<role>
-		<acteur id="461498">Beyonc� Knowles</acteur>
+		<acteur id="461498">Beyonce Knowles</acteur>
 		<personnage>Foxxy Cleopatra</personnage>
 	</role>
 	<role>
@@ -24230,7 +24230,7 @@
 </film>
 
 <film id="118799">
-	<titre>La vita � bella</titre>
+	<titre>La vita e bella</titre>
 	<annee>1997</annee>
 	<pays>Italy</pays>
 	<langue>Italian</langue>
@@ -24253,7 +24253,7 @@
 	</role>
 	<role>
 		<acteur id="134493">Giorgio Cantarini</acteur>
-		<personnage>Giosu� Orefice</personnage>
+		<personnage>Giosue Orefice</personnage>
 	</role>
 	<role>
 		<acteur id="243842">Giustino Durano</acteur>
@@ -24395,7 +24395,7 @@
 		<personnage>Detective Mike Lowrey</personnage>
 	</role>
 	<role>
-		<acteur id="3244">Jordi Moll�</acteur>
+		<acteur id="3244">Jordi Molle</acteur>
 		<personnage>Hector Juan Carlos 'Johnny' Tapia</personnage>
 	</role>
 	<role>
@@ -24556,7 +24556,7 @@
 		<personnage>Maria 'Cabiria' Ceccarelli</personnage>
 	</role>
 	<role>
-		<acteur id="673749">Fran�ois P�rier</acteur>
+		<acteur id="673749">Franeois Perier</acteur>
 		<personnage>Oscar D'Onofrio</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMjExNTA3NjkzOF5BMl5BanBnXkFtZTYwMzI3MzQ5._V1._SX98_SY140_.jpg</poster>
@@ -25421,7 +25421,7 @@
 		<personnage>Paul Kirby</personnage>
 	</role>
 	<role>
-		<acteur id="495">T�a Leoni</acteur>
+		<acteur id="495">Tea Leoni</acteur>
 		<personnage>Amanda Kirby</personnage>
 	</role>
 	<role>
@@ -25494,7 +25494,7 @@
 	<genre>Mystery</genre>
 	<genre>Thriller</genre>
 	<realisateur id="893659">Gore Verbinski</realisateur>
-	<scenariste>K�ji Suzuki</scenariste>
+	<scenariste>Keji Suzuki</scenariste>
 	<scenariste>Ehren Kruger</scenariste>
 	<role>
 		<acteur id="915208">Naomi Watts</acteur>
@@ -25895,7 +25895,7 @@
 		<personnage>Dascomb</personnage>
 	</role>
 	<role>
-		<acteur id="193661">Sin�ad Cusack</acteur>
+		<acteur id="193661">Sinead Cusack</acteur>
 		<personnage>Delia Surridge</personnage>
 	</role>
 	<role>
@@ -26807,14 +26807,14 @@
 	</role>
 	<role>
 		<acteur id="316284">Giancarlo Giannini</acteur>
-		<personnage>Ren� Mathis</personnage>
+		<personnage>Rene Mathis</personnage>
 	</role>
 	<role>
 		<acteur id="8787">Simon Abkarian</acteur>
 		<personnage>Alex Dimitrios</personnage>
 	</role>
 	<role>
-		<acteur id="207218">Isaach De Bankol�</acteur>
+		<acteur id="207218">Isaach De Bankole</acteur>
 		<personnage>Steven Obanno</personnage>
 	</role>
 	<role>
@@ -27089,7 +27089,7 @@
 	<scenariste>Shinobu Hashimoto</scenariste>
 	<scenariste>Akira Kurosawa</scenariste>
 	<role>
-		<acteur id="1536">Toshir� Mifune</acteur>
+		<acteur id="1536">Toshire Mifune</acteur>
 		<personnage>Kikuchiyo</personnage>
 	</role>
 	<role>
@@ -28437,7 +28437,7 @@
 		<personnage>Stanley</personnage>
 	</role>
 	<role>
-		<acteur id="2585808">D�bora Nascimento</acteur>
+		<acteur id="2585808">Debora Nascimento</acteur>
 		<personnage>Martina</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTUyNzk3MjA1OF5BMl5BanBnXkFtZTcwMTE1Njg2MQ@@._V1._SX94_SY140_.jpg</poster>
@@ -28778,7 +28778,7 @@
 		<personnage>Spivey</personnage>
 	</role>
 	<role>
-		<acteur id="409691">Aharon Ipal�</acteur>
+		<acteur id="409691">Aharon Ipale</acteur>
 		<personnage>Pharaoh Seti I</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTIxMzk4NDAxN15BMl5BanBnXkFtZTcwMTY4MzMyMQ@@._V1._SX86_SY140_.jpg</poster>
@@ -28912,7 +28912,7 @@
 	</role>
 	<role>
 		<acteur id="1277591">Paris Howe Strewe</acteur>
-		<personnage>Th�odred - Prince of Rohan</personnage>
+		<personnage>Theodred - Prince of Rohan</personnage>
 	</role>
 	<role>
 		<acteur id="489">Christopher Lee</acteur>
@@ -29290,7 +29290,7 @@
 	<pays>USA</pays>
 	<langue>English</langue>
 	<duree>142</duree>
-	<resume>Anakin Skywalker shares a forbidden romance with Padm� Amidala while his teacher, Obi-Wan Kenobi, makes an investigation of a separatist assassination attempt on Padm� which leads to the discovery of a secret Republican clone army.</resume>
+	<resume>Anakin Skywalker shares a forbidden romance with Padme Amidala while his teacher, Obi-Wan Kenobi, makes an investigation of a separatist assassination attempt on Padme which leads to the discovery of a secret Republican clone army.</resume>
 	<genre>Action</genre>
 	<genre>Adventure</genre>
 	<genre>Fantasy</genre>
@@ -29303,7 +29303,7 @@
 	</role>
 	<role>
 		<acteur id="204">Natalie Portman</acteur>
-		<personnage>Senator Padm� Amidala</personnage>
+		<personnage>Senator Padme Amidala</personnage>
 	</role>
 	<role>
 		<acteur id="159789">Hayden Christensen</acteur>
@@ -29331,7 +29331,7 @@
 	</role>
 	<role>
 		<acteur id="126284">Rose Byrne</acteur>
-		<personnage>Dorm�</personnage>
+		<personnage>Dorme</personnage>
 	</role>
 	<role>
 		<acteur id="607325">Temuera Morrison</acteur>
@@ -29634,7 +29634,7 @@
 		<personnage>Tiberius Caesar</personnage>
 	</role>
 	<role>
-		<acteur id="603682">Andr� Morell</acteur>
+		<acteur id="603682">Andre Morell</acteur>
 		<personnage>Sextus</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTg3NTQ1NDk0OF5BMl5BanBnXkFtZTcwNzcyNTMyMQ@@._V1._SX97_SY140_.jpg</poster>
@@ -30238,7 +30238,7 @@
 		<personnage>Rod Tidwell</personnage>
 	</role>
 	<role>
-		<acteur id="250">Ren�e Zellweger</acteur>
+		<acteur id="250">Renee Zellweger</acteur>
 		<personnage>Dorothy Boyd</personnage>
 	</role>
 	<role>
@@ -31057,7 +31057,7 @@
 		<personnage>Nicole Horner</personnage>
 	</role>
 	<role>
-		<acteur id="167243">V�ra Clouzot</acteur>
+		<acteur id="167243">Vera Clouzot</acteur>
 		<personnage>Christina Delassalle</personnage>
 	</role>
 	<role>
@@ -31243,7 +31243,7 @@
 	<realisateur id="594503">Hayao Miyazaki</realisateur>
 	<scenariste>Hayao Miyazaki</scenariste>
 	<role>
-		<acteur id="383708">Rumi H�ragi</acteur>
+		<acteur id="383708">Rumi Heragi</acteur>
 		<personnage>Chihiro</personnage>
 	</role>
 	<role>
@@ -31255,7 +31255,7 @@
 		<personnage>Yubaba</personnage>
 	</role>
 	<role>
-		<acteur id="1126978">Y� �izumi</acteur>
+		<acteur id="1126978">Ye eizumi</acteur>
 		<personnage>Bandai-gaeru</personnage>
 	</role>
 	<role>
@@ -31263,7 +31263,7 @@
 		<personnage>Kawa no Kami</personnage>
 	</role>
 	<role>
-		<acteur id="436639">Tsunehiko Kamij�</acteur>
+		<acteur id="436639">Tsunehiko Kamije</acteur>
 		<personnage>Chichiyaku</personnage>
 	</role>
 	<role>
@@ -31434,7 +31434,7 @@
 		<personnage>Marcie</personnage>
 	</role>
 	<role>
-		<acteur id="4851">Pen�lope Cruz</acteur>
+		<acteur id="4851">Penelope Cruz</acteur>
 		<personnage>Juarez</personnage>
 	</role>
 	<role>
@@ -31759,7 +31759,7 @@
 		<personnage>Gwenovier</personnage>
 	</role>
 	<role>
-		<acteur id="350079">Luis Guzm�n</acteur>
+		<acteur id="350079">Luis Guzmen</acteur>
 		<personnage>Luis</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTU4MzU0MjkyNV5BMl5BanBnXkFtZTcwODE1MTU1MQ@@._V1._SX100_SY109_.jpg</poster>
@@ -31855,8 +31855,8 @@
 	<realisateur id="5">Ingmar Bergman</realisateur>
 	<scenariste>Ingmar Bergman</scenariste>
 	<role>
-		<acteur id="85038">Gunnar Bj�rnstrand</acteur>
-		<personnage>J�ns, squire</personnage>
+		<acteur id="85038">Gunnar Bjernstrand</acteur>
+		<personnage>Jens, squire</personnage>
 	</role>
 	<role>
 		<acteur id="252345">Bengt Ekerot</acteur>
@@ -31989,7 +31989,7 @@
 	</role>
 	<role>
 		<acteur id="316284">Giancarlo Giannini</acteur>
-		<personnage>Ren� Mathis</personnage>
+		<personnage>Rene Mathis</personnage>
 	</role>
 	<role>
 		<acteur id="2605345">Gemma Arterton</acteur>
@@ -32020,15 +32020,15 @@
 		<personnage>Foreign Secretary</personnage>
 	</role>
 	<role>
-		<acteur id="1370408">Joaqu�n Cosio</acteur>
+		<acteur id="1370408">Joaquen Cosio</acteur>
 		<personnage>General Medrano</personnage>
 	</role>
 	<role>
-		<acteur id="347202">Fernando Guill�n Cuervo</acteur>
+		<acteur id="347202">Fernando Guillen Cuervo</acteur>
 		<personnage>Colonel of Police</personnage>
 	</role>
 	<role>
-		<acteur id="643740">Jes�s Ochoa</acteur>
+		<acteur id="643740">Jeses Ochoa</acteur>
 		<personnage>Lieutenant Orso</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMjAzODI1NDc5N15BMl5BanBnXkFtZTcwMDUwMDQzMg@@._V1._SX100_SY136_.jpg</poster>
@@ -32113,7 +32113,7 @@
 		<personnage>Warden Gad Hassan</personnage>
 	</role>
 	<role>
-		<acteur id="409691">Aharon Ipal�</acteur>
+		<acteur id="409691">Aharon Ipale</acteur>
 		<personnage>Pharaoh Seti I</personnage>
 	</role>
 	<role>
@@ -32487,7 +32487,7 @@
 		<personnage>Cotton</personnage>
 	</role>
 	<role>
-		<acteur id="1745">Stellan Skarsg�rd</acteur>
+		<acteur id="1745">Stellan Skarsgerd</acteur>
 		<personnage>Bootstrap Bill</personnage>
 	</role>
 	<role>
@@ -32672,7 +32672,7 @@
 	<genre>Thriller</genre>
 	<realisateur id="617130">Daniel Myrick</realisateur>
 	<scenariste>Daniel Myrick</scenariste>
-	<scenariste>Eduardo S�nchez</scenariste>
+	<scenariste>Eduardo Senchez</scenariste>
 	<role>
 		<acteur id="231946">Heather Donahue</acteur>
 		<personnage>Heather Donahue</personnage>
@@ -32831,7 +32831,7 @@
 	</role>
 	<role>
 		<acteur id="606">Jean Reno</acteur>
-		<personnage>Philippe Roach�</personnage>
+		<personnage>Philippe Roache</personnage>
 	</role>
 	<role>
 		<acteur id="1623">Maria Pitillo</acteur>
@@ -32924,7 +32924,7 @@
 		<personnage>Glenstorm</personnage>
 	</role>
 	<role>
-		<acteur id="17343">Dami�n Alc�zar</acteur>
+		<acteur id="17343">Damien Alcezar</acteur>
 		<personnage>Lord Sopespian</personnage>
 	</role>
 	<role>
@@ -32932,7 +32932,7 @@
 		<personnage>Queen Prunaprismia</personnage>
 	</role>
 	<role>
-		<acteur id="28487">Sim�n Andreu</acteur>
+		<acteur id="28487">Simen Andreu</acteur>
 		<personnage>Lord Scythley</personnage>
 	</role>
 	<role>
@@ -33371,7 +33371,7 @@
 	</role>
 	<role>
 		<acteur id="432827">Katy Jurado</acteur>
-		<personnage>Helen Ram�rez</personnage>
+		<personnage>Helen Ramerez</personnage>
 	</role>
 	<role>
 		<acteur id="38">Grace Kelly</acteur>
@@ -33791,7 +33791,7 @@
 		<personnage>Richard Sachs</personnage>
 	</role>
 	<role>
-		<acteur id="1014528">Gisele B�ndchen</acteur>
+		<acteur id="1014528">Gisele Bendchen</acteur>
 		<personnage>Serena</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTQ1MzQ3NzI3MF5BMl5BanBnXkFtZTcwOTcwMTUzMQ@@._V1._SX94_SY140_.jpg</poster>
@@ -33956,11 +33956,11 @@
 		<personnage>Ofelia</personnage>
 	</role>
 	<role>
-		<acteur id="530365">Sergi L�pez</acteur>
+		<acteur id="530365">Sergi Lepez</acteur>
 		<personnage>Captain Vidal</personnage>
 	</role>
 	<role>
-		<acteur id="893941">Maribel Verd�</acteur>
+		<acteur id="893941">Maribel Verde</acteur>
 		<personnage>Mercedes</personnage>
 	</role>
 	<role>
@@ -35129,7 +35129,7 @@
 		<personnage>Connor Rooney</personnage>
 	</role>
 	<role>
-		<acteur id="1354">Ciar�n Hinds</acteur>
+		<acteur id="1354">Ciaren Hinds</acteur>
 		<personnage>Finn McGovern</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTI1ODE5Mzk1M15BMl5BanBnXkFtZTcwNzU5NDEzMQ@@._V1._SX99_SY140_.jpg</poster>
@@ -35610,7 +35610,7 @@
 		<personnage>Elk Boy</personnage>
 	</role>
 	<role>
-		<acteur id="221867">Peter DeS�ve</acteur>
+		<acteur id="221867">Peter DeSeve</acteur>
 		<personnage>Condor Chick</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTI0MDcxMzE3OF5BMl5BanBnXkFtZTcwODc3OTYzMQ@@._V1._SX100_SY133_.jpg</poster>
@@ -35626,7 +35626,7 @@
 </film>
 
 <film id="110413">
-	<titre>L�on</titre>
+	<titre>Leon</titre>
 	<annee>1994</annee>
 	<pays>France</pays>
 	<langue>English</langue>
@@ -35638,7 +35638,7 @@
 	<scenariste>Luc Besson</scenariste>
 	<role>
 		<acteur id="606">Jean Reno</acteur>
-		<personnage>L�on</personnage>
+		<personnage>Leon</personnage>
 	</role>
 	<role>
 		<acteur id="198">Gary Oldman</acteur>
@@ -36678,7 +36678,7 @@
 	</role>
 	<role>
 		<acteur id="322407">Brendan Gleeson</acteur>
-		<personnage>Alastor 'Mad-�Eye' Moody</personnage>
+		<personnage>Alastor 'Mad-eEye' Moody</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMjEyODI0MDU5OF5BMl5BanBnXkFtZTcwODk5OTI1MQ@@._V1._SX100_SY117_.jpg</poster>
 	<annonce>http://pdl.warnerbros.com/wbmovies/orderofthephoenix/tvspots/tvspot1_500.mov</annonce>
@@ -36773,7 +36773,7 @@
 		<personnage>National Security Advisor Jack Doherty</personnage>
 	</role>
 	<role>
-		<acteur id="1638">J�rgen Prochnow</acteur>
+		<acteur id="1638">Jergen Prochnow</acteur>
 		<personnage>General Ivan Radek</personnage>
 	</role>
 	<role>
@@ -37233,7 +37233,7 @@
 		<personnage>Dragon Lady</personnage>
 	</role>
 	<role>
-		<acteur id="1105708">No�mie Lenoir</acteur>
+		<acteur id="1105708">Noemie Lenoir</acteur>
 		<personnage>Genevieve</personnage>
 	</role>
 	<role>
@@ -37478,7 +37478,7 @@
 		<personnage>Chuckie Sullivan</personnage>
 	</role>
 	<role>
-		<acteur id="1745">Stellan Skarsg�rd</acteur>
+		<acteur id="1745">Stellan Skarsgerd</acteur>
 		<personnage>Prof. Gerald Lambeau</personnage>
 	</role>
 	<role>
@@ -37696,11 +37696,11 @@
 		<personnage>Agent Toby Lee Shavers</personnage>
 	</role>
 	<role>
-		<acteur id="618291">Richy M�ller</acteur>
+		<acteur id="618291">Richy Meller</acteur>
 		<personnage>Milan Sova</personnage>
 	</role>
 	<role>
-		<acteur id="1362893">Petr J�kl</acteur>
+		<acteur id="1362893">Petr Jekl</acteur>
 		<personnage>Kolya</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BNzY5MTkwNzg0MF5BMl5BanBnXkFtZTcwMDQ0OTA0MQ@@._V1._SX100_SY130_.jpg</poster>
@@ -38052,7 +38052,7 @@
 		<personnage>Pebbles</personnage>
 	</role>
 	<role>
-		<acteur id="797599">Hlynur Sigur�sson</acteur>
+		<acteur id="797599">Hlynur Siguresson</acteur>
 		<personnage>Bamm-Bamm</personnage>
 	</role>
 	<poster>http://ia.media-imdb.com/images/M/MV5BMTcxMTY0NjIxM15BMl5BanBnXkFtZTcwODIxODAzMQ@@._V1._SX96_SY140_.jpg</poster>
@@ -38172,13 +38172,13 @@
 	<genre>Thriller</genre>
 	<realisateur id="1081">Cameron Crowe</realisateur>
 	<scenariste>Mateo Gil</scenariste>
-	<scenariste>Alejandro Amen�bar</scenariste>
+	<scenariste>Alejandro Amenebar</scenariste>
 	<role>
 		<acteur id="129">Tom Cruise</acteur>
 		<personnage>David Aames</personnage>
 	</role>
 	<role>
-		<acteur id="4851">Pen�lope Cruz</acteur>
+		<acteur id="4851">Penelope Cruz</acteur>
 		<personnage>Sofia Serrano</personnage>
 	</role>
 	<role>
@@ -39039,7 +39039,7 @@
 	<genre>Romance</genre>
 	<genre>Thriller</genre>
 	<realisateur id="116">James Cameron</realisateur>
-	<scenariste>Simon Micha�l</scenariste>
+	<scenariste>Simon Michael</scenariste>
 	<scenariste>Claude Zidi</scenariste>
 	<role>
 		<acteur id="216">Arnold Schwarzenegger</acteur>
@@ -39161,7 +39161,7 @@
 </film>
 
 <film id="910970">
-	<titre>WALL�E</titre>
+	<titre>WALLeE</titre>
 	<annee>2008</annee>
 	<pays>USA</pays>
 	<langue>English</langue>
@@ -39177,7 +39177,7 @@
 	<scenariste>Andrew Stanton</scenariste>
 	<role>
 		<acteur id="123785">Ben Burtt</acteur>
-		<personnage>WALL�E</personnage>
+		<personnage>WALLeE</personnage>
 	</role>
 	<role>
 		<acteur id="2264184">Elissa Knight</acteur>
