@@ -62,7 +62,7 @@ public class XmlParser {
 
             System.out.println(films.get(0).roles.get(0).personnage);
 
-            System.out.println(films.get(0).realisateurs.get(0).idPersonne);
+            System.out.println(films.get(0).realisateur.idPersonne);
             // Les infos suivantes ne sont pas importantes, elles se retrouvent déjà dans
             // "personnes"
             // System.out.println(films.get(0).realisateurs.get(0).nom);
@@ -190,11 +190,12 @@ public class XmlParser {
             f.resume = XmlParser.getTagText(e, "resume");
 
             NodeList nGenres = e.getElementsByTagName("genre");
-            NodeList nRealisateurs = e.getElementsByTagName("realisateur");
+            Node nRealisateur = e.getElementsByTagName("realisateur").item(0);
+            Element eRealisateur = (Element) nRealisateur;
             NodeList nRoles = e.getElementsByTagName("role");
 
             f.genres = XmlParser.readGenres(nGenres);
-            f.realisateurs = XmlParser.readRealisateurs(nRealisateurs);
+            f.realisateur.idPersonne = Integer.parseInt(eRealisateur.getAttribute("id"));
             f.roles = XmlParser.readRoles(nRoles);
 
             f.lienAffiche = XmlParser.getTagText(e, "poster");

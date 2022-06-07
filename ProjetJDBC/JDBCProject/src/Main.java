@@ -136,7 +136,7 @@ public class Main {
                     statement.setString(3, client.carteCredit.anneeExpiration);
                     statement.setString(4, client.carteCredit.moisExpiration);
                     statement.setInt(5, 000);
-                    statement.setString(6, client.prenom + ' ' + client.nom );
+                    statement.setString(6, client.prenom + ' ' + client.nom);
                     statement.setInt(7, client.idClient);
                     statement.addBatch();
                 } catch (SQLException e) {
@@ -166,7 +166,7 @@ public class Main {
 
             personnes.forEach(personne -> {
                 try {
-                    statement.setInt(1, personne.idPersonne );
+                    statement.setInt(1, personne.idPersonne);
                     statement.setString(2, personne.nom);
                     statement.setString(3, personne.dateNaissance);
                     statement.setString(4, personne.lieuNaissance);
@@ -186,17 +186,18 @@ public class Main {
 
     private static void insertFilms(Connection connection, List<Film> films) {
         try {
-            String sql = "INSERT INTO films (code_film, titre, annee, langue, resume_film, affiche) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO films (code_film, titre, annee, langue, resume_film, affiche, realisateur) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             films.forEach(film -> {
                 try {
-                    statement.setInt(1, film.codeFilm );
+                    statement.setInt(1, film.codeFilm);
                     statement.setString(2, film.titre);
                     statement.setInt(3, film.annee);
                     statement.setString(4, film.langue);
                     statement.setString(5, film.resume);
                     statement.setString(6, film.lienAffiche);
+                    statement.setInt(7, film.realisateur.idPersonne);
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -210,10 +211,6 @@ public class Main {
     }
 
     private static void insertRoles(Connection connection, List<Film> films) {
-
-    }
-
-    private static void insertRealisateurs(Connection connection, List<Film> films) {
 
     }
 
@@ -244,7 +241,7 @@ public class Main {
 
             pays.forEach(unPays -> {
                 try {
-                    statement.setString(1, unPays.substring(0, 3) );
+                    statement.setString(1, unPays.substring(0, 3));
                     statement.setString(2, unPays);
                     statement.addBatch();
                 } catch (SQLException e) {
