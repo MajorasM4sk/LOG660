@@ -90,9 +90,9 @@ public class XmlParser {
     }
 
     public static Videotheque fetchData() {
-        Document docClients = XmlParser.getDocFromFileName("./Donnees/db_latin1/clients_latin1.xml");
-        Document docFilms = XmlParser.getDocFromFileName("./Donnees/db_latin1/films_latin1.xml");
-        Document docPersonnes = XmlParser.getDocFromFileName("./Donnees/db_latin1/personnes_latin1.xml");
+        Document docClients = XmlParser.getDocFromFileName("../../Donnees/db_latin1/clients_latin1.xml");
+        Document docFilms = XmlParser.getDocFromFileName("../../Donnees/db_latin1/films_latin1.xml");
+        Document docPersonnes = XmlParser.getDocFromFileName("../../Donnees/db_latin1/personnes_latin1.xml");
 
         NodeList nClients = docClients.getElementsByTagName("client");
         NodeList nFilms = docFilms.getElementsByTagName("film");
@@ -195,7 +195,9 @@ public class XmlParser {
             NodeList nRoles = e.getElementsByTagName("role");
 
             f.genres = XmlParser.readGenres(nGenres);
-            f.realisateur.idPersonne = Integer.parseInt(eRealisateur.getAttribute("id"));
+            if (eRealisateur != null) {
+                f.realisateur.idPersonne = Integer.parseInt(eRealisateur.getAttribute("id"));
+            }
             f.roles = XmlParser.readRoles(nRoles);
 
             f.lienAffiche = XmlParser.getTagText(e, "poster");

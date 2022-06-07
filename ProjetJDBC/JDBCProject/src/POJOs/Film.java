@@ -13,7 +13,7 @@ public class Film {
     public String lienAffiche;
     // public List<String> bandeAnnonce = new LinkedList<String>();
     public List<Role> roles = new LinkedList<Role>();
-    public Personne realisateur;
+    public Personne realisateur = new Personne();
     public List<Genre> genres = new LinkedList<Genre>();
     public List<Pays> pays = new LinkedList<Pays>();
 }

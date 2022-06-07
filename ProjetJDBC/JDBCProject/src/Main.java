@@ -15,53 +15,51 @@ public class Main {
 
                 Videotheque videotheque = XmlParser.fetchData();
 
-                System.out.println("Insertion des clients...");
-                insertClients(connection, videotheque.clients);
-
-                System.out.println("Insertion des cartes de crédit...");
-                insertCartesCredit(connection, videotheque.clients);
-
                 System.out.println("Insertion des types de forfait...");
                 insertForfaits(connection);
 
-                System.out.println("Insertion des forfaits clients...");
-                insertForfaitsClients(connection, videotheque.clients);
+                System.out.println("Insertion des clients...");
+                insertClients(connection, videotheque.clients);
 
-                System.out.println("Insertion des personnes...");
-                insertPersonnes(connection, videotheque.personnes);
+                // System.out.println("Insertion des cartes de crédit...");
+                // insertCartesCredit(connection, videotheque.clients);
 
-                System.out.println("Insertion des films...");
-                insertFilms(connection, videotheque.films);
+                // System.out.println("Insertion des forfaits clients...");
+                // insertForfaitsClients(connection, videotheque.clients);
 
-                System.out.println("Insertion des roles des acteurs...");
-                insertRoles(connection, videotheque.films);
+                // System.out.println("Insertion des personnes...");
+                // insertPersonnes(connection, videotheque.personnes);
 
-                System.out.println("Insertion des réalisateurs...");
-                insertRealisateurs(connection, videotheque.films);
+                // System.out.println("Insertion des films...");
+                // insertFilms(connection, videotheque.films);
 
-                System.out.println("Détection des genres...");
-                List<String> genres = listerGenres(videotheque.films);
+                // System.out.println("Insertion des roles des acteurs...");
+                // insertRoles(connection, videotheque.films);
 
-                System.out.println("Insertion des genres...");
-                insertGenres(connection, genres);
+                // System.out.println("Détection des genres...");
+                // List<String> genres = listerGenres(videotheque.films);
 
-                System.out.println("Insertion des liaisons film-genre...");
-                insertGenresFilms(connection, videotheque.films);
+                // System.out.println("Insertion des genres...");
+                // insertGenres(connection, genres);
 
-                System.out.println("Détection des pays...");
-                List<String> pays = listerPays(videotheque.films);
+                // System.out.println("Insertion des liaisons film-genre...");
+                // insertGenresFilms(connection, videotheque.films);
 
-                System.out.println("Insertion des pays...");
-                insertPays(connection, pays);
+                // System.out.println("Détection des pays...");
+                // List<String> pays = listerPays(videotheque.films);
 
-                System.out.println("Insertion des liaisons film-pays...");
-                insertPaysFilms(connection, videotheque.films);
+                // System.out.println("Insertion des pays...");
+                // insertPays(connection, pays);
 
-                System.out.println("Insertion d'employés bidons...");
-                insertEmployes(connection);
+                // System.out.println("Insertion des liaisons film-pays...");
+                // insertPaysFilms(connection, videotheque.films);
 
-                System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
-                insertCopies(connection, videotheque.films);
+                // System.out.println("Insertion d'employés bidons...");
+                // insertEmployes(connection);
+
+                // System.out.println("Insertion des copies de film aléatoirement pour chaque
+                // film (1-100)...");
+                // insertCopies(connection, videotheque.films);
 
                 // exemple de prepared statement avec batch
                 /*
@@ -107,7 +105,7 @@ public class Main {
                     statement.setInt(1, client.idClient);
                     statement.setString(2, client.courriel);
                     statement.setString(3, client.motDePasse);
-                    statement.setString(4, client.telephone);
+                    statement.setString(4, client.telephone.replaceAll("-", ""));
                     statement.setString(5, client.nom);
                     statement.setString(6, client.prenom);
                     statement.setString(7, client.dateNaissance);
@@ -151,8 +149,49 @@ public class Main {
     }
 
     private static void insertForfaits(Connection connection) {
-        // voir le pdf d'énoncé du tp pour les types de forfaits (le tableau en haut du
-        // document)
+        Forfait debutant = new Forfait();
+        Forfait intermediaire = new Forfait();
+        Forfait avance = new Forfait();
+        debutant.codeForfait = "D";
+        debutant.typeForfait = "Débutant";
+        debutant.cout = 5;
+        debutant.locationMax = 1;
+        debutant.duree = 10;
+        intermediaire.codeForfait = "I";
+        intermediaire.typeForfait = "Intermédiaire";
+        intermediaire.cout = 10;
+        intermediaire.locationMax = 5;
+        intermediaire.duree = 30;
+        avance.codeForfait = "A";
+        avance.typeForfait = "Avancé";
+        avance.cout = 15;
+        avance.locationMax = 10;
+        avance.duree = 10000000;
+        List<Forfait> forfaits = new LinkedList<Forfait>();
+        forfaits.add(debutant);
+        forfaits.add(intermediaire);
+        forfaits.add(avance);
+        try {
+            String sql = "INSERT INTO type_forfait (code_forfait, type_forfait, cout, location_max, duree) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            forfaits.forEach(forfait -> {
+                try {
+                    statement.setString(1, forfait.codeForfait);
+                    statement.setString(2, forfait.typeForfait);
+                    statement.setInt(3, forfait.cout);
+                    statement.setInt(4, forfait.locationMax);
+                    statement.setInt(5, forfait.duree);
+                    statement.addBatch();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void insertForfaitsClients(Connection connection, List<Client> clients) {

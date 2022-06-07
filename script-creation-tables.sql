@@ -15,10 +15,10 @@ drop table type_forfait;
 
 create table type_forfait(
     code_forfait char(1) not null primary key,
-    type_forfait varchar2(15) not null,
+    type_forfait varchar2(20) not null,
     cout number(2) not null,
     location_max number(2) not null,
-    duree number(2) not null
+    duree integer not null
 );
 
 create table t_client(
@@ -78,7 +78,7 @@ create table film(
     langue varchar2(25) not null,
     resume_film varchar2(500) not null,
     affiche varchar2(100) not null,
-    realisateur integer not null,
+    realisateur integer,
     constraint fk_film_realisateur FOREIGN KEY (realisateur) REFERENCES personne (id_personne)
 );
 
