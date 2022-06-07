@@ -50,7 +50,7 @@ create table carte_credit(
 create table personne (
     id_personne integer not null primary key,
     nom varchar2(50) not null,
-    date_naissance varchar2(50) not null,
+    date_naissance date not null,
     lieu_naissance varchar2(50) not null,
     photo varchar2(100) not null,
     biographie CLOB not null
