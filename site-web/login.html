@@ -1,0 +1,31 @@
+<head>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="global.js"></script>
+</head>
+<body>
+    <form id="login-form" onsubmit="return submit(event)">
+        <input id="email" onkeypress="submitOnEnter()" name="email" />
+        <input id="password" onkeypress="submitOnEnter()" keypress="" type="password" name="password" />
+        
+    </form>
+    <button type="button" onclick="submit()">Se connecter</button>
+    <script>
+        var email = $('#email')
+        var password = $('#password')
+        function submit(event) {
+            $.post(ENDPOINT_URL + '/login', {email:email.val(), password:password.val()}, function(response) {
+                console.log(response)
+                if (response === true) {
+                    window.location.href = window.location.href.replace('login', 'films')
+                }
+            })
+            return false
+        }
+
+        function submitOnEnter() {
+            if (event.keyCode == 13) {
+                submit()
+            }
+        }
+    </script>
+</body>
