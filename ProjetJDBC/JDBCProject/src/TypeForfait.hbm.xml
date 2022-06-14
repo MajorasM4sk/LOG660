@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="POJOs.TypeForfait" table="TYPE_FORFAIT" schema="EQUIPE112">
+        <id name="codeForfait" column="CODE_FORFAIT"/>
+        <property name="typeForfait" column="TYPE_FORFAIT"/>
+        <property name="cout" column="COUT"/>
+        <property name="locationMax" column="LOCATION_MAX"/>
+        <property name="duree" column="DUREE"/>
+    </class>
+</hibernate-mapping>

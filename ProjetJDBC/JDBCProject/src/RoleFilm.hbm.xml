@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="POJOs.RoleFilm" table="ROLE_FILM" schema="EQUIPE112">
+        <composite-id mapped="true" class="POJOs.RoleFilmPK">
+            <key-property name="personnage" column="PERSONNAGE"/>
+            <key-property name="idPersonne" column="ID_PERSONNE"/>
+            <key-property name="codeFilm" column="CODE_FILM"/>
+        </composite-id>
+    </class>
+</hibernate-mapping>

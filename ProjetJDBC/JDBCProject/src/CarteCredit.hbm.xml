@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="POJOs.CarteCredit" table="CARTE_CREDIT" schema="EQUIPE112">
+        <id name="noCarte" column="NO_CARTE"/>
+        <property name="typeCarte" column="TYPE_CARTE"/>
+        <property name="anneeExpiration" column="ANNEE_EXPIRATION"/>
+        <property name="moisExpiration" column="MOIS_EXPIRATION"/>
+        <property name="cvv" column="CVV"/>
+        <property name="nomProprio" column="NOM_PROPRIO"/>
+        <property name="idClient" column="ID_CLIENT"/>
+    </class>
+</hibernate-mapping>

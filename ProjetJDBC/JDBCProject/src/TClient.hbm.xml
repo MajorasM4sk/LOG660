@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="POJOs.TClient" table="T_CLIENT" schema="EQUIPE112">
+        <id name="idClient" column="ID_CLIENT"/>
+        <property name="courriel" column="COURRIEL"/>
+        <property name="motDePasse" column="MOT_DE_PASSE"/>
+        <property name="telephone" column="TELEPHONE"/>
+        <property name="nom" column="NOM"/>
+        <property name="prenom" column="PRENOM"/>
+        <property name="dateNaissance" column="DATE_NAISSANCE"/>
+        <property name="codeForfait" column="CODE_FORFAIT"/>
+    </class>
+</hibernate-mapping>

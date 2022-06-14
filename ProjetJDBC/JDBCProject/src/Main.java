@@ -1,5 +1,9 @@
 import POJOs.*;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
+import javax.management.Query;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -9,6 +13,8 @@ import java.util.Random;
 public class Main {
     public static void main(String argv[]) {
         String url = "jdbc:oracle:thin:EQUIPE112/C66VmkzD@log660ora12c.logti.etsmtl.ca:1521:LOG660";
+        Session sessionHome = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
         try {
             Connection connection = DriverManager.getConnection(url);
             if (connection != null) {
@@ -90,9 +96,21 @@ public class Main {
 
                 connection.commit();
                 connection.close();
+
+                // Hibernate Test
+                /*transaction = sessionHome.beginTransaction();
+                String hql = "FROM Film";
+                Query query = (Query) sessionHome.createQuery(hql);
+                List results = query.list();
+                transaction.commit();*/
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            sessionHome.close();
         }
     }
 
@@ -130,8 +148,8 @@ public class Main {
 
             clients.forEach(client -> {
                 try {
-                    statement.setString(1, client.carteCredit.noCarte.replaceAll(" ", ""));
-                    statement.setString(2, client.carteCredit.typeCarte);
+                    statement.setString(1, client.carteCredit.getNoCarte().replaceAll(" ", ""));
+                    statement.setString(2, client.carteCredit.getTypeCarte());
                     statement.setString(3, client.carteCredit.anneeExpiration);
                     statement.setString(4, client.carteCredit.moisExpiration);
                     statement.setString(5, "000");
@@ -203,11 +221,11 @@ public class Main {
             personnes.forEach(personne -> {
                 try {
                     statement.setInt(1, personne.idPersonne);
-                    statement.setString(2, personne.nom);
+                    statement.setString(2, personne.getNom());
                     statement.setString(3, personne.dateNaissance);
-                    statement.setString(4, personne.lieuNaissance);
-                    statement.setString(5, personne.photo);
-                    statement.setString(6, personne.biographie);
+                    statement.setString(4, personne.getLieuNaissance());
+                    statement.setString(5, personne.getPhoto());
+                    statement.setString(6, personne.getBiographie());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -228,9 +246,9 @@ public class Main {
             films.forEach(film -> {
                 try {
                     statement.setInt(1, film.codeFilm);
-                    statement.setString(2, film.titre);
+                    statement.setString(2, film.getTitre());
                     statement.setInt(3, film.annee);
-                    statement.setString(4, film.langue);
+                    statement.setString(4, film.getLangue());
                     statement.setString(5, film.resume);
                     statement.setString(6, film.lienAffiche);
                     statement.addBatch();
@@ -304,7 +322,7 @@ public class Main {
             film.genres.forEach(genreFilm -> {
                 boolean found = false;
                 for (int i = 0; i < genres.size(); i++) {
-                    if (genres.get(i).nom.equals(genreFilm.nom)) {
+                    if (genres.get(i).getNom().equals(genreFilm.getNom())) {
                         found = true;
                     }
                 }
@@ -324,7 +342,7 @@ public class Main {
             for (int i = 1; i < genres.size() + 1; i++) {
                 try {
                     statement.setInt(1, i);
-                    statement.setString(2, genres.get(i-1).nom);
+                    statement.setString(2, genres.get(i - 1).getNom());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -344,7 +362,7 @@ public class Main {
 
             films.forEach(film -> {
                 film.genres.forEach(genre -> {
-                    int genreId = getGenreId(genres, genre.nom);
+                    int genreId = getGenreId(genres, genre.getNom());
                     try {
                         statement.setInt(1, film.codeFilm);
                         statement.setInt(2, genreId);
@@ -363,7 +381,7 @@ public class Main {
 
     private static int getGenreId(List<Genre> genres, String genreName) {
         for (int i = 0; i < genres.size(); i++) {
-            if (genres.get(i).nom.equals(genreName)) {
+            if (genres.get(i).getNom().equals(genreName)) {
                 return i+1;
             }
         }
@@ -379,7 +397,7 @@ public class Main {
             film.pays.forEach(paysFilm -> {
                 boolean found = false;
                 for (int i = 0; i < pays.size(); i++) {
-                    if (pays.get(i).nom.equals(paysFilm.nom)) {
+                    if (pays.get(i).getNom().equals(paysFilm.getNom())) {
                         found = true;
                     }
                 }
@@ -399,7 +417,7 @@ public class Main {
             for (int i = 1; i < pays.size() + 1; i++) {
                 try {
                     statement.setInt(1, i);
-                    statement.setString(2, pays.get(i-1).nom);
+                    statement.setString(2, pays.get(i - 1).getNom());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -419,7 +437,7 @@ public class Main {
 
             films.forEach(film -> {
                 film.pays.forEach(pays -> {
-                    int paysId = getPaysId(paysList, pays.nom);
+                    int paysId = getPaysId(paysList, pays.getNom());
                     try {
                         statement.setInt(1, film.codeFilm);
                         statement.setInt(2, paysId);
@@ -438,7 +456,7 @@ public class Main {
 
     private static int getPaysId(List<Pays> pays, String paysName) {
         for (int i = 0; i < pays.size(); i++) {
-            if (pays.get(i).nom.equals(paysName)) {
+            if (pays.get(i).getNom().equals(paysName)) {
                 return i+1;
             }
         }

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="POJOs.LocationFilm" table="LOCATION_FILM" schema="EQUIPE112">
+        <composite-id mapped="true" class="POJOs.LocationFilmPK">
+            <key-property name="datePret" column="DATE_PRET"/>
+            <key-property name="idClient" column="ID_CLIENT"/>
+            <key-property name="noCopieFilm" column="NO_COPIE_FILM"/>
+        </composite-id>
+        <property name="dateRetour" column="DATE_RETOUR"/>
+    </class>
+</hibernate-mapping>
