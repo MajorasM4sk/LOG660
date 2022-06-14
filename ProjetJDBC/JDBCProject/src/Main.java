@@ -13,8 +13,22 @@ import java.util.Random;
 public class Main {
     public static void main(String argv[]) {
         String url = "jdbc:oracle:thin:EQUIPE112/C66VmkzD@log660ora12c.logti.etsmtl.ca:1521:LOG660";
-        Session sessionHome = HibernateUtil.getSessionFactory().openSession();
+       /* Session sessionHome = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
+
+        try {
+             //Hibernate Test
+                transaction = sessionHome.beginTransaction();
+                //Query query = (Query) sessionHome.createQuery("FROM FILM");
+                //List results = query.list();
+                transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            sessionHome.close();
+        }*/
+
         try {
             Connection connection = DriverManager.getConnection(url);
             if (connection != null) {
@@ -97,20 +111,10 @@ public class Main {
                 connection.commit();
                 connection.close();
 
-                // Hibernate Test
-                /*transaction = sessionHome.beginTransaction();
-                String hql = "FROM Film";
-                Query query = (Query) sessionHome.createQuery(hql);
-                List results = query.list();
-                transaction.commit();*/
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (HibernateException e) {
-            transaction.rollback();
-            e.printStackTrace();
-        } finally {
-            sessionHome.close();
         }
     }
 
