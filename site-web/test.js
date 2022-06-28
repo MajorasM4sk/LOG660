@@ -30,23 +30,20 @@ app.get('/films', function (req, res) {
 })
 
 app.get('/film/:code_film', function (req, res) {
-    console.log(req.params)
-    res.status(200).send([
-        {
-            code_film:1,
-            titre:'film1',
-            annee:1900,
-            pays:['Canada', 'États-Unis'],
-            langue:'C#',
-            duree:123,
-            genres:['Peur', 'Action'],
-            realisateur:'Real Lee Sator',
-            acteurs:['Aku Thor', 'Hak Theur'],
-            resume_film:'ouaip',
-            affiche:'http://a.html',
-            liens:['a', 'b', 'c']
-        },
-    ])
+    res.status(200).send({
+        code_film:1,
+        titre:'film1',
+        annee:1900,
+        pays:['Canada', 'États-Unis'],
+        langue:'C#',
+        duree:123,
+        genres:['Peur', 'Action'],
+        realisateur:'Real Lee Sator',
+        acteurs:{'Aku Thor':'Perce Honnage', 'Hak Theur':'Perseaux Nages'},
+        resume_film:'ouaip',
+        affiche:'https://via.placeholder.com/150',
+        liens:['a', 'b', 'c'],
+    })
 })
 
 app.listen(3000, function() {
