@@ -17,10 +17,15 @@ Recherche
     <button>Rechercher</button>
 </form>
 
-<ul>
-    <?php foreach ($films as $film) { ?>
-        <li>
-            <a href="film?code_film=<?=$film['code_film']?>"><?=$film['titre']?></a>
-        </li>
-    <?php } ?>
-</ul>
+<?php if (count($films) === 0) { ?>
+    Si aucun résultat n'apparait, modifiez les paramètres de recherche.
+<?php } else { ?>
+    Films :
+    <ul>
+        <?php foreach ($films as $film) { ?>
+            <li>
+                <a href="film?code_film=<?=$film['code_film']?>"><?=$film['titre']?></a>
+            </li>
+        <?php } ?>
+    </ul>
+<?php } ?>
