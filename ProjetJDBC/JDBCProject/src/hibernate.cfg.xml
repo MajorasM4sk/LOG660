@@ -30,10 +30,6 @@
         <mapping class="POJOs.RoleFilm"/>
         <mapping class="POJOs.TypeForfait"/>
         <mapping class="POJOs.TClient"/>
-        <mapping resource="BandeAnnonceFilm.hbm.xml"/>
-        <mapping resource="CarteCredit.hbm.xml"/>
-        <mapping resource="CopieFilm.hbm.xml"/>
-        <mapping resource="Employe.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

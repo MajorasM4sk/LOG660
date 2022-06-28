@@ -80,6 +80,7 @@ create table film(
     code_film integer not null primary key,
     titre varchar (200) not null,
     annee number(4),
+    duree number(3),
     langue varchar2(25),
     resume_film varchar2(500),
     affiche varchar2(400)

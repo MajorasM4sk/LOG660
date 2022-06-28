@@ -7,14 +7,19 @@ import java.util.Objects;
 @Entity
 @Table(name = "T_CLIENT", schema = "EQUIPE112", catalog = "")
 public class TClient {
-    public String adresse;
-    public String ville;
-    public String province;
-    public String codePostal;
     @Transient
     public Forfait forfait;
     @Transient
     public CarteCredit carteCredit;
+    @Basic
+    @Column(name = "ADRESSE", nullable = false, length = 250)
+    String adresse;
+    @Basic
+    @Column(name = "VILLE", nullable = false, length = 50)
+    String ville;
+    @Basic
+    @Column(name = "PROVINCE", nullable = false, length = 2)
+    String province;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_CLIENT", nullable = false, precision = 0)
@@ -40,8 +45,33 @@ public class TClient {
     @Basic
     @Column(name = "CODE_FORFAIT", nullable = true, length = 1)
     private String codeForfait;
+    @Basic
+    @Column(name = "CODEPOSTAL", nullable = false, length = 7)
+    private String codepostal;
 
+    public String getAdresse() {
+        return adresse;
+    }
 
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
     public Integer getIdClient() {
         return idClient;
@@ -118,5 +148,13 @@ public class TClient {
     @Override
     public int hashCode() {
         return Objects.hash(idClient, courriel, motDePasse, telephone, nom, prenom, dateNaissance, codeForfait);
+    }
+
+    public String getCodepostal() {
+        return codepostal;
+    }
+
+    public void setCodepostal(String codepostal) {
+        this.codepostal = codepostal;
     }
 }

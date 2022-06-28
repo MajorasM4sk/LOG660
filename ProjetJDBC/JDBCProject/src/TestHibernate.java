@@ -14,7 +14,7 @@ public class TestHibernate {
         try {
             // Hibernate Test
             transaction = sessionHome.beginTransaction();
-            Query query = sessionHome.createQuery("FROM TClient ");
+            Query query = sessionHome.createQuery("FROM CarteCredit ");
             List results = query.list();
 
             transaction.commit();

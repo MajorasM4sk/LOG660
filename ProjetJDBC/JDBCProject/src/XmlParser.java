@@ -148,10 +148,10 @@ public class XmlParser {
             c.setCourriel(XmlParser.getTagText(e, "courriel"));
             c.setTelephone(Integer.parseInt(XmlParser.getTagText(e, "tel")));
             c.setDateNaissance((Date) new SimpleDateFormat("yyyy/MM/dd").parse(XmlParser.getTagText(e, "anniversaire")));
-            c.adresse = XmlParser.getTagText(e, "adresse");
-            c.ville = XmlParser.getTagText(e, "ville");
-            c.province = XmlParser.getTagText(e, "province");
-            c.codePostal = XmlParser.getTagText(e, "code-postal");
+            c.setAdresse(XmlParser.getTagText(e, "adresse"));
+            c.setVille(XmlParser.getTagText(e, "ville"));
+            c.setProvince(XmlParser.getTagText(e, "province"));
+            c.setCodepostal(XmlParser.getTagText(e, "code-postal"));
             c.setMotDePasse(XmlParser.getTagText(e, "mot-de-passe"));
             Forfait forfait = new Forfait();
             forfait.codeForfait = XmlParser.getTagText(e, "forfait");
