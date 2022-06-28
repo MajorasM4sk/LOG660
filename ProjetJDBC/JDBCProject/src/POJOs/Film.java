@@ -10,8 +10,7 @@ import java.util.HashSet;
 @Entity
 public class Film {
     @Transient
-    public int duree;
-    // public List<String> bandeAnnonce = new LinkedList<String>();
+    public List<BandeAnnonceFilm> bandeAnnonce = new LinkedList<BandeAnnonceFilm>();
     @Transient
     public List<Role> roles = new LinkedList<Role>();
     @Transient
@@ -20,6 +19,11 @@ public class Film {
     public List<Genre> genres = new LinkedList<Genre>();
     @OneToMany
     public List<Pays> pays = new LinkedList<Pays>();
+    @Basic
+    @Transient
+    @Column(name = "DUREE", nullable = true, precision = 0)
+    public
+    int duree;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "CODE_FILM", nullable = false, precision = 0)
@@ -40,6 +44,14 @@ public class Film {
     @Basic
     @Column(name = "AFFICHE", nullable = true, length = 400)
     private String affiche;
+
+    public int getDuree() {
+        return duree;
+    }
+
+    public void setDuree(Byte duree) {
+        this.duree = duree;
+    }
 
     public BigInteger getCodeFilm() {
         return codeFilm;

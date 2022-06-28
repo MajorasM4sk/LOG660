@@ -146,7 +146,7 @@ public class XmlParser {
             c.setPrenom(XmlParser.getTagText(e, "prenom"));
             c.setNom(XmlParser.getTagText(e, "nom-famille"));
             c.setCourriel(XmlParser.getTagText(e, "courriel"));
-            c.setTelephone(Integer.parseInt(XmlParser.getTagText(e, "tel")));
+            c.setTelephone(Integer.parseInt(XmlParser.getTagText(e, "tel").replace("-", "")));
             c.setDateNaissance((Date) new SimpleDateFormat("yyyy/MM/dd").parse(XmlParser.getTagText(e, "anniversaire")));
             c.setAdresse(XmlParser.getTagText(e, "adresse"));
             c.setVille(XmlParser.getTagText(e, "ville"));
