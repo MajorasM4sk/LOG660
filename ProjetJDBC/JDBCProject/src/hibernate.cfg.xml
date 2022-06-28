@@ -11,5 +11,21 @@
         <property name="hibernate.connection.username">EQUIPE112</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
+
+        <mapping resource="BandeAnnonceFilm.hbm.xml"/>
+        <mapping resource="CarteCredit.hbm.xml"/>
+        <mapping resource="CopieFilm.hbm.xml"/>
+        <mapping resource="Employe.hbm.xml"/>
+        <mapping resource="Film.hbm.xml"/>
+        <mapping resource="Genre.hbm.xml"/>
+        <mapping resource="GenreFilm.hbm.xml"/>
+        <mapping resource="LocationFilm.hbm.xml"/>
+        <mapping resource="Pays.hbm.xml"/>
+        <mapping resource="PaysFilm.hbm.xml"/>
+        <mapping resource="Personne.hbm.xml"/>
+        <mapping resource="RealisateurFilm.hbm.xml"/>
+        <mapping resource="RoleFilm.hbm.xml"/>
+        <mapping resource="TClient.hbm.xml"/>
+        <mapping resource="TypeForfait.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
