@@ -6,8 +6,12 @@
 
     <class name="POJOs.BandeAnnonceFilm" table="BANDE_ANNONCE_FILM" schema="EQUIPE112">
         <composite-id mapped="true" class="POJOs.BandeAnnonceFilmPK">
-            <key-property name="lienBandeAnnonce" column="LIEN_BANDE_ANNONCE"/>
-            <key-property name="codeFilm" column="CODE_FILM"/>
+            <key-property name="lienBandeAnnonce">
+                <column name="LIEN_BANDE_ANNONCE" sql-type="varchar2(50)" length="50"/>
+            </key-property>
+            <key-property name="codeFilm">
+                <column name="CODE_FILM" sql-type="number(*)" precision="2147483646"/>
+            </key-property>
         </composite-id>
     </class>
 </hibernate-mapping>

@@ -1,13 +1,27 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Objects;
 
+@Entity
+@Table(name = "TYPE_FORFAIT", schema = "EQUIPE112", catalog = "")
 public class TypeForfait {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "CODE_FORFAIT", nullable = false, length = 1)
     private String codeForfait;
+    @Basic
+    @Column(name = "TYPE_FORFAIT", nullable = false, length = 20)
     private String typeForfait;
+    @Basic
+    @Column(name = "COUT", nullable = false, precision = 0)
     private Byte cout;
+    @Basic
+    @Column(name = "LOCATION_MAX", nullable = false, precision = 0)
     private Byte locationMax;
+    @Basic
+    @Column(name = "DUREE", nullable = false, precision = 0)
     private BigInteger duree;
 
     public String getCodeForfait() {

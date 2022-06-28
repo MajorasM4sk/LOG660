@@ -1,12 +1,27 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
+@Entity
+@Table(name = "LOCATION_FILM", schema = "EQUIPE112", catalog = "")
+@IdClass(LocationFilmPK.class)
 public class LocationFilm {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "DATE_PRET", nullable = false)
     private Date datePret;
+    @Basic
+    @Column(name = "DATE_RETOUR", nullable = true)
     private Date dateRetour;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID_CLIENT", nullable = false, precision = 0)
     private Integer idClient;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "NO_COPIE_FILM", nullable = false, precision = 0)
     private Integer noCopieFilm;
 
     public Date getDatePret() {

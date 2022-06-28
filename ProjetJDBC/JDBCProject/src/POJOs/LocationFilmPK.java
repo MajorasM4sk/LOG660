@@ -1,12 +1,25 @@
 package POJOs;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
 public class LocationFilmPK implements Serializable {
+    @Column(name = "DATE_PRET", nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Date datePret;
+    @Column(name = "ID_CLIENT", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
+    @Column(name = "NO_COPIE_FILM", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer noCopieFilm;
 
     public Date getDatePret() {

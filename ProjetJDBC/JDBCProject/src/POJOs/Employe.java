@@ -1,16 +1,35 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
+@Entity
 public class Employe {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "MATRICULE", nullable = false, precision = 0)
     private Integer matricule;
+    @Basic
+    @Column(name = "COURRIEL", nullable = false, length = 50)
     private String courriel;
+    @Basic
+    @Column(name = "MOT_DE_PASSE", nullable = false, length = 20)
     private String motDePasse;
+    @Basic
+    @Column(name = "TELEPHONE", nullable = false, precision = 0)
     private Integer telephone;
+    @Basic
+    @Column(name = "NOM", nullable = false, length = 25)
     private String nom;
+    @Basic
+    @Column(name = "PRENOM", nullable = false, length = 25)
     private String prenom;
+    @Basic
+    @Column(name = "ADRESSE_CIVIQUE", nullable = false, length = 50)
     private String adresseCivique;
+    @Basic
+    @Column(name = "DATE_NAISSANCE", nullable = false)
     private Date dateNaissance;
 
     public Integer getMatricule() {

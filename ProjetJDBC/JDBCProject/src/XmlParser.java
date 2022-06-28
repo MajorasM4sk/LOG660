@@ -62,7 +62,7 @@ public class XmlParser {
 
             System.out.println(films.get(0).roles.get(0).personnage);
 
-            System.out.println(films.get(0).realisateur.idPersonne);
+            System.out.println(films.get(0).realisateur.getIdPersonne());
             // Les infos suivantes ne sont pas importantes, elles se retrouvent déjà dans
             // "personnes"
             // System.out.println(films.get(0).realisateurs.get(0).nom);
@@ -165,8 +165,8 @@ public class XmlParser {
             Element eCarteCredit = (Element) e.getElementsByTagName("info-credit").item(0);
             carteCredit.setNoCarte(XmlParser.getTagText(eCarteCredit, "no"));
             carteCredit.setTypeCarte(XmlParser.getTagText(eCarteCredit, "carte"));
-            carteCredit.moisExpiration = XmlParser.getTagText(eCarteCredit, "exp-mois");
-            carteCredit.anneeExpiration = XmlParser.getTagText(eCarteCredit, "exp-annee");
+            carteCredit.setMoisExpiration(XmlParser.getTagText(eCarteCredit, "exp-mois"));
+            carteCredit.setAnneeExpiration(XmlParser.getTagText(eCarteCredit, "exp-annee"));
             c.carteCredit = carteCredit;
             clients.add(c);
         }
@@ -180,7 +180,7 @@ public class XmlParser {
             Film f = new Film();
             Element e = (Element) nFilm;
 
-            f.codeFilm = Integer.parseInt(e.getAttribute("id"));
+            f.setCodeFilm(Integer.parseInt(e.getAttribute("id")));
             f.setTitre(XmlParser.getTagText(e, "titre"));
             f.annee = Integer.parseInt(XmlParser.getTagText(e, "annee"));
             NodeList nPaysList = e.getElementsByTagName("pays");
@@ -196,7 +196,7 @@ public class XmlParser {
 
             f.genres = XmlParser.readGenres(nGenres);
             if (eRealisateur != null) {
-                f.realisateur.idPersonne = Integer.parseInt(eRealisateur.getAttribute("id"));
+                f.realisateur.setIdPersonne(Integer.parseInt(eRealisateur.getAttribute("id")));
             }
             f.roles = XmlParser.readRoles(nRoles);
 
@@ -240,7 +240,7 @@ public class XmlParser {
             Node nRealisateur = nRealisateurs.item(i);
             Element e = (Element) nRealisateur;
             Personne realisateur = new Personne();
-            realisateur.idPersonne = Integer.parseInt(e.getAttribute("id"));
+            realisateur.setIdPersonne(Integer.parseInt(e.getAttribute("id")));
             realisateur.setNom(nRealisateur.getTextContent());
             realisateurs.add(realisateur);
         }
@@ -255,7 +255,7 @@ public class XmlParser {
             Element eRole = (Element) nRole;
             Personne acteur = new Personne();
             Element eActeur = (Element) eRole.getElementsByTagName("acteur").item(0);
-            acteur.idPersonne = Integer.parseInt(eActeur.getAttribute("id"));
+            acteur.setIdPersonne(Integer.parseInt(eActeur.getAttribute("id")));
             role.personnage = XmlParser.getTagText(eRole, "personnage");
             role.acteur = acteur;
             roles.add(role);
@@ -269,15 +269,15 @@ public class XmlParser {
             Node nPersonne = nPersonnes.item(i);
             Element e = (Element) nPersonne;
             Personne personne = new Personne();
-            personne.idPersonne = Integer.parseInt(e.getAttribute("id"));
+            personne.setIdPersonne(Integer.parseInt(e.getAttribute("id")));
             personne.setNom(XmlParser.getTagText(e, "nom"));
             Element eNaissance = (Element) e.getElementsByTagName("naissance").item(0);
-            personne.dateNaissance = XmlParser.getTagText(eNaissance, "anniversaire");
+            personne.setDateNaissance(XmlParser.getTagText(eNaissance, "anniversaire"));
             personne.setLieuNaissance(XmlParser.getTagText(eNaissance, "lieu"));
             personne.setPhoto(XmlParser.getTagText(e, "photo"));
             personne.setBiographie(XmlParser.getTagText(e, "bio"));
             if (personne.getNom() == null) personne.setNom("");
-            if (personne.dateNaissance == null) personne.dateNaissance = "";
+            if (personne.getDateNaissance() == null) personne.setDateNaissance("");
             if (personne.getLieuNaissance() == null) personne.setLieuNaissance("");
             if (personne.getPhoto() == null) personne.setPhoto("");
             if (personne.getBiographie() == null) personne.setBiographie("");

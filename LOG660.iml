@@ -5,8 +5,10 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="a6a6a8ec-7bd3-497c-bf79-5501592d4596" />
+          <unit-entry name="hibernate.cfg.xml" value="a6a6a8ec-7bd3-497c-bf79-5501592d4596" />
         </datasource-map>
         <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/ProjetJDBC/JDBCProject/src/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>

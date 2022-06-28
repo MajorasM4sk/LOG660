@@ -1,32 +1,57 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.HashSet;
 
+@Entity
 public class Film {
     public int duree;
     public String resume;
     public String lienAffiche;
     // public List<String> bandeAnnonce = new LinkedList<String>();
+    @Transient
     public List<Role> roles = new LinkedList<Role>();
+    @Transient
     public Personne realisateur = new Personne();
+    @OneToMany
     public List<Genre> genres = new LinkedList<Genre>();
+    @OneToMany
     public List<Pays> pays = new LinkedList<Pays>();
-    public int codeFilm;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "CODE_FILM", nullable = false, precision = 0)
+    BigInteger codeFilm;
+    @Basic
+    @Column(name = "TITRE", nullable = false, length = 200)
     String titre;
-    public int annee;
+    @Basic
+    @Column(name = "ANNEE", nullable = true, precision = 0)
+    public
+    int annee;
+    @Basic
+    @Column(name = "LANGUE", nullable = true, length = 25)
     String langue;
+    @Basic
+    @Column(name = "RESUME_FILM", nullable = true, length = 500)
     private String resumeFilm;
+    @Basic
+    @Column(name = "AFFICHE", nullable = true, length = 400)
     private String affiche;
 
-    public int getCodeFilm() {
+    public BigInteger getCodeFilm() {
         return codeFilm;
     }
 
-    public void setCodeFilm(int codeFilm) {
+    public void setCodeFilm(BigInteger codeFilm) {
         this.codeFilm = codeFilm;
+    }
+
+    public void setCodeFilm(int codeFilm) {
+        this.codeFilm = BigInteger.valueOf(codeFilm);
     }
 
     public String getTitre() {

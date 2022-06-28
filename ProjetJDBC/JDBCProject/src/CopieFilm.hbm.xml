@@ -5,7 +5,11 @@
 <hibernate-mapping>
 
     <class name="POJOs.CopieFilm" table="COPIE_FILM" schema="EQUIPE112">
-        <id name="noCopieFilm" column="NO_COPIE_FILM"/>
-        <property name="codeFilm" column="CODE_FILM"/>
+        <id name="noCopieFilm">
+            <column name="NO_COPIE_FILM" sql-type="number(7)" precision="7"/>
+        </id>
+        <property name="codeFilm">
+            <column name="CODE_FILM" sql-type="number(*)" precision="2147483646"/>
+        </property>
     </class>
 </hibernate-mapping>

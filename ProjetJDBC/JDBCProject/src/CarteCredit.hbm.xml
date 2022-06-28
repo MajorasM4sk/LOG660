@@ -5,12 +5,26 @@
 <hibernate-mapping>
 
     <class name="POJOs.CarteCredit" table="CARTE_CREDIT" schema="EQUIPE112">
-        <id name="noCarte" column="NO_CARTE"/>
-        <property name="typeCarte" column="TYPE_CARTE"/>
-        <property name="anneeExpiration" column="ANNEE_EXPIRATION"/>
-        <property name="moisExpiration" column="MOIS_EXPIRATION"/>
-        <property name="cvv" column="CVV"/>
-        <property name="nomProprio" column="NOM_PROPRIO"/>
-        <property name="idClient" column="ID_CLIENT"/>
+        <id name="noCarte">
+            <column name="NO_CARTE" sql-type="char(16)" length="16"/>
+        </id>
+        <property name="typeCarte">
+            <column name="TYPE_CARTE" sql-type="varchar2(30)" length="30"/>
+        </property>
+        <property name="anneeExpiration">
+            <column name="ANNEE_EXPIRATION" sql-type="number(4)" precision="4"/>
+        </property>
+        <property name="moisExpiration">
+            <column name="MOIS_EXPIRATION" sql-type="number(2)" precision="2"/>
+        </property>
+        <property name="cvv">
+            <column name="CVV" sql-type="char(3)" length="3"/>
+        </property>
+        <property name="nomProprio">
+            <column name="NOM_PROPRIO" sql-type="varchar2(50)" length="50"/>
+        </property>
+        <property name="idClient">
+            <column name="ID_CLIENT" sql-type="number(7)" precision="7"/>
+        </property>
     </class>
 </hibernate-mapping>

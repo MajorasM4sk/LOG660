@@ -1,10 +1,18 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Objects;
 
+@Entity
+@Table(name = "COPIE_FILM", schema = "EQUIPE112", catalog = "")
 public class CopieFilm {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "NO_COPIE_FILM", nullable = false, precision = 0)
     private Integer noCopieFilm;
+    @Basic
+    @Column(name = "CODE_FILM", nullable = false, precision = 0)
     private BigInteger codeFilm;
 
     public Integer getNoCopieFilm() {

@@ -1,11 +1,18 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Objects;
 
+@Entity
 public class Genre {
     public String idGenre;
+    @Basic
+    @Column(name = "NOM", nullable = false, length = 25)
     String nom;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "NO_GENRE", nullable = false, precision = 0)
     private BigInteger noGenre;
 
     public String getNom() {

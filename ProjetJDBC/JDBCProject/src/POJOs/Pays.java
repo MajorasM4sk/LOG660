@@ -1,9 +1,16 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Pays {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "CODE_PAYS", nullable = false, length = 3)
     String codePays;
+    @Basic
+    @Column(name = "NOM", nullable = false, length = 60)
     String nom;
 
     public String getCodePays() {

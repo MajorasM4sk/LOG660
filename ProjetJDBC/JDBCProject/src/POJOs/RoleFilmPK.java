@@ -1,12 +1,25 @@
 package POJOs;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Objects;
 
 public class RoleFilmPK implements Serializable {
+    @Column(name = "PERSONNAGE", nullable = false, length = 200)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String personnage;
+    @Column(name = "ID_PERSONNE", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger idPersonne;
+    @Column(name = "CODE_FILM", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger codeFilm;
 
     public String getPersonnage() {

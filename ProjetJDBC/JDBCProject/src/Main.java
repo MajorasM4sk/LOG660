@@ -134,8 +134,8 @@ public class Main {
                 try {
                     statement.setString(1, client.carteCredit.getNoCarte().replaceAll(" ", ""));
                     statement.setString(2, client.carteCredit.getTypeCarte());
-                    statement.setString(3, client.carteCredit.anneeExpiration);
-                    statement.setString(4, client.carteCredit.moisExpiration);
+                    statement.setString(3, client.carteCredit.getAnneeExpiration());
+                    statement.setString(4, client.carteCredit.getMoisExpiration());
                     statement.setString(5, "000");
                     statement.setString(6, client.prenom + " " + client.nom);
                     statement.setInt(7, client.idClient);
@@ -204,9 +204,9 @@ public class Main {
 
             personnes.forEach(personne -> {
                 try {
-                    statement.setInt(1, personne.idPersonne);
+                    statement.setInt(1, personne.getIdPersonne().intValue());
                     statement.setString(2, personne.getNom());
-                    statement.setString(3, personne.dateNaissance);
+                    statement.setString(3, personne.getDateNaissance());
                     statement.setString(4, personne.getLieuNaissance());
                     statement.setString(5, personne.getPhoto());
                     statement.setString(6, personne.getBiographie());
@@ -229,9 +229,9 @@ public class Main {
 
             films.forEach(film -> {
                 try {
-                    statement.setInt(1, film.codeFilm);
+                    statement.setInt(1, film.getCodeFilm().intValue());
                     statement.setString(2, film.getTitre());
-                    statement.setInt(3, film.annee);
+                    statement.setInt(3, film.getAnnee());
                     statement.setString(4, film.getLangue());
                     statement.setString(5, film.resume);
                     statement.setString(6, film.lienAffiche);
@@ -253,10 +253,10 @@ public class Main {
             PreparedStatement statement = connection.prepareStatement(sql);
 
             films.forEach(film -> {
-                if (film.realisateur.idPersonne != 0) {
+                if (film.realisateur.getIdPersonne().intValue() != 0) {
                     try {
-                        statement.setInt(1, film.realisateur.idPersonne);
-                        statement.setInt(2, film.codeFilm);
+                        statement.setInt(1, film.realisateur.getIdPersonne().intValue());
+                        statement.setInt(2, film.getCodeFilm().intValue());
                         statement.addBatch();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -280,8 +280,8 @@ public class Main {
                 film.roles.forEach(role -> {
                     try {
                         statement.setString(1, role.personnage);
-                        statement.setInt(2, role.acteur.idPersonne);
-                        statement.setInt(3, film.codeFilm);
+                        statement.setInt(2, role.acteur.getIdPersonne().intValue());
+                        statement.setInt(3, film.getCodeFilm().intValue());
                         statement.addBatch();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -348,7 +348,7 @@ public class Main {
                 film.genres.forEach(genre -> {
                     int genreId = getGenreId(genres, genre.getNom());
                     try {
-                        statement.setInt(1, film.codeFilm);
+                        statement.setInt(1, film.getCodeFilm().intValue());
                         statement.setInt(2, genreId);
                         statement.addBatch();
                     } catch (SQLException e) {
@@ -423,7 +423,7 @@ public class Main {
                 film.pays.forEach(pays -> {
                     int paysId = getPaysId(paysList, pays.getNom());
                     try {
-                        statement.setInt(1, film.codeFilm);
+                        statement.setInt(1, film.getCodeFilm().intValue());
                         statement.setInt(2, paysId);
                         statement.addBatch();
                     } catch (SQLException e) {
@@ -459,7 +459,7 @@ public class Main {
                 for (int j = 0; j < nbCopies; j++) {
                     try {
                         statement.setInt(1, idCopie);
-                        statement.setInt(2, films.get(i).codeFilm);
+                        statement.setInt(2, films.get(i).getCodeFilm().intValue());
                         statement.addBatch();
                         idCopie++;
                     } catch (SQLException e) {

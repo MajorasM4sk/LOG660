@@ -1,23 +1,42 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.sql.Date;
 import java.util.Objects;
 
+@Entity
 public class Personne {
-    public int idPersonne;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID_PERSONNE", nullable = false, precision = 0)
+    BigInteger idPersonne;
+    @Basic
+    @Column(name = "NOM", nullable = false, length = 50)
     String nom = "";
-    public String dateNaissance = "";
+    @Basic
+    @Column(name = "DATE_NAISSANCE", nullable = true)
+    String dateNaissance = "";
+    @Basic
+    @Column(name = "LIEU_NAISSANCE", nullable = true, length = 200)
     String lieuNaissance = "";
+    @Basic
+    @Column(name = "PHOTO", nullable = true, length = 200)
     String photo = "";
+    @Basic
+    @Column(name = "BIOGRAPHIE", nullable = true)
     String biographie = "";
 
-    public int getIdPersonne() {
+    public BigInteger getIdPersonne() {
         return idPersonne;
     }
 
-    public void setIdPersonne(int idPersonne) {
+    public void setIdPersonne(BigInteger idPersonne) {
         this.idPersonne = idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = BigInteger.valueOf(idPersonne);
     }
 
     public String getNom() {
@@ -30,6 +49,10 @@ public class Personne {
 
     public String getDateNaissance() {
         return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = String.valueOf(dateNaissance);
     }
 
     public void setDateNaissance(String dateNaissance) {

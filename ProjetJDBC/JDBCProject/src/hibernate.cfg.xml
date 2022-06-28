@@ -5,27 +5,35 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
-        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
         <property name="hibernate.connection.password">C66VmkzD</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:EQUIPE112/C66VmkzD@log660ora12c.logti.etsmtl.ca:1521:LOG660</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@log660ora12c.logti.etsmtl.ca:1521:LOG660</property>
         <property name="hibernate.connection.username">EQUIPE112</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.ejb.metamodel.population">disabled</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
 
+        <mapping class="POJOs.Film"/>
+        <mapping class="POJOs.BandeAnnonceFilm"/>
+        <mapping class="POJOs.CarteCredit"/>
+        <mapping class="POJOs.CopieFilm"/>
+        <mapping class="POJOs.Employe"/>
+        <mapping class="POJOs.Genre"/>
+        <mapping class="POJOs.GenreFilm"/>
+        <mapping class="POJOs.LocationFilm"/>
+        <mapping class="POJOs.Pays"/>
+        <mapping class="POJOs.PaysFilm"/>
+        <mapping class="POJOs.Personne"/>
+        <mapping class="POJOs.RealisateurFilm"/>
+        <mapping class="POJOs.RoleFilm"/>
+        <mapping class="POJOs.TypeForfait"/>
+        <mapping class="POJOs.TClient"/>
         <mapping resource="BandeAnnonceFilm.hbm.xml"/>
         <mapping resource="CarteCredit.hbm.xml"/>
         <mapping resource="CopieFilm.hbm.xml"/>
         <mapping resource="Employe.hbm.xml"/>
-        <mapping resource="Film.hbm.xml"/>
-        <mapping resource="Genre.hbm.xml"/>
-        <mapping resource="GenreFilm.hbm.xml"/>
-        <mapping resource="LocationFilm.hbm.xml"/>
-        <mapping resource="Pays.hbm.xml"/>
-        <mapping resource="PaysFilm.hbm.xml"/>
-        <mapping resource="Personne.hbm.xml"/>
-        <mapping resource="RealisateurFilm.hbm.xml"/>
-        <mapping resource="RoleFilm.hbm.xml"/>
-        <mapping resource="TClient.hbm.xml"/>
-        <mapping resource="TypeForfait.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>

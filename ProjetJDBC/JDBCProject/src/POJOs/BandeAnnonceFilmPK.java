@@ -1,11 +1,21 @@
 package POJOs;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Objects;
 
 public class BandeAnnonceFilmPK implements Serializable {
+    @Column(name = "LIEN_BANDE_ANNONCE", nullable = false, length = 50)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String lienBandeAnnonce;
+    @Column(name = "CODE_FILM", nullable = false, precision = 0)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger codeFilm;
 
     public String getLienBandeAnnonce() {

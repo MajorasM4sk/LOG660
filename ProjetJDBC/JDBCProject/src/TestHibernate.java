@@ -1,8 +1,10 @@
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import javax.management.Query;
+import org.hibernate.Query;
+
 import java.util.List;
+
 
 public class TestHibernate {
     public static void main(String argv[]) {
@@ -12,7 +14,7 @@ public class TestHibernate {
         try {
             // Hibernate Test
             transaction = sessionHome.beginTransaction();
-            Query query = (Query) sessionHome.createQuery("FROM FILM");
+            Query query = sessionHome.createQuery("FROM Film ");
             List results = query.list();
             transaction.commit();
         } catch (HibernateException e) {

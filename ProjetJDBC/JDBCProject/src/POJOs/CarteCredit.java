@@ -1,14 +1,32 @@
 package POJOs;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "CARTE_CREDIT", schema = "EQUIPE112", catalog = "")
 public class CarteCredit {
+    @Basic
+    @Column(name = "TYPE_CARTE", nullable = false, length = 30)
     String typeCarte;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "NO_CARTE", nullable = false, length = 16)
     String noCarte;
-    public String moisExpiration;
-    public String anneeExpiration;
+    @Basic
+    @Column(name = "MOIS_EXPIRATION", nullable = false, precision = 0)
+    String moisExpiration;
+    @Basic
+    @Column(name = "ANNEE_EXPIRATION", nullable = false, precision = 0)
+    String anneeExpiration;
+    @Basic
+    @Column(name = "CVV", nullable = false, length = 3)
     private String cvv;
+    @Basic
+    @Column(name = "NOM_PROPRIO", nullable = false, length = 50)
     private String nomProprio;
+    @Basic
+    @Column(name = "ID_CLIENT", nullable = false, precision = 0)
     private Integer idClient;
 
     public String getTypeCarte() {
@@ -31,12 +49,20 @@ public class CarteCredit {
         return moisExpiration;
     }
 
+    public void setMoisExpiration(Byte moisExpiration) {
+        this.moisExpiration = String.valueOf(moisExpiration);
+    }
+
     public void setMoisExpiration(String moisExpiration) {
         this.moisExpiration = moisExpiration;
     }
 
     public String getAnneeExpiration() {
         return anneeExpiration;
+    }
+
+    public void setAnneeExpiration(Short anneeExpiration) {
+        this.anneeExpiration = String.valueOf(anneeExpiration);
     }
 
     public void setAnneeExpiration(String anneeExpiration) {
