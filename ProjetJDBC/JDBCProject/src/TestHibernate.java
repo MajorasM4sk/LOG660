@@ -14,8 +14,9 @@ public class TestHibernate {
         try {
             // Hibernate Test
             transaction = sessionHome.beginTransaction();
-            Query query = sessionHome.createQuery("FROM Film ");
+            Query query = sessionHome.createQuery("FROM TClient ");
             List results = query.list();
+
             transaction.commit();
         } catch (HibernateException e) {
             transaction.rollback();

@@ -1,21 +1,16 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
+import POJOs.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-
-import POJOs.CarteCredit;
-import POJOs.Client;
-import POJOs.Film;
-import POJOs.Forfait;
-import POJOs.Genre;
-import POJOs.Pays;
-import POJOs.Personne;
-import POJOs.Role;
-import POJOs.Videotheque;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,7 +27,7 @@ public class XmlParser {
             NodeList nFilms = docFilms.getElementsByTagName("film");
             NodeList nPersonnes = docPersonnes.getElementsByTagName("personne");
 
-            List<Client> clients = XmlParser.readClients(nClients);
+            List<TClient> clients = XmlParser.readClients(nClients);
             List<Film> films = XmlParser.readFilms(nFilms);
             List<Personne> personnes = XmlParser.readPersonnes(nPersonnes);
 //            System.out.println(clients.get(0).idClient);
@@ -89,7 +84,7 @@ public class XmlParser {
         }
     }
 
-    public static Videotheque fetchData() {
+    public static Videotheque fetchData() throws ParseException {
         Document docClients = XmlParser.getDocFromFileName("Donnees/db_latin1/clients_latin1.xml");
         Document docFilms = XmlParser.getDocFromFileName("Donnees/db_latin1/films_latin1.xml");
         Document docPersonnes = XmlParser.getDocFromFileName("Donnees/db_latin1/personnes_latin1.xml");
@@ -99,7 +94,7 @@ public class XmlParser {
         NodeList nPersonnes = docPersonnes.getElementsByTagName("personne");
 
         System.out.println("Début de la lecture des clients...");
-        List<Client> clients = XmlParser.readClients(nClients);
+        List<TClient> clients = XmlParser.readClients(nClients);
         System.out.println("Début de la lecture des films...");
         List<Film> films = XmlParser.readFilms(nFilms);
         System.out.println("Début de la lecture des personnes...");
@@ -141,23 +136,23 @@ public class XmlParser {
         }
     }
 
-    private static List<Client> readClients(NodeList nClients) {
-        List<Client> clients = new LinkedList<Client>();
+    private static List<TClient> readClients(NodeList nClients) throws ParseException {
+        List<TClient> clients = new LinkedList<TClient>();
         for (int i = 0; i < nClients.getLength(); i++) {
             Node nClient = nClients.item(i);
-            Client c = new Client();
+            TClient c = new TClient();
             Element e = (Element) nClient;
-            c.idClient = Integer.parseInt(e.getAttribute("id"));
-            c.prenom = XmlParser.getTagText(e, "prenom");
-            c.nom = XmlParser.getTagText(e, "nom-famille");
-            c.courriel = XmlParser.getTagText(e, "courriel");
-            c.telephone = XmlParser.getTagText(e, "tel");
-            c.dateNaissance = XmlParser.getTagText(e, "anniversaire");
+            c.setIdClient(Integer.parseInt(e.getAttribute("id")));
+            c.setPrenom(XmlParser.getTagText(e, "prenom"));
+            c.setNom(XmlParser.getTagText(e, "nom-famille"));
+            c.setCourriel(XmlParser.getTagText(e, "courriel"));
+            c.setTelephone(Integer.parseInt(XmlParser.getTagText(e, "tel")));
+            c.setDateNaissance((Date) new SimpleDateFormat("yyyy/MM/dd").parse(XmlParser.getTagText(e, "anniversaire")));
             c.adresse = XmlParser.getTagText(e, "adresse");
             c.ville = XmlParser.getTagText(e, "ville");
             c.province = XmlParser.getTagText(e, "province");
             c.codePostal = XmlParser.getTagText(e, "code-postal");
-            c.motDePasse = XmlParser.getTagText(e, "mot-de-passe");
+            c.setMotDePasse(XmlParser.getTagText(e, "mot-de-passe"));
             Forfait forfait = new Forfait();
             forfait.codeForfait = XmlParser.getTagText(e, "forfait");
             c.forfait = forfait;
@@ -187,7 +182,7 @@ public class XmlParser {
             f.pays = XmlParser.readPays(nPaysList);
             f.setLangue(XmlParser.getTagText(e, "langue"));
             f.duree = Integer.parseInt(XmlParser.getTagText(e, "duree"));
-            f.resume = XmlParser.getTagText(e, "resume");
+            f.setResumeFilm(XmlParser.getTagText(e, "resume"));
 
             NodeList nGenres = e.getElementsByTagName("genre");
             Node nRealisateur = e.getElementsByTagName("realisateur").item(0);
@@ -200,7 +195,7 @@ public class XmlParser {
             }
             f.roles = XmlParser.readRoles(nRoles);
 
-            f.lienAffiche = XmlParser.getTagText(e, "poster");
+            f.setAffiche(XmlParser.getTagText(e, "poster"));
             films.add(f);
         }
         return films;

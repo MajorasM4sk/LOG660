@@ -1,6 +1,7 @@
 import POJOs.*;
 
 import java.sql.*;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -95,24 +96,26 @@ public class Main {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    private static void insertClients(Connection connection, List<Client> clients) {
+    private static void insertClients(Connection connection, List<TClient> clients) {
         try {
             String sql = "INSERT INTO t_client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance, code_forfait) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             clients.forEach(client -> {
                 try {
-                    statement.setInt(1, client.idClient);
-                    statement.setString(2, client.courriel);
-                    statement.setString(3, client.motDePasse);
-                    statement.setString(4, client.telephone.replaceAll("-", ""));
-                    statement.setString(5, client.nom);
-                    statement.setString(6, client.prenom);
-                    statement.setString(7, client.dateNaissance);
-                    statement.setString(8, client.forfait.codeForfait);
+                    statement.setInt(1, client.getIdClient());
+                    statement.setString(2, client.getCourriel());
+                    statement.setString(3, client.getMotDePasse());
+                    statement.setString(4, client.getTelephone().toString().replaceAll("-", ""));
+                    statement.setString(5, client.getNom());
+                    statement.setString(6, client.getPrenom());
+                    statement.setString(7, client.getDateNaissance().toString());
+                    statement.setString(8, client.getCodeForfait());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -125,7 +128,7 @@ public class Main {
         }
     }
 
-    private static void insertCartesCredit(Connection connection, List<Client> clients) {
+    private static void insertCartesCredit(Connection connection, List<TClient> clients) {
         try {
             String sql = "INSERT INTO carte_credit (no_carte, type_carte, annee_expiration, mois_expiration, cvv, nom_proprio, id_client) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -137,8 +140,8 @@ public class Main {
                     statement.setString(3, client.carteCredit.getAnneeExpiration());
                     statement.setString(4, client.carteCredit.getMoisExpiration());
                     statement.setString(5, "000");
-                    statement.setString(6, client.prenom + " " + client.nom);
-                    statement.setInt(7, client.idClient);
+                    statement.setString(6, client.getPrenom() + " " + client.getNom());
+                    statement.setInt(7, client.getIdClient());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -233,8 +236,8 @@ public class Main {
                     statement.setString(2, film.getTitre());
                     statement.setInt(3, film.getAnnee());
                     statement.setString(4, film.getLangue());
-                    statement.setString(5, film.resume);
-                    statement.setString(6, film.lienAffiche);
+                    statement.setString(5, film.getResumeFilm());
+                    statement.setString(6, film.getAffiche());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();

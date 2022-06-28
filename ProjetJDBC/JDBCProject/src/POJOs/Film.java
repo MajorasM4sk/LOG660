@@ -9,9 +9,8 @@ import java.util.HashSet;
 
 @Entity
 public class Film {
+    @Transient
     public int duree;
-    public String resume;
-    public String lienAffiche;
     // public List<String> bandeAnnonce = new LinkedList<String>();
     @Transient
     public List<Role> roles = new LinkedList<Role>();

@@ -7,6 +7,14 @@ import java.util.Objects;
 @Entity
 @Table(name = "T_CLIENT", schema = "EQUIPE112", catalog = "")
 public class TClient {
+    public String adresse;
+    public String ville;
+    public String province;
+    public String codePostal;
+    @Transient
+    public Forfait forfait;
+    @Transient
+    public CarteCredit carteCredit;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_CLIENT", nullable = false, precision = 0)
@@ -32,6 +40,8 @@ public class TClient {
     @Basic
     @Column(name = "CODE_FORFAIT", nullable = true, length = 1)
     private String codeForfait;
+
+
 
     public Integer getIdClient() {
         return idClient;
