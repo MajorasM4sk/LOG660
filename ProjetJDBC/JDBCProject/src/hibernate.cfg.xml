@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.password">Q1fll9bp</property>
+        <property name="hibernate.connection.password">C66VmkzD</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:EQUIPE112/C66VmkzD@log660ora12c.logti.etsmtl.ca:1521:LOG660</property>
         <property name="hibernate.connection.username">EQUIPE112</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>

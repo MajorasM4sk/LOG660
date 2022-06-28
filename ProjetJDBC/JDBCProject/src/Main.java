@@ -1,9 +1,5 @@
 import POJOs.*;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import javax.management.Query;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,21 +9,6 @@ import java.util.Random;
 public class Main {
     public static void main(String argv[]) {
         String url = "jdbc:oracle:thin:EQUIPE112/C66VmkzD@log660ora12c.logti.etsmtl.ca:1521:LOG660";
-       Session sessionHome = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = null;
-
-        /*try {
-             //Hibernate Test
-                transaction = sessionHome.beginTransaction();
-                //Query query = (Query) sessionHome.createQuery("FROM FILM");
-                //List results = query.list();
-                transaction.commit();
-        } catch (HibernateException e) {
-            transaction.rollback();
-            e.printStackTrace();
-        } finally {
-            sessionHome.close();
-        }*/
 
         try {
             Connection connection = DriverManager.getConnection(url);
@@ -37,50 +18,50 @@ public class Main {
 
                 Videotheque videotheque = XmlParser.fetchData();
 
-                 System.out.println("Insertion des types de forfait...");
-                 insertForfaits(connection);
+                System.out.println("Insertion des types de forfait...");
+                insertForfaits(connection);
 
-                 System.out.println("Insertion des clients...");
-                 insertClients(connection, videotheque.clients);
+                System.out.println("Insertion des clients...");
+                insertClients(connection, videotheque.clients);
 
-                 System.out.println("Insertion des cartes de crédit...");
-                 insertCartesCredit(connection, videotheque.clients);
+                System.out.println("Insertion des cartes de crédit...");
+                insertCartesCredit(connection, videotheque.clients);
 
                 System.out.println("Insertion des personnes...");
                 insertPersonnes(connection, videotheque.personnes);
 
-                 System.out.println("Insertion des films...");
-                 insertFilms(connection, videotheque.films);
+                System.out.println("Insertion des films...");
+                insertFilms(connection, videotheque.films);
 
                 System.out.println("Insertion des réalisateurs...");
                 insertRealisateurs(connection, videotheque.films);
 
-                 System.out.println("Insertion des roles des acteurs...");
-                 insertRoles(connection, videotheque.films);
+                System.out.println("Insertion des roles des acteurs...");
+                insertRoles(connection, videotheque.films);
 
-                 System.out.println("Détection des genres...");
-                 List<Genre> genres = listerGenres(videotheque.films);
+                System.out.println("Détection des genres...");
+                List<Genre> genres = listerGenres(videotheque.films);
 
-                 System.out.println("Insertion des genres...");
-                 insertGenres(connection, genres);
+                System.out.println("Insertion des genres...");
+                insertGenres(connection, genres);
 
-                 System.out.println("Insertion des liaisons film-genre...");
-                 insertGenresFilms(connection, videotheque.films, genres);
+                System.out.println("Insertion des liaisons film-genre...");
+                insertGenresFilms(connection, videotheque.films, genres);
 
-                 System.out.println("Détection des pays...");
-                 List<Pays> pays = listerPays(videotheque.films);
+                System.out.println("Détection des pays...");
+                List<Pays> pays = listerPays(videotheque.films);
 
-                 System.out.println("Insertion des pays...");
-                 insertPays(connection, pays);
+                System.out.println("Insertion des pays...");
+                insertPays(connection, pays);
 
-                 System.out.println("Insertion des liaisons film-pays...");
-                 insertPaysFilms(connection, videotheque.films, pays);
+                System.out.println("Insertion des liaisons film-pays...");
+                insertPaysFilms(connection, videotheque.films, pays);
 
-//                 System.out.println("Insertion d'employés bidons...");
-//                 insertEmployes(connection);
+                // System.out.println("Insertion d'employés bidons...");
+                // insertEmployes(connection);
 
-                 System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
-                 insertCopies(connection, videotheque.films);
+                System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
+                insertCopies(connection, videotheque.films);
 
                 // exemple de prepared statement avec batch
                 /*
@@ -106,11 +87,10 @@ public class Main {
                  * statement.addBatch();
                  * 
                  * int[] count = statement.executeBatch();
-*/
+                 */
 
                 connection.commit();
                 connection.close();
-
 
             }
         } catch (SQLException e) {
@@ -320,9 +300,9 @@ public class Main {
         // doivent être uniques
         List<Genre> genres = new ArrayList<Genre>();
         films.forEach(film -> {
-            //ne se trouve pas dans la liste des genres?
-            //si oui ajouter
-            //si non continuer
+            // ne se trouve pas dans la liste des genres?
+            // si oui ajouter
+            // si non continuer
             film.genres.forEach(genreFilm -> {
                 boolean found = false;
                 for (int i = 0; i < genres.size(); i++) {
@@ -386,7 +366,7 @@ public class Main {
     private static int getGenreId(List<Genre> genres, String genreName) {
         for (int i = 0; i < genres.size(); i++) {
             if (genres.get(i).getNom().equals(genreName)) {
-                return i+1;
+                return i + 1;
             }
         }
         return -1;
@@ -395,9 +375,9 @@ public class Main {
     private static List<Pays> listerPays(List<Film> films) {
         List<Pays> pays = new ArrayList<Pays>();
         films.forEach(film -> {
-            //ne se trouve pas dans la liste des genres?
-            //si oui ajouter
-            //si non continuer
+            // ne se trouve pas dans la liste des genres?
+            // si oui ajouter
+            // si non continuer
             film.pays.forEach(paysFilm -> {
                 boolean found = false;
                 for (int i = 0; i < pays.size(); i++) {
@@ -461,7 +441,7 @@ public class Main {
     private static int getPaysId(List<Pays> pays, String paysName) {
         for (int i = 0; i < pays.size(); i++) {
             if (pays.get(i).getNom().equals(paysName)) {
-                return i+1;
+                return i + 1;
             }
         }
         return -1;
