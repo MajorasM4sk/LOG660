@@ -29,7 +29,7 @@ app.get('/films', function (req, res) {
     ])
 })
 
-app.get('/film/:code_film', function (req, res) {
+app.get('/films/:code_film', function (req, res) {
     res.status(200).send({
         code_film:1,
         titre:'film1',
@@ -44,6 +44,13 @@ app.get('/film/:code_film', function (req, res) {
         affiche:'https://via.placeholder.com/150',
         liens:['a', 'b', 'c'],
     })
+})
+
+app.post('films/:code_film/reserver', function (req, res) {
+    //si il reste des copies
+    res.status(200).send(true)
+    //sinon
+    //res.status(200).send(false)
 })
 
 app.listen(3000, function() {
