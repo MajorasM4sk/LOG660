@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($succes == 'true') {
         echo 'Location effectuée avec succès.';
+    } else if ($succes === 'forfait') {
+        echo 'Votre forfait ne vous permet pas d\'effectuer la location. Nombre maximal de copies louées atteintes.';
     } else {
         echo 'Il ne reste plus assez de copies.';
     }

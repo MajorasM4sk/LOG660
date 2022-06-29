@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <body>
     <form method="post">
-        <input id="email" name="email" />
-        <input id="password" type="password" name="password" />
+        Courriel : <input id="email" name="email" /><br />
+        Mot de passe : <input id="password" type="password" name="password" /><br/>
         <button>Se connecter</button>
     </form>
     </script>

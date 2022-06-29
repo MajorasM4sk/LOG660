@@ -48,9 +48,11 @@ app.get('/films/:code_film', function (req, res) {
 
 app.post('/films/:code_film/reserver', function (req, res) {
     //si il reste des copies
-    //res.status(200).send(true)
+    //res.status(200).send('true')
+    //sinon forfait permet pas
+    res.status(200).send('forfait')
     //sinon
-    res.status(200).send(false)
+    //res.status(200).send('false')
 })
 
 app.listen(3000, function() {
