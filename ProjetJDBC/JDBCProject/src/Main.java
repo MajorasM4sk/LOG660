@@ -2,6 +2,7 @@ import POJOs.*;
 
 import java.sql.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -103,7 +104,7 @@ public class Main {
 
     private static void insertClients(Connection connection, List<TClient> clients) {
         try {
-            String sql = "INSERT INTO t_client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance, code_forfait) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO t_client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance, code_forfait, adresse, codepostal, province, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             clients.forEach(client -> {
@@ -111,11 +112,15 @@ public class Main {
                     statement.setInt(1, client.getIdClient());
                     statement.setString(2, client.getCourriel());
                     statement.setString(3, client.getMotDePasse());
-                    statement.setString(4, client.getTelephone().toString().replaceAll("-", ""));
+                    statement.setString(4, client.getTelephone());
                     statement.setString(5, client.getNom());
                     statement.setString(6, client.getPrenom());
-                    statement.setString(7, client.getDateNaissance().toString());
+                    statement.setDate(7, client.getDateNaissance());
                     statement.setString(8, client.getCodeForfait());
+                    statement.setString(9, client.getAdresse());
+                    statement.setString(10, client.getCodepostal());
+                    statement.setString(11, client.getProvince());
+                    statement.setString(12, client.getVille());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -209,7 +214,7 @@ public class Main {
                 try {
                     statement.setInt(1, personne.getIdPersonne().intValue());
                     statement.setString(2, personne.getNom());
-                    statement.setString(3, personne.getDateNaissance());
+                    statement.setDate(3, personne.getDateNaissance());
                     statement.setString(4, personne.getLieuNaissance());
                     statement.setString(5, personne.getPhoto());
                     statement.setString(6, personne.getBiographie());

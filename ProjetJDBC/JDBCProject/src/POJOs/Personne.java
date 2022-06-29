@@ -16,7 +16,7 @@ public class Personne {
     String nom = "";
     @Basic
     @Column(name = "DATE_NAISSANCE", nullable = true)
-    String dateNaissance = "";
+    Date dateNaissance = new Date(0,0,0);
     @Basic
     @Column(name = "LIEU_NAISSANCE", nullable = true, length = 200)
     String lieuNaissance = "";
@@ -47,15 +47,11 @@ public class Personne {
         this.nom = nom;
     }
 
-    public String getDateNaissance() {
+    public Date getDateNaissance() {
         return dateNaissance;
     }
 
     public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = String.valueOf(dateNaissance);
-    }
-
-    public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 

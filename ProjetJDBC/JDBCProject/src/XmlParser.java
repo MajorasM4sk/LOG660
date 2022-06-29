@@ -146,8 +146,8 @@ public class XmlParser {
             c.setPrenom(XmlParser.getTagText(e, "prenom"));
             c.setNom(XmlParser.getTagText(e, "nom-famille"));
             c.setCourriel(XmlParser.getTagText(e, "courriel"));
-            c.setTelephone(Integer.parseInt(XmlParser.getTagText(e, "tel").replace("-", "")));
-            c.setDateNaissance((Date) new SimpleDateFormat("yyyy/MM/dd").parse(XmlParser.getTagText(e, "anniversaire")));
+            c.setTelephone(XmlParser.getTagText(e, "tel"));
+            c.setDateNaissance(Date.valueOf(XmlParser.getTagText(e, "anniversaire")));
             c.setAdresse(XmlParser.getTagText(e, "adresse"));
             c.setVille(XmlParser.getTagText(e, "ville"));
             c.setProvince(XmlParser.getTagText(e, "province"));
@@ -267,12 +267,12 @@ public class XmlParser {
             personne.setIdPersonne(Integer.parseInt(e.getAttribute("id")));
             personne.setNom(XmlParser.getTagText(e, "nom"));
             Element eNaissance = (Element) e.getElementsByTagName("naissance").item(0);
-            personne.setDateNaissance(XmlParser.getTagText(eNaissance, "anniversaire"));
+            personne.setDateNaissance(Date.valueOf(XmlParser.getTagText(eNaissance, "anniversaire")));
             personne.setLieuNaissance(XmlParser.getTagText(eNaissance, "lieu"));
             personne.setPhoto(XmlParser.getTagText(e, "photo"));
             personne.setBiographie(XmlParser.getTagText(e, "bio"));
             if (personne.getNom() == null) personne.setNom("");
-            if (personne.getDateNaissance() == null) personne.setDateNaissance("");
+            if (personne.getDateNaissance() == null) personne.setDateNaissance(new Date(0,0,0));
             if (personne.getLieuNaissance() == null) personne.setLieuNaissance("");
             if (personne.getPhoto() == null) personne.setPhoto("");
             if (personne.getBiographie() == null) personne.setBiographie("");

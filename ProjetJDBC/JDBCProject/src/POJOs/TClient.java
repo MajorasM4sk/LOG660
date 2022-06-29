@@ -31,8 +31,8 @@ public class TClient {
     @Column(name = "MOT_DE_PASSE", nullable = false, length = 20)
     private String motDePasse;
     @Basic
-    @Column(name = "TELEPHONE", nullable = false, precision = 0)
-    private Integer telephone;
+    @Column(name = "TELEPHONE", nullable = false, precision = 0, length = 12)
+    private String telephone;
     @Basic
     @Column(name = "NOM", nullable = false, length = 25)
     private String nom;
@@ -97,12 +97,16 @@ public class TClient {
         this.motDePasse = motDePasse;
     }
 
-    public Integer getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(Integer telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public void setTelephone(Integer telephone) {
+        this.telephone = String.valueOf(telephone);
     }
 
     public String getNom() {
