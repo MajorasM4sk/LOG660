@@ -267,12 +267,14 @@ public class XmlParser {
             personne.setIdPersonne(Integer.parseInt(e.getAttribute("id")));
             personne.setNom(XmlParser.getTagText(e, "nom"));
             Element eNaissance = (Element) e.getElementsByTagName("naissance").item(0);
-            personne.setDateNaissance(Date.valueOf(XmlParser.getTagText(eNaissance, "anniversaire")));
+            if(XmlParser.getTagText(eNaissance, "anniversaire") != "")
+                personne.setDateNaissance(Date.valueOf(XmlParser.getTagText(eNaissance, "anniversaire")));
+            else
+                personne.setDateNaissance(new Date(0,0,0));
             personne.setLieuNaissance(XmlParser.getTagText(eNaissance, "lieu"));
             personne.setPhoto(XmlParser.getTagText(e, "photo"));
             personne.setBiographie(XmlParser.getTagText(e, "bio"));
             if (personne.getNom() == null) personne.setNom("");
-            if (personne.getDateNaissance() == null) personne.setDateNaissance(new Date(0,0,0));
             if (personne.getLieuNaissance() == null) personne.setLieuNaissance("");
             if (personne.getPhoto() == null) personne.setPhoto("");
             if (personne.getBiographie() == null) personne.setBiographie("");

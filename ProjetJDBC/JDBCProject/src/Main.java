@@ -261,7 +261,7 @@ public class Main {
             PreparedStatement statement = connection.prepareStatement(sql);
 
             films.forEach(film -> {
-                if (film.realisateur.getIdPersonne().intValue() != 0) {
+                if (film.realisateur.getIdPersonne() != null) {
                     try {
                         statement.setInt(1, film.realisateur.getIdPersonne().intValue());
                         statement.setInt(2, film.getCodeFilm().intValue());
