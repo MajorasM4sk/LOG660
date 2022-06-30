@@ -30,7 +30,7 @@ create table t_client(
     province varchar2(2) not null,
     codePostal varchar2(7) not null,
     mot_de_passe varchar2(20) not null check (length(mot_de_passe) > 4),
-    telephone varchar2(12) not null,
+    telephone char(12) not null,
     nom varchar2(25) not null,
     prenom varchar2(25) not null,
     date_naissance date not null,
