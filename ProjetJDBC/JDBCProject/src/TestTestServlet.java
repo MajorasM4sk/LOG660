@@ -37,24 +37,25 @@ public class TestTestServlet {
                 ps.setString(2, password);
 
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()) System.out.println(true);
-                else System.out.println(false);
+                if (rs.next())
+                    System.out.println(true);
+                else
+                    System.out.println(false);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // Debug: afficher la trace d’erreur directement dans la page
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             System.out.println(sw.toString());
-        }
-        finally {
+        } finally {
             try {
                 // Liberer les connections et resources
-                if (ps != null) ps.close();
-                if (conn != null) conn.close();
-            }
-            catch (Exception lException) {
+                if (ps != null)
+                    ps.close();
+                if (conn != null)
+                    conn.close();
+            } catch (Exception lException) {
                 lException.printStackTrace();
             }
         }

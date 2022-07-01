@@ -22,12 +22,13 @@ public class TestServlet extends HttpServlet {
 
     // Methode doGet: on utilise l’implementation de doPost
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
 
     // Traitement de la requete:
     // On recoit une chaine de charactere
-    // On retourne un page HTML contenant le titre des films de la BD contenant cette chaine dans leur titre.
+    // On retourne un page HTML contenant le titre des films de la BD contenant
+    // cette chaine dans leur titre.
     public void doPost(HttpServletRequest requete, HttpServletResponse reponse) throws ServletException, IOException {
         // Specifier le type et l’encodage des donnees
         reponse.setContentType("text/html");
@@ -60,25 +61,24 @@ public class TestServlet extends HttpServlet {
 
                 ResultSet rs = ps.executeQuery();
                 rs.next();
-                if (rs.next()) out.println(true);
-                else out.println(false);
+                if (rs.next())
+                    out.println(true);
+                else
+                    out.println(false);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // Debug: afficher la trace d’erreur directement dans la page
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             out.println(sw.toString());
-        }
-        finally {
+        } finally {
             try {
                 // Liberer les connections et resources
                 out.close();
                 ps.close();
                 conn.close();
-            }
-            catch (Exception lException) {
+            } catch (Exception lException) {
                 lException.printStackTrace();
             }
         }
