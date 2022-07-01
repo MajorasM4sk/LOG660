@@ -16,5 +16,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="hibernate.core" level="project" />
+    <orderEntry type="library" name="guicedee.services.javax.servlet.api" level="project" />
   </component>
 </module>

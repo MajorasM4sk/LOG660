@@ -2,9 +2,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.Query;
-
 import java.util.List;
-
 
 public class TestHibernate {
     public static void main(String argv[]) {
