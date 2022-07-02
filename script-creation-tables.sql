@@ -25,8 +25,12 @@ create table type_forfait(
 create table t_client(
     id_client number(7) not null primary key,
     courriel varchar2(50) not null unique,
+    adresse varchar2(250) not null,
+    ville varchar2(50) not null,
+    province varchar2(2) not null,
+    codePostal varchar2(7) not null,
     mot_de_passe varchar2(20) not null check (length(mot_de_passe) > 4),
-    telephone number(10) not null,
+    telephone char(12) not null,
     nom varchar2(25) not null,
     prenom varchar2(25) not null,
     date_naissance date not null,
@@ -76,6 +80,7 @@ create table film(
     code_film integer not null primary key,
     titre varchar (200) not null,
     annee number(4),
+    duree number(3),
     langue varchar2(25),
     resume_film varchar2(500),
     affiche varchar2(400)
@@ -111,7 +116,7 @@ create table pays_film(
 );
 
 create table bande_annonce_film(
-    lien_bande_annonce varchar(50) not null,
+    lien_bande_annonce varchar(500) not null,
     code_film integer not null,
     constraint pk_bande_annonce_film primary key (lien_bande_annonce, code_film),
     constraint fk_bande_annonce_film_code_film FOREIGN key (code_film) REFERENCES film (code_film)

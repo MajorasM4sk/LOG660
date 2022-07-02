@@ -1,21 +1,16 @@
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
+import POJOs.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-
-import POJOs.CarteCredit;
-import POJOs.Client;
-import POJOs.Film;
-import POJOs.Forfait;
-import POJOs.Genre;
-import POJOs.Pays;
-import POJOs.Personne;
-import POJOs.Role;
-import POJOs.Videotheque;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,15 +19,15 @@ public class XmlParser {
 
     public static void main(String argv[]) {
         try {
-            Document docClients = XmlParser.getDocFromFileName("../../Donnees/db_latin1/clients_latin1.xml");
-            Document docFilms = XmlParser.getDocFromFileName("../../Donnees/db_latin1/films_latin1.xml");
-            Document docPersonnes = XmlParser.getDocFromFileName("../../Donnees/db_latin1/personnes_latin1.xml");
+            Document docClients = XmlParser.getDocFromFileName("Donnees/db_latin1/clients_latin1.xml");
+            Document docFilms = XmlParser.getDocFromFileName("Donnees/db_latin1/films_latin1.xml");
+            Document docPersonnes = XmlParser.getDocFromFileName("Donnees/db_latin1/personnes_latin1.xml");
 
             NodeList nClients = docClients.getElementsByTagName("client");
             NodeList nFilms = docFilms.getElementsByTagName("film");
             NodeList nPersonnes = docPersonnes.getElementsByTagName("personne");
 
-            List<Client> clients = XmlParser.readClients(nClients);
+            List<TClient> clients = XmlParser.readClients(nClients);
             List<Film> films = XmlParser.readFilms(nFilms);
             List<Personne> personnes = XmlParser.readPersonnes(nPersonnes);
 //            System.out.println(clients.get(0).idClient);
@@ -62,7 +57,7 @@ public class XmlParser {
 
             System.out.println(films.get(0).roles.get(0).personnage);
 
-            System.out.println(films.get(0).realisateur.idPersonne);
+            System.out.println(films.get(0).realisateur.getIdPersonne());
             // Les infos suivantes ne sont pas importantes, elles se retrouvent déjà dans
             // "personnes"
             // System.out.println(films.get(0).realisateurs.get(0).nom);
@@ -89,17 +84,17 @@ public class XmlParser {
         }
     }
 
-    public static Videotheque fetchData() {
-        Document docClients = XmlParser.getDocFromFileName("../../Donnees/db_latin1/clients_latin1.xml");
-        Document docFilms = XmlParser.getDocFromFileName("../../Donnees/db_latin1/films_latin1.xml");
-        Document docPersonnes = XmlParser.getDocFromFileName("../../Donnees/db_latin1/personnes_latin1.xml");
+    public static Videotheque fetchData() throws ParseException {
+        Document docClients = XmlParser.getDocFromFileName("Donnees/db_latin1/clients_latin1.xml");
+        Document docFilms = XmlParser.getDocFromFileName("Donnees/db_latin1/films_latin1.xml");
+        Document docPersonnes = XmlParser.getDocFromFileName("Donnees/db_latin1/personnes_latin1.xml");
 
         NodeList nClients = docClients.getElementsByTagName("client");
         NodeList nFilms = docFilms.getElementsByTagName("film");
         NodeList nPersonnes = docPersonnes.getElementsByTagName("personne");
 
         System.out.println("Début de la lecture des clients...");
-        List<Client> clients = XmlParser.readClients(nClients);
+        List<TClient> clients = XmlParser.readClients(nClients);
         System.out.println("Début de la lecture des films...");
         List<Film> films = XmlParser.readFilms(nFilms);
         System.out.println("Début de la lecture des personnes...");
@@ -141,32 +136,32 @@ public class XmlParser {
         }
     }
 
-    private static List<Client> readClients(NodeList nClients) {
-        List<Client> clients = new LinkedList<Client>();
+    private static List<TClient> readClients(NodeList nClients) throws ParseException {
+        List<TClient> clients = new LinkedList<TClient>();
         for (int i = 0; i < nClients.getLength(); i++) {
             Node nClient = nClients.item(i);
-            Client c = new Client();
+            TClient c = new TClient();
             Element e = (Element) nClient;
-            c.idClient = Integer.parseInt(e.getAttribute("id"));
-            c.prenom = XmlParser.getTagText(e, "prenom");
-            c.nom = XmlParser.getTagText(e, "nom-famille");
-            c.courriel = XmlParser.getTagText(e, "courriel");
-            c.telephone = XmlParser.getTagText(e, "tel");
-            c.dateNaissance = XmlParser.getTagText(e, "anniversaire");
-            c.adresse = XmlParser.getTagText(e, "adresse");
-            c.ville = XmlParser.getTagText(e, "ville");
-            c.province = XmlParser.getTagText(e, "province");
-            c.codePostal = XmlParser.getTagText(e, "code-postal");
-            c.motDePasse = XmlParser.getTagText(e, "mot-de-passe");
+            c.setIdClient(Integer.parseInt(e.getAttribute("id")));
+            c.setPrenom(XmlParser.getTagText(e, "prenom"));
+            c.setNom(XmlParser.getTagText(e, "nom-famille"));
+            c.setCourriel(XmlParser.getTagText(e, "courriel"));
+            c.setTelephone(XmlParser.getTagText(e, "tel"));
+            c.setDateNaissance(Date.valueOf(XmlParser.getTagText(e, "anniversaire")));
+            c.setAdresse(XmlParser.getTagText(e, "adresse"));
+            c.setVille(XmlParser.getTagText(e, "ville"));
+            c.setProvince(XmlParser.getTagText(e, "province"));
+            c.setCodepostal(XmlParser.getTagText(e, "code-postal"));
+            c.setMotDePasse(XmlParser.getTagText(e, "mot-de-passe"));
             Forfait forfait = new Forfait();
             forfait.codeForfait = XmlParser.getTagText(e, "forfait");
             c.forfait = forfait;
             CarteCredit carteCredit = new CarteCredit();
             Element eCarteCredit = (Element) e.getElementsByTagName("info-credit").item(0);
-            carteCredit.noCarte = XmlParser.getTagText(eCarteCredit, "no");
-            carteCredit.typeCarte = XmlParser.getTagText(eCarteCredit, "carte");
-            carteCredit.moisExpiration = XmlParser.getTagText(eCarteCredit, "exp-mois");
-            carteCredit.anneeExpiration = XmlParser.getTagText(eCarteCredit, "exp-annee");
+            carteCredit.setNoCarte(XmlParser.getTagText(eCarteCredit, "no"));
+            carteCredit.setTypeCarte(XmlParser.getTagText(eCarteCredit, "carte"));
+            carteCredit.setMoisExpiration(XmlParser.getTagText(eCarteCredit, "exp-mois"));
+            carteCredit.setAnneeExpiration(XmlParser.getTagText(eCarteCredit, "exp-annee"));
             c.carteCredit = carteCredit;
             clients.add(c);
         }
@@ -180,14 +175,16 @@ public class XmlParser {
             Film f = new Film();
             Element e = (Element) nFilm;
 
-            f.codeFilm = Integer.parseInt(e.getAttribute("id"));
-            f.titre = XmlParser.getTagText(e, "titre");
+            f.setCodeFilm(Integer.parseInt(e.getAttribute("id")));
+            f.setTitre(XmlParser.getTagText(e, "titre"));
             f.annee = Integer.parseInt(XmlParser.getTagText(e, "annee"));
             NodeList nPaysList = e.getElementsByTagName("pays");
             f.pays = XmlParser.readPays(nPaysList);
-            f.langue = XmlParser.getTagText(e, "langue");
+            NodeList nAnnonceList = e.getElementsByTagName("annonce");
+            f.bandeAnnonce = XmlParser.readBandeAnnonceFilm(nAnnonceList);
+            f.setLangue(XmlParser.getTagText(e, "langue"));
             f.duree = Integer.parseInt(XmlParser.getTagText(e, "duree"));
-            f.resume = XmlParser.getTagText(e, "resume");
+            f.setResumeFilm(XmlParser.getTagText(e, "resume"));
 
             NodeList nGenres = e.getElementsByTagName("genre");
             Node nRealisateur = e.getElementsByTagName("realisateur").item(0);
@@ -196,14 +193,25 @@ public class XmlParser {
 
             f.genres = XmlParser.readGenres(nGenres);
             if (eRealisateur != null) {
-                f.realisateur.idPersonne = Integer.parseInt(eRealisateur.getAttribute("id"));
+                f.realisateur.setIdPersonne(Integer.parseInt(eRealisateur.getAttribute("id")));
             }
             f.roles = XmlParser.readRoles(nRoles);
 
-            f.lienAffiche = XmlParser.getTagText(e, "poster");
+            f.setAffiche(XmlParser.getTagText(e, "poster"));
             films.add(f);
         }
         return films;
+    }
+
+    private static List<BandeAnnonceFilm> readBandeAnnonceFilm(NodeList nBandeAnnonceList) {
+        List<BandeAnnonceFilm> bandeAnnonceList = new LinkedList<BandeAnnonceFilm>();
+        for (int i = 0; i < nBandeAnnonceList.getLength(); i++) {
+            Node nBandeAnnonce = nBandeAnnonceList.item(i);
+            BandeAnnonceFilm b = new BandeAnnonceFilm();
+            b.setLienBandeAnnonce(nBandeAnnonce.getTextContent());
+            bandeAnnonceList.add(b);
+        }
+        return bandeAnnonceList;
     }
 
     private static List<Pays> readPays(NodeList nPaysList) {
@@ -212,11 +220,11 @@ public class XmlParser {
             Node nPays = nPaysList.item(i);
             Pays p = new Pays();
             int max = 3;
-            p.nom = nPays.getTextContent();
-            if (p.nom.length() <= 2) {
-                max = p.nom.length();
+            p.setNom(nPays.getTextContent());
+            if (p.getNom().length() <= 2) {
+                max = p.getNom().length();
             }
-            p.codePays = p.nom.substring(0, max).toUpperCase();
+            p.setCodePays(p.getNom().substring(0, max).toUpperCase());
             paysList.add(p);
         }
         return paysList;
@@ -227,8 +235,8 @@ public class XmlParser {
         for (int i = 0; i < nGenres.getLength(); i++) {
             Node nGenre = nGenres.item(i);
             Genre g = new Genre();
-            g.nom = nGenre.getTextContent();
-            g.idGenre = g.nom.substring(0, 3);
+            g.setNom(nGenre.getTextContent());
+            g.idGenre = g.getNom().substring(0, 3);
             genres.add(g);
         }
         return genres;
@@ -240,8 +248,8 @@ public class XmlParser {
             Node nRealisateur = nRealisateurs.item(i);
             Element e = (Element) nRealisateur;
             Personne realisateur = new Personne();
-            realisateur.idPersonne = Integer.parseInt(e.getAttribute("id"));
-            realisateur.nom = nRealisateur.getTextContent();
+            realisateur.setIdPersonne(Integer.parseInt(e.getAttribute("id")));
+            realisateur.setNom(nRealisateur.getTextContent());
             realisateurs.add(realisateur);
         }
         return realisateurs;
@@ -255,7 +263,7 @@ public class XmlParser {
             Element eRole = (Element) nRole;
             Personne acteur = new Personne();
             Element eActeur = (Element) eRole.getElementsByTagName("acteur").item(0);
-            acteur.idPersonne = Integer.parseInt(eActeur.getAttribute("id"));
+            acteur.setIdPersonne(Integer.parseInt(eActeur.getAttribute("id")));
             role.personnage = XmlParser.getTagText(eRole, "personnage");
             role.acteur = acteur;
             roles.add(role);
@@ -269,18 +277,20 @@ public class XmlParser {
             Node nPersonne = nPersonnes.item(i);
             Element e = (Element) nPersonne;
             Personne personne = new Personne();
-            personne.idPersonne = Integer.parseInt(e.getAttribute("id"));
-            personne.nom = XmlParser.getTagText(e, "nom");
+            personne.setIdPersonne(Integer.parseInt(e.getAttribute("id")));
+            personne.setNom(XmlParser.getTagText(e, "nom"));
             Element eNaissance = (Element) e.getElementsByTagName("naissance").item(0);
-            personne.dateNaissance = XmlParser.getTagText(eNaissance, "anniversaire");
-            personne.lieuNaissance = XmlParser.getTagText(eNaissance, "lieu");
-            personne.photo = XmlParser.getTagText(e, "photo");
-            personne.biographie = XmlParser.getTagText(e, "bio");
-            if (personne.nom == null) personne.nom = "";
-            if (personne.dateNaissance == null) personne.dateNaissance = "";
-            if (personne.lieuNaissance == null) personne.lieuNaissance = "";
-            if (personne.photo == null) personne.photo = "";
-            if (personne.biographie == null) personne.biographie = "";
+            if(XmlParser.getTagText(eNaissance, "anniversaire") != "")
+                personne.setDateNaissance(Date.valueOf(XmlParser.getTagText(eNaissance, "anniversaire")));
+            else
+                personne.setDateNaissance(new Date(0,0,0));
+            personne.setLieuNaissance(XmlParser.getTagText(eNaissance, "lieu"));
+            personne.setPhoto(XmlParser.getTagText(e, "photo"));
+            personne.setBiographie(XmlParser.getTagText(e, "bio"));
+            if (personne.getNom() == null) personne.setNom("");
+            if (personne.getLieuNaissance() == null) personne.setLieuNaissance("");
+            if (personne.getPhoto() == null) personne.setPhoto("");
+            if (personne.getBiographie() == null) personne.setBiographie("");
             personnes.add(personne);
         }
         return personnes;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.password">C66VmkzD</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@log660ora12c.logti.etsmtl.ca:1521:LOG660</property>
+        <property name="hibernate.connection.username">EQUIPE112</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.ejb.metamodel.population">disabled</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <mapping class="POJOs.Film"/>
+        <mapping class="POJOs.BandeAnnonceFilm"/>
+        <mapping class="POJOs.CarteCredit"/>
+        <mapping class="POJOs.CopieFilm"/>
+        <mapping class="POJOs.Employe"/>
+        <mapping class="POJOs.Genre"/>
+        <mapping class="POJOs.GenreFilm"/>
+        <mapping class="POJOs.LocationFilm"/>
+        <mapping class="POJOs.Pays"/>
+        <mapping class="POJOs.PaysFilm"/>
+        <mapping class="POJOs.Personne"/>
+        <mapping class="POJOs.RealisateurFilm"/>
+        <mapping class="POJOs.RoleFilm"/>
+        <mapping class="POJOs.TypeForfait"/>
+        <mapping class="POJOs.TClient"/>
+
+    </session-factory>
+</hibernate-configuration>

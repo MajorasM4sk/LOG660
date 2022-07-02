@@ -1,6 +1,8 @@
 import POJOs.*;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.Random;
 public class Main {
     public static void main(String argv[]) {
         String url = "jdbc:oracle:thin:EQUIPE112/C66VmkzD@log660ora12c.logti.etsmtl.ca:1521:LOG660";
+
         try {
             Connection connection = DriverManager.getConnection(url);
             if (connection != null) {
@@ -17,50 +20,53 @@ public class Main {
 
                 Videotheque videotheque = XmlParser.fetchData();
 
-                 System.out.println("Insertion des types de forfait...");
-                 insertForfaits(connection);
+                System.out.println("Insertion des types de forfait...");
+                insertForfaits(connection);
 
-                 System.out.println("Insertion des clients...");
-                 insertClients(connection, videotheque.clients);
+                System.out.println("Insertion des clients...");
+                insertClients(connection, videotheque.clients);
 
-                 System.out.println("Insertion des cartes de crédit...");
-                 insertCartesCredit(connection, videotheque.clients);
+                System.out.println("Insertion des cartes de crédit...");
+                insertCartesCredit(connection, videotheque.clients);
 
                 System.out.println("Insertion des personnes...");
                 insertPersonnes(connection, videotheque.personnes);
 
-                 System.out.println("Insertion des films...");
-                 insertFilms(connection, videotheque.films);
+                System.out.println("Insertion des films...");
+                insertFilms(connection, videotheque.films);
 
                 System.out.println("Insertion des réalisateurs...");
                 insertRealisateurs(connection, videotheque.films);
 
-                 System.out.println("Insertion des roles des acteurs...");
-                 insertRoles(connection, videotheque.films);
+                System.out.println("Insertion des roles des acteurs...");
+                insertRoles(connection, videotheque.films);
 
-                 System.out.println("Détection des genres...");
-                 List<Genre> genres = listerGenres(videotheque.films);
+                System.out.println("Détection des genres...");
+                List<Genre> genres = listerGenres(videotheque.films);
 
-                 System.out.println("Insertion des genres...");
-                 insertGenres(connection, genres);
+                System.out.println("Insertion des genres...");
+                insertGenres(connection, genres);
 
-                 System.out.println("Insertion des liaisons film-genre...");
-                 insertGenresFilms(connection, videotheque.films, genres);
+                System.out.println("Insertion des liaisons film-genre...");
+                insertGenresFilms(connection, videotheque.films, genres);
 
-                 System.out.println("Détection des pays...");
-                 List<Pays> pays = listerPays(videotheque.films);
+                System.out.println("Détection des pays...");
+                List<Pays> pays = listerPays(videotheque.films);
 
-                 System.out.println("Insertion des pays...");
-                 insertPays(connection, pays);
+                System.out.println("Insertion des pays...");
+                insertPays(connection, pays);
 
-                 System.out.println("Insertion des liaisons film-pays...");
-                 insertPaysFilms(connection, videotheque.films, pays);
+                System.out.println("Insertion des liaisons film-pays...");
+                insertPaysFilms(connection, videotheque.films, pays);
 
-//                 System.out.println("Insertion d'employés bidons...");
-//                 insertEmployes(connection);
+                System.out.println("Insertion des bandes-annonces...");
+                insertBandesAnnoncesFilm(connection, videotheque.films);
 
-                 System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
-                 insertCopies(connection, videotheque.films);
+                // System.out.println("Insertion d'employés bidons...");
+                // insertEmployes(connection);
+
+                System.out.println("Insertion des copies de film aléatoirement pour chaque film (1-100)...");
+                insertCopies(connection, videotheque.films);
 
                 // exemple de prepared statement avec batch
                 /*
@@ -90,27 +96,57 @@ public class Main {
 
                 connection.commit();
                 connection.close();
+
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void insertBandesAnnoncesFilm(Connection connection, List<Film> films) {
+        try {
+            String sql = "INSERT INTO bande_annonce_film (lien_bande_annonce, code_film) VALUES (?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            films.forEach(film -> {
+                film.bandeAnnonce.forEach(annonce -> {
+                    try {
+                        statement.setString(1, annonce.getLienBandeAnnonce());
+                        statement.setInt(2, film.getCodeFilm().intValue());
+                        statement.addBatch();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            });
+
+            int[] count = statement.executeBatch();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private static void insertClients(Connection connection, List<Client> clients) {
+    private static void insertClients(Connection connection, List<TClient> clients) {
         try {
-            String sql = "INSERT INTO t_client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance, code_forfait) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO t_client (id_client, courriel, mot_de_passe, telephone, nom, prenom, date_naissance, code_forfait, adresse, codepostal, province, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             clients.forEach(client -> {
                 try {
-                    statement.setInt(1, client.idClient);
-                    statement.setString(2, client.courriel);
-                    statement.setString(3, client.motDePasse);
-                    statement.setString(4, client.telephone.replaceAll("-", ""));
-                    statement.setString(5, client.nom);
-                    statement.setString(6, client.prenom);
-                    statement.setString(7, client.dateNaissance);
-                    statement.setString(8, client.forfait.codeForfait);
+                    statement.setInt(1, client.getIdClient());
+                    statement.setString(2, client.getCourriel());
+                    statement.setString(3, client.getMotDePasse());
+                    statement.setString(4, client.getTelephone());
+                    statement.setString(5, client.getNom());
+                    statement.setString(6, client.getPrenom());
+                    statement.setDate(7, client.getDateNaissance());
+                    statement.setString(8, client.getCodeForfait());
+                    statement.setString(9, client.getAdresse());
+                    statement.setString(10, client.getCodepostal());
+                    statement.setString(11, client.getProvince());
+                    statement.setString(12, client.getVille());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -123,20 +159,20 @@ public class Main {
         }
     }
 
-    private static void insertCartesCredit(Connection connection, List<Client> clients) {
+    private static void insertCartesCredit(Connection connection, List<TClient> clients) {
         try {
             String sql = "INSERT INTO carte_credit (no_carte, type_carte, annee_expiration, mois_expiration, cvv, nom_proprio, id_client) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             clients.forEach(client -> {
                 try {
-                    statement.setString(1, client.carteCredit.noCarte.replaceAll(" ", ""));
-                    statement.setString(2, client.carteCredit.typeCarte);
-                    statement.setString(3, client.carteCredit.anneeExpiration);
-                    statement.setString(4, client.carteCredit.moisExpiration);
+                    statement.setString(1, client.carteCredit.getNoCarte().replaceAll(" ", ""));
+                    statement.setString(2, client.carteCredit.getTypeCarte());
+                    statement.setString(3, client.carteCredit.getAnneeExpiration());
+                    statement.setString(4, client.carteCredit.getMoisExpiration());
                     statement.setString(5, "000");
-                    statement.setString(6, client.prenom + " " + client.nom);
-                    statement.setInt(7, client.idClient);
+                    statement.setString(6, client.getPrenom() + " " + client.getNom());
+                    statement.setInt(7, client.getIdClient());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -202,12 +238,12 @@ public class Main {
 
             personnes.forEach(personne -> {
                 try {
-                    statement.setInt(1, personne.idPersonne);
-                    statement.setString(2, personne.nom);
-                    statement.setString(3, personne.dateNaissance);
-                    statement.setString(4, personne.lieuNaissance);
-                    statement.setString(5, personne.photo);
-                    statement.setString(6, personne.biographie);
+                    statement.setInt(1, personne.getIdPersonne().intValue());
+                    statement.setString(2, personne.getNom());
+                    statement.setDate(3, personne.getDateNaissance());
+                    statement.setString(4, personne.getLieuNaissance());
+                    statement.setString(5, personne.getPhoto());
+                    statement.setString(6, personne.getBiographie());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -227,12 +263,12 @@ public class Main {
 
             films.forEach(film -> {
                 try {
-                    statement.setInt(1, film.codeFilm);
-                    statement.setString(2, film.titre);
-                    statement.setInt(3, film.annee);
-                    statement.setString(4, film.langue);
-                    statement.setString(5, film.resume);
-                    statement.setString(6, film.lienAffiche);
+                    statement.setInt(1, film.getCodeFilm().intValue());
+                    statement.setString(2, film.getTitre());
+                    statement.setInt(3, film.getAnnee());
+                    statement.setString(4, film.getLangue());
+                    statement.setString(5, film.getResumeFilm());
+                    statement.setString(6, film.getAffiche());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -251,10 +287,10 @@ public class Main {
             PreparedStatement statement = connection.prepareStatement(sql);
 
             films.forEach(film -> {
-                if (film.realisateur.idPersonne != 0) {
+                if (film.realisateur.getIdPersonne() != null) {
                     try {
-                        statement.setInt(1, film.realisateur.idPersonne);
-                        statement.setInt(2, film.codeFilm);
+                        statement.setInt(1, film.realisateur.getIdPersonne().intValue());
+                        statement.setInt(2, film.getCodeFilm().intValue());
                         statement.addBatch();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -278,8 +314,8 @@ public class Main {
                 film.roles.forEach(role -> {
                     try {
                         statement.setString(1, role.personnage);
-                        statement.setInt(2, role.acteur.idPersonne);
-                        statement.setInt(3, film.codeFilm);
+                        statement.setInt(2, role.acteur.getIdPersonne().intValue());
+                        statement.setInt(3, film.getCodeFilm().intValue());
                         statement.addBatch();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -298,13 +334,13 @@ public class Main {
         // doivent être uniques
         List<Genre> genres = new ArrayList<Genre>();
         films.forEach(film -> {
-            //ne se trouve pas dans la liste des genres?
-            //si oui ajouter
-            //si non continuer
+            // ne se trouve pas dans la liste des genres?
+            // si oui ajouter
+            // si non continuer
             film.genres.forEach(genreFilm -> {
                 boolean found = false;
                 for (int i = 0; i < genres.size(); i++) {
-                    if (genres.get(i).nom.equals(genreFilm.nom)) {
+                    if (genres.get(i).getNom().equals(genreFilm.getNom())) {
                         found = true;
                     }
                 }
@@ -324,7 +360,7 @@ public class Main {
             for (int i = 1; i < genres.size() + 1; i++) {
                 try {
                     statement.setInt(1, i);
-                    statement.setString(2, genres.get(i-1).nom);
+                    statement.setString(2, genres.get(i - 1).getNom());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -344,9 +380,9 @@ public class Main {
 
             films.forEach(film -> {
                 film.genres.forEach(genre -> {
-                    int genreId = getGenreId(genres, genre.nom);
+                    int genreId = getGenreId(genres, genre.getNom());
                     try {
-                        statement.setInt(1, film.codeFilm);
+                        statement.setInt(1, film.getCodeFilm().intValue());
                         statement.setInt(2, genreId);
                         statement.addBatch();
                     } catch (SQLException e) {
@@ -363,8 +399,8 @@ public class Main {
 
     private static int getGenreId(List<Genre> genres, String genreName) {
         for (int i = 0; i < genres.size(); i++) {
-            if (genres.get(i).nom.equals(genreName)) {
-                return i+1;
+            if (genres.get(i).getNom().equals(genreName)) {
+                return i + 1;
             }
         }
         return -1;
@@ -373,13 +409,13 @@ public class Main {
     private static List<Pays> listerPays(List<Film> films) {
         List<Pays> pays = new ArrayList<Pays>();
         films.forEach(film -> {
-            //ne se trouve pas dans la liste des genres?
-            //si oui ajouter
-            //si non continuer
+            // ne se trouve pas dans la liste des genres?
+            // si oui ajouter
+            // si non continuer
             film.pays.forEach(paysFilm -> {
                 boolean found = false;
                 for (int i = 0; i < pays.size(); i++) {
-                    if (pays.get(i).nom.equals(paysFilm.nom)) {
+                    if (pays.get(i).getNom().equals(paysFilm.getNom())) {
                         found = true;
                     }
                 }
@@ -399,7 +435,7 @@ public class Main {
             for (int i = 1; i < pays.size() + 1; i++) {
                 try {
                     statement.setInt(1, i);
-                    statement.setString(2, pays.get(i-1).nom);
+                    statement.setString(2, pays.get(i - 1).getNom());
                     statement.addBatch();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -419,9 +455,9 @@ public class Main {
 
             films.forEach(film -> {
                 film.pays.forEach(pays -> {
-                    int paysId = getPaysId(paysList, pays.nom);
+                    int paysId = getPaysId(paysList, pays.getNom());
                     try {
-                        statement.setInt(1, film.codeFilm);
+                        statement.setInt(1, film.getCodeFilm().intValue());
                         statement.setInt(2, paysId);
                         statement.addBatch();
                     } catch (SQLException e) {
@@ -438,8 +474,8 @@ public class Main {
 
     private static int getPaysId(List<Pays> pays, String paysName) {
         for (int i = 0; i < pays.size(); i++) {
-            if (pays.get(i).nom.equals(paysName)) {
-                return i+1;
+            if (pays.get(i).getNom().equals(paysName)) {
+                return i + 1;
             }
         }
         return -1;
@@ -457,7 +493,7 @@ public class Main {
                 for (int j = 0; j < nbCopies; j++) {
                     try {
                         statement.setInt(1, idCopie);
-                        statement.setInt(2, films.get(i).codeFilm);
+                        statement.setInt(2, films.get(i).getCodeFilm().intValue());
                         statement.addBatch();
                         idCopie++;
                     } catch (SQLException e) {
