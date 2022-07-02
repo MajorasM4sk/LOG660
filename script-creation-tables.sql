@@ -116,7 +116,7 @@ create table pays_film(
 );
 
 create table bande_annonce_film(
-    lien_bande_annonce varchar(50) not null,
+    lien_bande_annonce varchar(500) not null,
     code_film integer not null,
     constraint pk_bande_annonce_film primary key (lien_bande_annonce, code_film),
     constraint fk_bande_annonce_film_code_film FOREIGN key (code_film) REFERENCES film (code_film)

@@ -180,6 +180,8 @@ public class XmlParser {
             f.annee = Integer.parseInt(XmlParser.getTagText(e, "annee"));
             NodeList nPaysList = e.getElementsByTagName("pays");
             f.pays = XmlParser.readPays(nPaysList);
+            NodeList nAnnonceList = e.getElementsByTagName("annonce");
+            f.bandeAnnonce = XmlParser.readBandeAnnonceFilm(nAnnonceList);
             f.setLangue(XmlParser.getTagText(e, "langue"));
             f.duree = Integer.parseInt(XmlParser.getTagText(e, "duree"));
             f.setResumeFilm(XmlParser.getTagText(e, "resume"));
@@ -199,6 +201,17 @@ public class XmlParser {
             films.add(f);
         }
         return films;
+    }
+
+    private static List<BandeAnnonceFilm> readBandeAnnonceFilm(NodeList nBandeAnnonceList) {
+        List<BandeAnnonceFilm> bandeAnnonceList = new LinkedList<BandeAnnonceFilm>();
+        for (int i = 0; i < nBandeAnnonceList.getLength(); i++) {
+            Node nBandeAnnonce = nBandeAnnonceList.item(i);
+            BandeAnnonceFilm b = new BandeAnnonceFilm();
+            b.setLienBandeAnnonce(nBandeAnnonce.getTextContent());
+            bandeAnnonceList.add(b);
+        }
+        return bandeAnnonceList;
     }
 
     private static List<Pays> readPays(NodeList nPaysList) {

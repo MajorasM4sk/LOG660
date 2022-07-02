@@ -59,6 +59,9 @@ public class Main {
                 System.out.println("Insertion des liaisons film-pays...");
                 insertPaysFilms(connection, videotheque.films, pays);
 
+                System.out.println("Insertion des bandes-annonces...");
+                insertBandesAnnoncesFilm(connection, videotheque.films);
+
                 // System.out.println("Insertion d'employés bidons...");
                 // insertEmployes(connection);
 
@@ -99,6 +102,29 @@ public class Main {
             e.printStackTrace();
         } catch (ParseException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private static void insertBandesAnnoncesFilm(Connection connection, List<Film> films) {
+        try {
+            String sql = "INSERT INTO bande_annonce_film (lien_bande_annonce, code_film) VALUES (?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            films.forEach(film -> {
+                film.bandeAnnonce.forEach(annonce -> {
+                    try {
+                        statement.setString(1, annonce.getLienBandeAnnonce());
+                        statement.setInt(2, film.getCodeFilm().intValue());
+                        statement.addBatch();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                });
+            });
+
+            int[] count = statement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
