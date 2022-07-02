@@ -7,31 +7,31 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.servlet.*;
-import oracle.jdbc.pool.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class TestServlet extends HttpServlet {
+public class ServletLogin extends HttpServlet {
     // Initialisation du parent
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
     }
 
-    // Methode doGet: on utilise l’implementation de doPost
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
     }
 
-    // Traitement de la requete:
-    // On recoit une chaine de charactere
-    // On retourne un page HTML contenant le titre des films de la BD contenant
-    // cette chaine dans leur titre.
+    /*
+    POST /login
+    vérifie si l'utilisateur existe et que le mot de passe est bon
+    body : {
+        email: string,
+                password: string,
+    }
+    response : true | false
+    */
     public void doPost(HttpServletRequest requete, HttpServletResponse reponse) throws ServletException, IOException {
         // Specifier le type et l’encodage des donnees
-        reponse.setContentType("text/html");
+        reponse.setContentType("application/json");
         reponse.setCharacterEncoding("utf-8");
 
         // Creer un PrintWriter pour imprimer la page Web de la reponse
