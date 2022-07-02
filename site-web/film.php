@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 include 'login-verifier.php';
-$film = curl_get($END_POINT.'/films/'.$_GET['code_film'], $_GET);
+$film = curl_get($END_POINT.'/film?code_film='.$_GET['code_film'], $_GET);
 $film = json_decode($film, true);
 ?>
 
