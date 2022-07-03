@@ -1,6 +1,6 @@
 <?php
 
-$END_POINT = 'http://localhost:3000';
+$END_POINT = 'http://localhost:8080/log660';
 
 function curl_post($url, $params) {
     //https://stackoverflow.com/questions/19499891/php-post-to-another-server-then-return-the-other-servers-response

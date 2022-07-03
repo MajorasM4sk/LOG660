@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ServletLogin extends HttpServlet {
+
     // Initialisation du parent
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -60,7 +61,6 @@ public class ServletLogin extends HttpServlet {
                 ps.setString(2, password);
 
                 ResultSet rs = ps.executeQuery();
-                rs.next();
                 if (rs.next())
                     out.println(true);
                 else
