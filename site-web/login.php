@@ -5,6 +5,7 @@ $_SESSION['user'] = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $result = curl_post($END_POINT.'/login', $_POST);
+    var_dump($result);
 
     if (trim($result) == 'true') {
         $_SESSION['user'] = $_POST['email'];
