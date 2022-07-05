@@ -1,3 +1,9 @@
+import POJOs.TClient;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -6,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,10 +50,32 @@ public class ServletLogin extends HttpServlet {
 
         String email = "";
         String password = "";
-        Connection conn = null;
-        PreparedStatement ps = null;
+        /*Connection conn = null;
+        PreparedStatement ps = null;*/
+
+        Session sessionHome = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        TClient client = null;
 
         try {
+            email = requete.getParameter("email");
+            password = requete.getParameter("password");
+
+            transaction = sessionHome.beginTransaction();
+            client = (TClient) sessionHome.createQuery("FROM TClient AS TC WHERE TC.courriel = '"+ email + "' AND TC.motDePasse = '" + password+"'");
+            if (client != null)
+                out.println(true);
+            else
+                out.println(false);
+
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            sessionHome.close();
+        }
+        /*try {
             // Recuperer le parametre provenant de la page HTML d’entree
             email = requete.getParameter("email");
             password = requete.getParameter("password");
@@ -81,6 +110,6 @@ public class ServletLogin extends HttpServlet {
             } catch (Exception lException) {
                 lException.printStackTrace();
             }
-        }
+        }*/
     }
 }

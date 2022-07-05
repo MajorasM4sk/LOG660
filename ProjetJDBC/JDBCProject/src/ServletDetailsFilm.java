@@ -1,3 +1,8 @@
+import POJOs.Film;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 public class ServletDetailsFilm extends HttpServlet {
     // Initialisation du parent
@@ -25,18 +31,7 @@ public class ServletDetailsFilm extends HttpServlet {
         ?code_film=
     }
     response : {
-        code_film:1,
-        titre:'film1',
-        annee:1900,
-        pays:['Canada', 'États-Unis'],
-        langue:'C#',
-        duree:123,
-        genres:['Peur', 'Action'],
-        realisateur:'Real Lee Sator',
-        acteurs:{'Aku Thor':'Perce Honnage', 'Hak Theur':'Perseaux Nages'},
-        resume_film:'ouaip',
-        affiche:'https://via.placeholder.com/150',
-        liens:['a', 'b', 'c'],
+
     }
     */
     public void doGet(HttpServletRequest requete, HttpServletResponse reponse) throws ServletException, IOException {
@@ -48,9 +43,40 @@ public class ServletDetailsFilm extends HttpServlet {
         OutputStreamWriter osw = new OutputStreamWriter(reponse.getOutputStream());
         PrintWriter out = new PrintWriter(osw);
 
-        // Utiliser out.println() pour retourner un résultat
-
+        Session sessionHome = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
         String codeFilm = "";
+        Film film = null;
+        try {
+            codeFilm = requete.getParameter("code_film");
+            transaction = sessionHome.beginTransaction();
+            String SQL = "FROM Film where codeFilm = " + codeFilm ;
+
+           // film = (Film) sessionHome.createQuery(SQL).getSingleResult();
+            transaction.commit();
+
+            // Utiliser out.println() pour retourner un résultat
+           /* out.print("code_film:" + film.getCodeFilm(),
+                    titre:'film1',
+                    annee:1900,
+                    pays:['Canada', 'États-Unis'],
+            langue:'C#',
+                    duree:123,
+                    genres:['Peur', 'Action'],
+            realisateur:'Real Lee Sator',
+                    acteurs:{'Aku Thor':'Perce Honnage', 'Hak Theur':'Perseaux Nages'},
+            resume_film:'ouaip',
+                    affiche:'https://via.placeholder.com/150',
+                    liens:['a', 'b', 'c'],);*/
+
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            sessionHome.close();
+        }
+
+
         Connection conn = null;
         PreparedStatement ps = null;
 
